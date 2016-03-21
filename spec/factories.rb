@@ -1,9 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    name "MyString"
-    email "MyString"
-    password "MyString"
-    phone_number 1
+    
   end
   factory :touch do
     client_id 1
