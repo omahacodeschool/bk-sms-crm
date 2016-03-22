@@ -1,0 +1,13 @@
+<h1>Edit client:</h1>
+
+<form action="/clients/<%= @client.id %>/update" method="post">
+
+  <input type="text" name="first_name" value="<%= @client.first_name %>">
+  <input type="text" name="last_name" value="<%= @client.last_name %>">
+  <input type="text" name="phone_number" value="<%= @client.phone_number %>">
+  <input type="text" name="notes" value="<%= @client.notes %>">
+  <input type="submit">
+  
+</form>
+
+<p><a href="/dashboard"> Back </a></p>
