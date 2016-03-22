@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
 
+  get "touch" => 'touch#list'
+  
   get "dashboard" => 'pages#dashboard'
 
   get "clients/:id/name" => 'clients#client_name'
