@@ -1,7 +1,11 @@
 <script type="text/javascript" src="global.js"></script>
-<div id="left" class="mike">This is the inbox
+<div id="left" class="mike">This is the inbox</div>
 <input type="text" id="search">
-</div>
+
+
+<!-- ////////////////////////////////////////////////////////// -->
+
+
 <div id="center" class="jeremy">
 
 <!-- This is the current message -->
@@ -22,15 +26,29 @@
 <input type="integer" name="business_id" value="<%= params[:business_id] %>"></p>
 
 
-<!-- This is the text box for entering -->
+<!-- This is the text box for entering the message content-->
 <p>Message:
 <input type="text" name="message_content" value="<%= params[:message_content] %>"></p>
 
 <p><input type="submit" value="Create"></p>
 
-</form>
+</form></div>
 
 
+<!-- ////////////////////////////////////////////////////////////// -->
 
-This is the current message</div>
-<div id="right" class="beth">This is the client info</div>
+<div id="right" class="beth">
+  <div id="client_info" style="display:none;">
+    <h3>Client info:</h3>
+      <p id="client_name"></p>
+      <p id="client_number"></p>
+      <p id="client_notes"></p>
+      <form action="client_active_form">
+        <input id="active" type="radio" name="active" value="active">Active<br>
+        <input id="inactive" type="radio" name="inactive" value="inactive">Inactive<br>
+        <input id="submit" type="submit" value="Submit">
+      </form>
+
+  </div>
+</div>
+

@@ -9,4 +9,9 @@ class TouchController < ApplicationController
     x.read = true
   end
 
+  def list
+    @touches = Touch.all
+    render "touches"
+  end
+
 end
