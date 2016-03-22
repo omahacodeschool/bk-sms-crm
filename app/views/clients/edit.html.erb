@@ -1,0 +1,28 @@
+<h1>Edit client:</h1>
+
+<%= form_tag("/clients/#{@client.id}/update", class: "client_form") do %>
+
+  <p>First name: 
+    <input type="text" name="first_name" value="<%= @client.first_name %>" required>
+  </p>
+  <p>Last name:
+    <input type="text" name="last_name" value="<%= @client.last_name %>" required>
+  </p>
+  <p>Phone number:
+    <input type="tel" size=10 name="phone_number" value="<%= @client.phone_number %>" required>
+  </p>
+  <p>Notes:
+    <textarea name="notes" rows="5" cols="20" value="<%= @client.notes %>">
+      <%= @client.notes %>
+    </textarea>
+  </p>
+
+  <input type="submit">
+  
+<% end %>
+
+<%= form_tag("/competitor_delete/#{@client.id}") do %>
+  <input type="submit" value="delete">
+<% end %>
+
+<p><a href="/dashboard/<%= @client.id %>"> Back </a></p>

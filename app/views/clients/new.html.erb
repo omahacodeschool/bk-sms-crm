@@ -1,0 +1,22 @@
+<h1>Add client:</h1>
+
+<%= form_tag("/clients/add", class: "client_form") do %>
+
+  <p>First name: 
+    <input type="text" name="first_name" value="Lady">
+  </p>
+  <p>Last name:
+    <input type="text" name="last_name" value="Gaga">
+  </p>
+  <p>Phone number:
+<input type="tel" size=10 name="phone_number" value="4022185555" required>
+  </p>
+  <p>Notes:
+    <textarea name="notes" rows="5" cols="20" value="notes">
+      Lorem ipsum...
+    </textarea>
+  </p>
+  <input type="submit">
+  
+<% end %>
+
