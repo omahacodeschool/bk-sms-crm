@@ -6,6 +6,23 @@
 <div id="center" class="jeremy">This is the current message</div>
 
 <div id="right" class="beth">
+  <a href ="/clients/new">Add new client</a>
+
+<!-- This is the dropdown menu of all clients -->
+  <%= form_tag("/clients/view", class: "dropdown") do %>
+  <select name="client_id">
+        <option selected disabled>Choose client</option>
+        <% @list_clients.each do |client| %>
+          <option value= "<%= client.id %>"
+          <%= "selected" if client.id == @client.id %>>
+          <%=client.first_name %>
+          <%=client.last_name %>
+          </option>
+        <%end%>
+  </select>
+    <input type="submit">
+  <% end %>
+
   <div id="client_info" style="display:none;">
     <h3>Client info:</h3>
         <p id="client_name"><%= @client.first_name %> <%= @client.last_name %> </p>
@@ -23,6 +40,7 @@
         </p>
       <a href ="/clients/<%= @client.id %>/update_status">Toggle Status</a>
       <a href ="/clients/<%= @client.id %>/edit">Edit Client</a>
+      <a href ="/touch/<%= @client.id %>/new">Send client new message</a>
 
   </div>
 </div>
