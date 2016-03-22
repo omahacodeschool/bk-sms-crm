@@ -7,7 +7,9 @@ class PagesController < ApplicationController
     else
       @client = Client.first
     end
-    
-    render "dashboard/#{@client.id}"
+
+    # The view being rendered is not dependent on the value of @client.
+    # It's just the view located at views/pages/dashboard.html.erb.
+    render "pages/dashboard"
   end
 end
