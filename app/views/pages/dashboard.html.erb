@@ -7,14 +7,21 @@
 <div id="right" class="beth">
   <div id="client_info" style="display:none;">
     <h3>Client info:</h3>
-      <p id="client_name"></p>
-      <p id="client_number"></p>
-      <p id="client_notes"></p>
-      <form action="client_active_form">
-        <input id="active" type="radio" name="active" value="active">Active<br>
-        <input id="inactive" type="radio" name="inactive" value="inactive">Inactive<br>
-        <input id="submit" type="submit" value="Submit">
-      </form>
+        <p id="client_name"><%= @client.first_name %> <%= @client.last_name %> </p>
+      <h4> Client Number:</h4>
+        <p id="client_number"><%= @client.phone_number %></p>
+      <h4> Client Notes:</h4>
+        <p id="client_notes"><%= @client.notes %></p>
+      <h4> Client Status:</h4>
+        <p id="client_status">
+          <% if @client.active == true %>
+            Active
+          <% else %>
+            Inactive
+            <% end %>
+        </p>
+      <a href ="/clients/<%= @client.id %>/update_status">Toggle Status</a>
+      <a href ="/clients/<%= @client.id %>/edit">Edit Client</a>
 
   </div>
 </div>
