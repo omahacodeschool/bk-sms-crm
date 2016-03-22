@@ -7,6 +7,10 @@ class TouchController < ApplicationController
     x.message = (params[:message_content])
     x.outgoing = true
     x.read = true
+
+    x.save
+
+    redirect_to("/dashboard")
   end
 
   def list
