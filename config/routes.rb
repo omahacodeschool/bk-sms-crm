@@ -4,10 +4,8 @@ Rails.application.routes.draw do
 end
 
 Rails.application.routes.draw do
-  post "touch/create_new" => "touch#create_new"
-end
 
-Rails.application.routes.draw do
+  post "touch/create_new" => "touch#create_new"
 
   get "touch" => 'touch#list'
   
