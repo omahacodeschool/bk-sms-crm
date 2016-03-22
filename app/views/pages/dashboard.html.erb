@@ -1,9 +1,53 @@
+
 <script type="text/javascript" src="mike.js"></script>
-<div id="left" class="mike">
-  <div id="messages" style="display:none">
-<input type="text" id="search">Search
+<div id="left" class="mike"></div>
+  <div id="messages" style="display:none"></div>
+
+
+<!-- ////////////////////////////////////////////////////////// -->
+///////PICTURE THIS IN THE CENTER, WITH WORLD-CLASS CSS STYLING:///// 
+
+
+<div id="center" class="jeremy">
+
+<!-- This is the current message -->
+
+
+<!-- 
+This is the post action for creating a new message.
+  Required parts are: The client ID, business ID, the message content. The controller will set the OUTGOING boolean to "true", and the READ boolean to "true". The "form_tag" helper documentation can be found at:
+
+  http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html#method-i-form_tag 
+  -->
+
+
+<%= form_tag("/touch/create_new") do %>
+
+<!-- Equal to the current user's ID. This Beta Version requires input to form. -->
+<p> Client ID: 
+<input type="integer" name="client_id" value="<%= params[:client_id] %>"></p>
+
+
+<!-- Equal to the current user's ID. This Beta Version requires input to form. -->
+<p>Business ID:
+<input type="integer" name="business_id" value="<%= params[:business_id] %>"></p>
+
+
+<!-- This is the text box for entering the message content.-->
+<p>Message:
+<input type="text" name="message_content" value="<%= params[:message_content] %>"></p>
+
+<p><input type="submit" value="Create"></p>
+
+<% end %>
+
+>>>>>>> master
 </div>
-<div id="center" class="jeremy">This is the current message</div>
+
+
+
+////////////THIS IS THE END OF THE CENTER SECTION.///////////////////
+<!-- ////////////////////////////////////////////////////////////// -->
 
 <div id="right" class="beth">
   <a href ="/clients/new">Add new client</a>
@@ -44,3 +88,4 @@
 
   </div>
 </div>
+

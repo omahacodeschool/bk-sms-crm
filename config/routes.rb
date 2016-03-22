@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
 
+  post "touch/create_new" => "touch#create_new"
+
   get "touch" => 'touch#list'
   
   get "dashboard" => 'pages#dashboard'
@@ -23,4 +25,6 @@ Rails.application.routes.draw do
   post "clients/add" => 'clients#add'
 
   post "clients/view" => 'clients#view'
+
 end
+
