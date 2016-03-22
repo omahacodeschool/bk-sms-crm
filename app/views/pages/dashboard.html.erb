@@ -1,6 +1,16 @@
 
 <script type="text/javascript" src="mike.js"></script>
-<div id="left" class="mike"></div>
+<div id="left" class="mike">
+<h1>Messages</h1>
+  <%@touches.each do |t|%>
+  
+  <h3>Client:</h3>
+<%=t.client.first_name%>
+<%=t.client.last_name%>
+  <h3>Message:</h3>
+<%=t.message%>
+<%end%>
+</div>
   <div id="messages" style="display:none"></div>
 
 
