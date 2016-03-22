@@ -17,13 +17,8 @@
   -->
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.name_field :name, autofocus: true %>
-  </div>
-
-  <div class="field">
     <%= f.label :phone_number %><br />
-    <%= f.phone_number_field :phone_number %>
+    <%= f.text_field :phone_number %>
   </div>
 
   <!-- END of my add. Also deleted 'autofocus: true' for div below, and added it to first div on the page.-->
