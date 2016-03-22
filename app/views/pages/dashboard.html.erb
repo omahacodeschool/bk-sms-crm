@@ -1,21 +1,73 @@
-<script src="mike.js" type="text/javascript" ></script>
-<div id="left" class="mike">
-  <div id="messages" style="display:none"
-<input type="text" id="search">Search
+
+<script type="text/javascript" src="mike.js"></script>
+<div id="left" class="mike"></div>
+  <div id="messages" style="display:none"></div>
+
+
+<!-- ////////////////////////////////////////////////////////// -->
+///////PICTURE THIS IN THE CENTER, WITH WORLD-CLASS CSS STYLING:///// 
+
+
+<div id="center" class="jeremy">
+
+<!-- This is the current message -->
+
+
+<!-- 
+This is the post action for creating a new message.
+  Required parts are: The client ID, business ID, the message content. The controller will set the OUTGOING boolean to "true", and the READ boolean to "true". The "form_tag" helper documentation can be found at:
+
+  http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html#method-i-form_tag 
+  -->
+
+
+<%= form_tag("/touch/create_new") do %>
+
+<!-- Equal to the current user's ID. This Beta Version requires input to form. -->
+<p> Client ID: 
+<input type="integer" name="client_id" value="<%= params[:client_id] %>"></p>
+
+
+<!-- Equal to the current user's ID. This Beta Version requires input to form. -->
+<p>Business ID:
+<input type="integer" name="business_id" value="<%= params[:business_id] %>"></p>
+
+
+<!-- This is the text box for entering the message content.-->
+<p>Message:
+<input type="text" name="message_content" value="<%= params[:message_content] %>"></p>
+
+<p><input type="submit" value="Create"></p>
+
+<% end %>
+
+>>>>>>> master
 </div>
-<div id="center" class="jeremy">This is the current message</div>
+
+
+
+////////////THIS IS THE END OF THE CENTER SECTION.///////////////////
+<!-- ////////////////////////////////////////////////////////////// -->
 
 <div id="right" class="beth">
   <div id="client_info" style="display:none;">
     <h3>Client info:</h3>
-      <p id="client_name"></p>
-      <p id="client_number"></p>
-      <p id="client_notes"></p>
-      <form action="client_active_form">
-        <input id="active" type="radio" name="active" value="active">Active<br>
-        <input id="inactive" type="radio" name="inactive" value="inactive">Inactive<br>
-        <input id="submit" type="submit" value="Submit">
-      </form>
+        <p id="client_name"><%= @client.first_name %> <%= @client.last_name %> </p>
+      <h4> Client Number:</h4>
+        <p id="client_number"><%= @client.phone_number %></p>
+      <h4> Client Notes:</h4>
+        <p id="client_notes"><%= @client.notes %></p>
+      <h4> Client Status:</h4>
+        <p id="client_status">
+          <% if @client.active == true %>
+            Active
+          <% else %>
+            Inactive
+            <% end %>
+        </p>
+      <a href ="/clients/<%= @client.id %>/update_status">Toggle Status</a>
+      <a href ="/clients/<%= @client.id %>/edit">Edit Client</a>
 
   </div>
 </div>
+
