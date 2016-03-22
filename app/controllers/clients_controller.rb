@@ -68,7 +68,7 @@ class ClientsController < ApplicationController
 
   def view
     current_client
-    current_client = Client.find_by_id(params[:client_id])
+    @client = Client.find_by_id(params[:client_id])
     redirect_to "/dashboard/#{@client.id}"
   end
 
