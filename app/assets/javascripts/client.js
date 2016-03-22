@@ -8,18 +8,18 @@ window.onload = function(){
   var clientActive = document.getElementById("active");
   var clientInactive = document.getElementById("inactive");
   var submit_button = document.getElementById("submit");
-  // var current_message = document.getElementById("current_message")
+  var current_message = document.getElementById("current_message")
 
-  begin_button.addEventListener("click", function(){
+  // current_message.addEventListener("click", function(){
     clientInfo.style.display = "block";
     var requestClientName = new XMLHttpRequest();
     var requestClientNumber = new XMLHttpRequest();
     var requestClientNotes = new XMLHttpRequest();
     // var requestClientActiveForm = new XMLHttpRequest();
 
-    requestClientName.open("GET", "http://localhost:3000/client/#{id}/name");
-    requestClientNumber.open("GET", "http://localhost:3000/client/#{id}/number");
-    requestClientNotes.open("GET", "http://localhost:3000/client/#{id}/notes");
+    requestClientName.open("GET", "http://localhost:3000/client/1/name");
+    requestClientNumber.open("GET", "http://localhost:3000/client/1/number");
+    requestClientNotes.open("GET", "http://localhost:3000/client/1/notes");
     // requestClientActiveForm.open("GET", "http://localhost:3000/client/#{id}/active");
 
     requestClientName.addEventListener("load", function(event){
@@ -38,7 +38,7 @@ window.onload = function(){
       var the_request = event.target;
       clientNotes.innerHTML = the_request.responseText;
 
-    });
+    // });
 
     // requestClientActiveForm.addEventListener("load", function(event){
     //   var the_request = event.target;

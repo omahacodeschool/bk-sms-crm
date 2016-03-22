@@ -4,13 +4,17 @@ Rails.application.routes.draw do
 end
 
 Rails.application.routes.draw do
-  get "clients/name" => 'clients#name'
+  get "dashboard" => 'pages#dashboard'
 end
 
 Rails.application.routes.draw do
-  get "clients/number" => 'clients#number'
+  get "clients/:id/name" => 'clients#client_name'
 end
 
 Rails.application.routes.draw do
-  get "clients/notes" => 'clients#notes'
+  get "clients/:id/number" => 'clients#client_number'
+end
+
+Rails.application.routes.draw do
+  get "clients/:id/notes" => 'clients#client_notes'
 end
