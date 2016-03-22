@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get "touch" => 'touch#list'
   
-  get "dashboard" => 'pages#dashboard'
+  get "dashboard(/:client_id)" => 'pages#dashboard'
 
   get "clients/:id/name" => 'clients#client_name'
 
