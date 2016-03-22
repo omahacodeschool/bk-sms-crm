@@ -67,6 +67,7 @@ This is the post action for creating a new message.
     <input type="submit">
   <% end %>
 
+  <%= if @client != nil %>
   <div id="client_info" style="display:none;">
     <h3>Client info:</h3>
         <p id="client_name"><%= @client.first_name %> <%= @client.last_name %> </p>
@@ -84,8 +85,8 @@ This is the post action for creating a new message.
         </p>
       <a href ="/clients/<%= @client.id %>/update_status">Toggle Status</a>
       <a href ="/clients/<%= @client.id %>/edit">Edit Client</a>
-      <a href ="/touch/<%= @client.id %>/new">Send client new message</a>
-
+      <a href ="/touch/create_new">Send client new message</a>
   </div>
+  <% end %>
 </div>
 
