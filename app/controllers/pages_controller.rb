@@ -22,4 +22,14 @@ end
 
 return nil
 end
+
+  def test3
+x = "Foo"
+
+if "A" === "B"
+return "Bar"
+end
+
+return nil
+end
 end
