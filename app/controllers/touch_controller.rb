@@ -17,5 +17,16 @@ class TouchController < ApplicationController
     @touches = Touch.all
     render "touches"
   end
-
+  def search_touch
+    touches = Touch.all
+    client = Client.all
+    search = params[:search]
+    #looks for 'search_for' directly from all touch messages
+    # all_touch_messages = Touch.pluck(:message)
+    @touch = Touch.where("message LIKE '%#{params[:search]}%'")
+    @first_name = Client.where("first_name LIKE '%#{params[:search]}%'")
+    @last_name = Client.where("last_name LIKE '%#{params[:search]}%'")
+    # @hit = Touch.where(:message => "house")
+    render "search"
+  end
 end

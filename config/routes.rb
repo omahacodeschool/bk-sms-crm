@@ -26,5 +26,7 @@ Rails.application.routes.draw do
 
   post "clients/view" => 'clients#view'
 
+  post "touch/search_touch" => "touch#search_touch"
+
 end
 
