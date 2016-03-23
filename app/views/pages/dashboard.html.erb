@@ -48,13 +48,14 @@ This is the post action for creating a new message.
 
 <!-- This is the text box for entering the message content.-->
 <p>Message:
-<input type="text" name="message_content" value="<%= params[:message_content] %>"></p>
+  <textarea name="message_content" rows="10" cols="75" value="<%= params[:message_content] %>">
+  </textarea>
+</p>
 
 <p><input type="submit" value="Create"></p>
 
 <% end %>
 
->>>>>>> master
 </div>
 
 
@@ -62,7 +63,11 @@ This is the post action for creating a new message.
 ////////////THIS IS THE END OF THE CENTER SECTION.///////////////////
 <!-- ////////////////////////////////////////////////////////////// -->
 
+
+<!-- CLIENTS COLUMN -->
 <div id="right" class="beth">
+
+<!-- A NEW CLIENT-->
   <a href ="/clients/new">Add new client</a>
 
 <!-- This is the dropdown menu of all clients -->
@@ -80,14 +85,18 @@ This is the post action for creating a new message.
     <input type="submit">
   <% end %>
 
-  <div id="client_info" style="display:none;">
-    <h3>Client info:</h3>
+<!-- This is the currently-selected client's info-->
+  <div id="client_info">
+    <h2>Client info:</h2>
         <p id="client_name"><%= @client.first_name %> <%= @client.last_name %> </p>
       <h4> Client Number:</h4>
         <p id="client_number"><%= @client.phone_number %></p>
       <h4> Client Notes:</h4>
         <p id="client_notes"><%= @client.notes %></p>
-      <h4> Client Status:</h4>
+      <h4> Client Status: 
+      <!-- This toggles the client's active/inactive status -->
+      <a href ="/clients/<%= @client.id %>/update_status">Toggle Status</a>
+      </h4>
         <p id="client_status">
           <% if @client.active == true %>
             Active
@@ -95,9 +104,12 @@ This is the post action for creating a new message.
             Inactive
             <% end %>
         </p>
-      <a href ="/clients/<%= @client.id %>/update_status">Toggle Status</a>
+
+<!-- This edits the current client-->
       <a href ="/clients/<%= @client.id %>/edit">Edit Client</a>
-      <a href ="/touch/<%= @client.id %>/new">Send client new message</a>
+<!-- This creates a new message -->
+<!--  ##need to add feature where client is automatically filled in -->
+      <a href ="/touch/create_new">Send Client New Message</a>
 
   </div>
 </div>

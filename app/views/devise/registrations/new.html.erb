@@ -3,9 +3,30 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+
+  <!-- I am adding here NAME and PHONE NUMBER: -->
+
+  <!-- MY ISSUE IS HERE:
+
+  "f.name_field" is not a method. 
+
+  I would write one, but cannot find where Devise put methods such as "email_field" and "password_field".
+
+  I am not sure if patching my code into this html.erb file is the way to go here... What am I missing?
+
+  -->
+
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <!-- END of my add. Also deleted 'autofocus: true' for div below, and added it to first div on the page.-->
+
+
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email %>
   </div>
 
   <div class="field">
