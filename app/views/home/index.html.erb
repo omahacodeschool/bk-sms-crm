@@ -1,5 +1,7 @@
 <h1>Welcome to SMS-CRM</h1>
-<h3><a href="/users/sign_in">Log in</a></h3>
-<h3><a href="/users/sign_up">Sign up</a></h3>
-<h5><a href="/users/sign_out">Log out</a></h5>
+<h3><%= link_to("Log in", "/users/sign_in", method: "get") %></h3>
+<h3><%= link_to("Sign up", "/users/sign_up", method: "get") %></h3>
+<h3><%= link_to("Profile", "/users/edit", method: "get") %></h3>
+
+<%= link_to("Log Out", "/users/sign_out", method: "delete") %>
 
