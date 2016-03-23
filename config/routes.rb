@@ -30,5 +30,9 @@ Rails.application.routes.draw do
 
   get "settings" => "user#settings"
 
+  get "user/add_new_business" => "user#add_new_business"
+
+  get "user/#{@user.id}" => "user#change_user_settings"
+
 end
 
