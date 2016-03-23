@@ -18,4 +18,9 @@ class PagesController < ApplicationController
     # It's just the view located at views/pages/dashboard.html.erb.
     render "pages/dashboard"
   end
+
+  def onboard
+    @user = current_user
+    render "pages/onboard"
+  end
 end
