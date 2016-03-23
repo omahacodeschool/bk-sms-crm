@@ -30,6 +30,6 @@ if "A" === "B"
 return "Bar"
 end
 
-return nil
+              return nil
 end
 end
