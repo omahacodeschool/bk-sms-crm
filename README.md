@@ -34,3 +34,43 @@ you can deploy to staging and production with:
 
     $ ./bin/deploy staging
     $ ./bin/deploy production
+
+## Pages to Build for Phase 1
+
+- Homepage should be the signup page
+- After signing up, log them in and have them create first business
+- After creating first business, take them to Dashboard for that business
+- Dashboard view should have links at the top that each go to the dashboard for each business
+- Dashboard for each business should show all of that business's touches
+
+### Extra Pages
+
+- Clicking on one message on the dashboard goes to ANOTHER page that shows the full thread.
+- Have separate pages for the other components of the dashboard as well.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
