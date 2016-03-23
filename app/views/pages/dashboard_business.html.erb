@@ -1,0 +1,123 @@
+<div id="left" class="mike">
+  <%= form_tag("/touch/search_touch") do %>
+    <p> Search(Name, Number, Etc)
+    <input type="text" name="search"></p>
+  <% end %>
+  
+  <h1>Messages</h1>
+
+  <% @clients.each do |client|%>
+    <h3>Client:</h3>
+  
+    <%= client.first_name%>
+    <%= client.last_name%>
+
+    <% client.recent_touches.each do |touch| %>
+      <div class="touch">
+        <%= touch.message %>
+      </div>
+    <% end %>
+
+  <%end%>
+</div>
+
+
+<!-- ////////////////////////////////////////////////////////// -->
+///////PICTURE THIS IN THE CENTER, WITH WORLD-CLASS CSS STYLING:///// 
+
+
+<div id="center" class="jeremy">
+
+<!-- This is the current message -->
+
+
+<!-- 
+This is the post action for creating a new message.
+  Required parts are: The client ID, business ID, the message content. The controller will set the OUTGOING boolean to "true", and the READ boolean to "true". The "form_tag" helper documentation can be found at:
+
+  http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html#method-i-form_tag 
+  -->
+
+
+<%= form_tag("/touch/create_new") do %>
+
+<!-- Equal to the current user's ID. This Beta Version requires input to form. -->
+<p> Client ID: 
+<input type="integer" name="client_id" value="<%= params[:client_id] %>"></p>
+
+
+<!-- Equal to the current user's ID. This Beta Version requires input to form. -->
+<p>Business ID:
+<input type="integer" name="business_id" value="<%= params[:business_id] %>"></p>
+
+
+<!-- This is the text box for entering the message content.-->
+<p>Message:
+  <textarea name="message_content" rows="10" cols="75" value="<%= params[:message_content] %>">
+  </textarea>
+</p>
+
+<p><input type="submit" value="Create"></p>
+
+<% end %>
+
+</div>
+
+
+
+////////////THIS IS THE END OF THE CENTER SECTION.///////////////////
+<!-- ////////////////////////////////////////////////////////////// -->
+
+
+<!-- CLIENTS COLUMN -->
+<div id="right" class="beth">
+
+<!-- A NEW CLIENT-->
+  <a href ="/clients/new">Add new client</a>
+
+<!-- This is the dropdown menu of all clients -->
+  <%= form_tag("/clients/view", class: "dropdown") do %>
+  <select name="client_id">
+        <option selected disabled>Choose client</option>
+        <% @list_clients.each do |client| %>
+          <option value= "<%= client.id %>"
+          <%= "selected" if @client != nil && client.id == @client.id %>>
+          <%=client.first_name %>
+          <%=client.last_name %>
+          </option>
+        <%end%>
+  </select>
+    <input type="submit">
+  <% end %>
+
+<!-- This is the currently-selected client's info-->
+<% if @client != nil %>
+  <div id="client_info">
+    <h2>Client info:</h2>
+        <p id="client_name"><%= @client.first_name %> <%= @client.last_name %> </p>
+      <h4> Client Number:</h4>
+        <p id="client_number"><%= @client.phone_number %></p>
+      <h4> Client Notes:</h4>
+        <p id="client_notes"><%= @client.notes %></p>
+      <h4> Client Status: 
+      <!-- This toggles the client's active/inactive status -->
+      <a href ="/clients/<%= @client.id %>/update_status">Toggle Status</a>
+      </h4>
+        <p id="client_status">
+          <% if @client.active == true %>
+            Active
+          <% else %>
+            Inactive
+            <% end %>
+        </p>
+
+<!-- This edits the current client-->
+      <a href ="/clients/<%= @client.id %>/edit">Edit Client</a>
+<!-- This creates a new message -->
+<!--  ##need to add feature where client is automatically filled in -->
+      <!-- <a href ="/touch/create_new/<%= @client.id %>">Send Client New Message</a> -->
+
+  </div>
+<% end %>
+</div>
+

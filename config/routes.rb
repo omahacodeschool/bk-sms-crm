@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post "touch/create_new(/:client_id)" => "touch#create_new"
 
   get "touch" => 'touch#list'
+
+  get "dashboard/business/:id" => 'pages#dashboard_business'
   
   get "dashboard(/:client_id)" => 'pages#dashboard'
 

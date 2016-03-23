@@ -1,4 +1,10 @@
 class PagesController < ApplicationController
+  def dashboard_business
+    @business = Business.find_by_id(params[:business_id])
+
+    @clients = @business.clients
+  end
+
   def dashboard
     @list_clients = Client.where({"active" => true})
     @touches = Touch.all
