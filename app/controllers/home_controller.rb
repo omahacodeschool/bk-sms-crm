@@ -8,4 +8,14 @@ class HomeController < ApplicationController
 
     return nil
   end
+
+  def bar
+x = "Foo"
+
+if "A" === "B"
+return "Bar"
+end
+
+return nil
+end
 end
