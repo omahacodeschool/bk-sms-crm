@@ -2,14 +2,21 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
 
+# TOUCH 
   post "touch/create_new(/:client_id)" => "touch#create_new"
 
   get "touch" => 'touch#list'
 
+  post "touch/search_touch" => "touch#search_touch"
+
+# PAGES
   get "dashboard/business/:id" => 'pages#dashboard_business'
   
-  get "dashboard(/:client_id)" => 'pages#dashboard'
+  # get "dashboard(/:client_id)" => 'pages#dashboard'
 
+  get "onboard" => 'pages#onboard'
+
+# CLIENTS
   get "clients/:id/name" => 'clients#client_name'
 
   get "clients/:id/number" => 'clients#client_number'
@@ -26,12 +33,9 @@ Rails.application.routes.draw do
 
   post "clients/add" => 'clients#add'
 
-  post "clients/view" => 'clients#view'
+  get "clients/view(/:client_id)" => 'clients#view'
 
-  post "touch/search_touch" => "touch#search_touch"
-
-  get "onboard" => 'pages#onboard'
-
+#BUSINESSES
   post "businesses/:user_id/new" => 'businesses#new'
 
 end

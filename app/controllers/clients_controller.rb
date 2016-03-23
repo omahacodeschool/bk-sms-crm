@@ -27,7 +27,7 @@ class ClientsController < ApplicationController
       @client.active = true
     end
     @client.save
-    redirect_to "/dashboard/#{@client.id}"
+    redirect_to "/clients/view"
   end
 
   def new
@@ -42,7 +42,7 @@ class ClientsController < ApplicationController
     client.notes = params[:notes]
     client.active = true
     client.save
-    redirect_to "/dashboard/#{client.id}"
+    redirect_to "/clients/view"
   end
 
   def edit_client
@@ -57,19 +57,25 @@ class ClientsController < ApplicationController
     @client.phone_number = params[:phone_number]
     @client.notes = params[:notes]
     @client.save
-    redirect_to "/dashboard/#{@client.id}"
+    redirect_to "/clients/view"
   end
 
   def delete
     current_client
     Client.destroy(@client)
-    redirect_to "/dashboard/1"
+    redirect_to "/clients/view"
   end
 
   def view
-    current_client
-    @client = Client.find_by_id(params[:client_id])
-    redirect_to "/dashboard/#{@client.id}"
+    if client_from_params = Client.find_by_id(params[:client_id])
+      @client = client_from_params
+    else
+      @client = nil
+    end
+    # current_client
+    # @client = Client.find_by_id(params[:client_id])
+    render "view"
+    # redirect_to "/dashboard/#{@client.id}"
   end
 
 end
