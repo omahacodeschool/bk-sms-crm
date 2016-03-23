@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   devise_for :users 
   root to: "home#index"
 
-  post "touch/create_new" => "touch#create_new"
+  post "touch/create_new(/:client_id)" => "touch#create_new"
 
   get "touch" => 'touch#list'
+
+  get "dashboard/business/:id" => 'pages#dashboard_business'
   
   get "dashboard(/:client_id)" => 'pages#dashboard'
 
@@ -30,11 +32,14 @@ Rails.application.routes.draw do
 
   get "settings" => "user#settings"
 
-  get "user/add_new_business" => "user#add_new_business"
-
   get "user/:id" => "user#change_user_settings"
 
   get "user/:id/update" => "user#change_business_settings"
+
+  get "onboard" => 'pages#onboard'
+
+  post "businesses/:user_id/new" => 'businesses#new'
+
 
 end
 

@@ -3,10 +3,10 @@
 <%= form_tag("/clients/add", class: "client_form") do %>
 
   <p>First name: 
-    <input type="text" name="first_name" value="Lady">
+    <input type="text" name="first_name" value="Lady" required>
   </p>
   <p>Last name:
-    <input type="text" name="last_name" value="Gaga">
+    <input type="text" name="last_name" value="Gaga" required>
   </p>
   <p>Phone number:
 <input type="tel" size=10 name="phone_number" value="4022185555" required>

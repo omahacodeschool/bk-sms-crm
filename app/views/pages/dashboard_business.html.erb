@@ -1,20 +1,25 @@
-
-<script type="text/javascript" src="mike.js"></script>
 <div id="left" class="mike">
   <%= form_tag("/touch/search_touch") do %>
     <p> Search(Name, Number, Etc)
     <input type="text" name="search"></p>
   <% end %>
-<h1>Messages</h1>
-  <%@touches.each do |t|%>
-  <h3>Client:</h3>
-  <%=t.client.first_name%>
-  <%=t.client.last_name%>
-  <h3>Message:</h3>
-  <%=t.message%>
-<%end%>
+  
+  <h1>Messages</h1>
+
+  <% @clients.each do |client|%>
+    <h3>Client:</h3>
+  
+    <%= client.first_name%>
+    <%= client.last_name%>
+
+    <% client.recent_touches.each do |touch| %>
+      <div class="touch">
+        <%= touch.message %>
+      </div>
+    <% end %>
+
+  <%end%>
 </div>
-  <div id="messages" style="display:none"></div>
 
 
 <!-- ////////////////////////////////////////////////////////// -->
@@ -91,10 +96,7 @@ This is the post action for creating a new message.
     <h2>Client info:</h2>
         <p id="client_name"><%= @client.first_name %> <%= @client.last_name %> </p>
       <h4> Client Number:</h4>
-        <p id="client_number">
-        (<%= @client.phone_number[0..2] %>)
-        <%=@client.phone_number[3..5]%>-<%=@client.phone_number[6..9]%>
-        </p>
+        <p id="client_number"><%= @client.phone_number %></p>
       <h4> Client Notes:</h4>
         <p id="client_notes"><%= @client.notes %></p>
       <h4> Client Status: 
