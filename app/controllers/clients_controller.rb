@@ -86,7 +86,7 @@ class ClientsController < ApplicationController
     end
     # current_client
     # @client = Client.find_by_id(params[:client_id])
-    render "info"
+    render "view"
     # redirect_to "/dashboard/#{@client.id}"
   end
 
