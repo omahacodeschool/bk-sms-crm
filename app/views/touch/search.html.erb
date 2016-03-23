@@ -10,13 +10,33 @@
 <a href="message_client/<%= p.id%>">
 <%=p.first_name%>
 <%=p.last_name%>
+<%=p.phone_number%>
 <%end%>
 
 <%@last_name.each do |p|%>
 <a href="message_client/<%= p.id%>">
 <%=p.first_name%>
 <%=p.last_name%>
+<%=p.phone_number%>
 <%end%>
+
+<%@phone_number.each do |p|%>
+<a href="message_client/<%= p.id%>">
+<%=p.first_name%>
+<%=p.last_name%>
+<%=p.phone_number%>
+<%end%>
+
+<%@notes.each do |p|%>
+<a href="message_client/<%= p.id%>">
+<%=p.first_name%>
+<%=p.last_name%></a>
+<%=p.phone_number%>
+<%=p.notes%>
+<%end%>
+
+
+
 
 
 
