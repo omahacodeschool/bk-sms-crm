@@ -18,4 +18,14 @@ end
 
 return nil
 end
+
+  def test2
+x = "Foo"
+
+if "A" === "B"
+return "Bar"
+end
+
+return nil
+end
 end
