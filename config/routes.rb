@@ -2,11 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
 
-<<<<<<< HEAD
-Rails.application.routes.draw do
-
-=======
->>>>>>> master
   post "touch/create_new" => "touch#create_new"
 
   get "touch" => 'touch#list'
