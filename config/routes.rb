@@ -30,5 +30,9 @@ Rails.application.routes.draw do
 
   post "touch/search_touch" => "touch#search_touch"
 
+  get "onboard" => 'pages#onboard'
+
+  post "businesses/:user_id/new" => 'businesses#new'
+
 end
 

@@ -1,0 +1,13 @@
+<h1>Welcome</h1>
+
+<p>Please add a new business:</p>
+
+<%= form_tag("/businesses/<%= @user.id %>/new") do %>
+<p> Business name: 
+<input type="text" name="name" value="business name"></p>
+<p>Phone number:
+<input type="tel" size=10 name="business_phone" value="##########" required>
+</p>
+<p><input type="submit" value="Create"></p>
+
+<% end %>
