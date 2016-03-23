@@ -22,11 +22,26 @@
 </div>
 
 
-<!-- ////////////////////////////////////////////////////////// -->
-///////PICTURE THIS IN THE CENTER, WITH WORLD-CLASS CSS STYLING:///// 
+//////////////////THIS IS THE CURRENT MESSAGE THREAD DIV://///////////
+
+<div id="current_message_thread" class="center">
+
+<%= @touches.where(client_id => @current_client.id). each do |x| %>
+  <p>
+    <%= x.message %>
+  </p>
+  <% if x.read == false %>
+    <% x.read = true %>
+  <% end %>
+<% end %>
 
 
-<div id="center" class="jeremy">
+</div>
+////////////////////////////END///////////////////////////////////////
+
+//////////////THIS IS THE NEW MESSAGE DIV://///////////////////////////
+
+<div id="new_message" class="center">
 
 <!-- This is the current message -->
 
@@ -63,10 +78,7 @@ This is the post action for creating a new message.
 
 </div>
 
-
-
-////////////THIS IS THE END OF THE CENTER SECTION.///////////////////
-<!-- ////////////////////////////////////////////////////////////// -->
+//////////////////////////////END//////////////////////////////
 
 
 <!-- CLIENTS COLUMN -->
