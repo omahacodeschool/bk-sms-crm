@@ -14,11 +14,6 @@
   <input type="submit">
 <%end%>
 
-
-
-
-
-
   <h1>User Settings Changes</h1>
 
 <%= form_tag("/user/#{@user.id}") do %>
@@ -41,7 +36,7 @@
 
 <h1>Business Settings Changes</h1>
 
-<%= form_tag("/user/#{@business.id}") do %>
+<%= form_tag("/user/#{@business.id}/update") do %>
 
   <p>Name
     <input type="text" name="name" value="<%=@business.name%>" >

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users 
   root to: "home#index"
 
   post "touch/create_new" => "touch#create_new"
@@ -32,7 +32,9 @@ Rails.application.routes.draw do
 
   get "user/add_new_business" => "user#add_new_business"
 
-  get "user/#{@user.id}" => "user#change_user_settings"
+  get "user/:id" => "user#change_user_settings"
+
+  get "user/:id/update" => "user#change_business_settings"
 
 end
 
