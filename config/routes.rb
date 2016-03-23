@@ -28,5 +28,7 @@ Rails.application.routes.draw do
 
   post "touch/search_touch" => "touch#search_touch"
 
+  get "settings" => "user#settings"
+
 end
 
