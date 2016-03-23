@@ -91,7 +91,10 @@ This is the post action for creating a new message.
     <h2>Client info:</h2>
         <p id="client_name"><%= @client.first_name %> <%= @client.last_name %> </p>
       <h4> Client Number:</h4>
-        <p id="client_number"><%= @client.phone_number %></p>
+        <p id="client_number">
+        (<%= @client.phone_number[0..2] %>)
+        <%=@client.phone_number[3..5]%>-<%=@client.phone_number[6..9]%>
+        </p>
       <h4> Client Notes:</h4>
         <p id="client_notes"><%= @client.notes %></p>
       <h4> Client Status: 
