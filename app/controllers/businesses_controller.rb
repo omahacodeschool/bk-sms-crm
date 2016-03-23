@@ -6,5 +6,6 @@ class BusinessesController < ApplicationController
     @business.name = params[:name]
     @business.business_phone = params[:business_phone]
     @business.save
+    redirect_to "/dashboard/business/#{business.id}"
   end
 end

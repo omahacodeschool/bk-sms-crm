@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post "touch/search_touch" => "touch#search_touch"
 
 # PAGES
-  get "dashboard/business/:id" => 'pages#dashboard_business'
+  get "dashboard/business/(:id)" => 'pages#dashboard_business'
   
   # get "dashboard(/:client_id)" => 'pages#dashboard'
 
