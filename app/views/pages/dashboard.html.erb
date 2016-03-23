@@ -76,7 +76,7 @@ This is the post action for creating a new message.
         <option selected disabled>Choose client</option>
         <% @list_clients.each do |client| %>
           <option value= "<%= client.id %>"
-          <%= "selected" if client.id == @client.id %>>
+          <%= "selected" if @client != nil && client.id == @client.id %>>
           <%=client.first_name %>
           <%=client.last_name %>
           </option>
@@ -86,6 +86,7 @@ This is the post action for creating a new message.
   <% end %>
 
 <!-- This is the currently-selected client's info-->
+<% if @client != nil %>
   <div id="client_info">
     <h2>Client info:</h2>
         <p id="client_name"><%= @client.first_name %> <%= @client.last_name %> </p>
@@ -109,8 +110,9 @@ This is the post action for creating a new message.
       <a href ="/clients/<%= @client.id %>/edit">Edit Client</a>
 <!-- This creates a new message -->
 <!--  ##need to add feature where client is automatically filled in -->
-      <a href ="/touch/create_new">Send Client New Message</a>
+      <!-- <a href ="/touch/create_new/<%= @client.id %>">Send Client New Message</a> -->
 
   </div>
+<% end %>
 </div>
 

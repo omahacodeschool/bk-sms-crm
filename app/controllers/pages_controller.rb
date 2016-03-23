@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     if client_from_params = Client.find_by_id(params[:client_id])
       @client = client_from_params
     else
-      @client = Client.first
+      @client = nil
     end
 
     # The view being rendered is not dependent on the value of @client.

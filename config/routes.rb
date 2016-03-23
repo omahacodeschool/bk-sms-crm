@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
 
-  post "touch/create_new" => "touch#create_new"
+  post "touch/create_new(/:client_id)" => "touch#create_new"
 
   get "touch" => 'touch#list'
   

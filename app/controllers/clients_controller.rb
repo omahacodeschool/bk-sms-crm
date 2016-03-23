@@ -1,7 +1,12 @@
 class ClientsController < ApplicationController
 
   def current_client
-    @client = Client.find_by_id(params[:id])
+    if client_from_params = Client.find_by_id(params[:client_id])
+      @client = client_from_params
+    else
+      @client = nil
+    end
+    # @client = Client.find_by_id(params[:id])
   end
 
   # def client_name
