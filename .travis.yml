@@ -1,6 +1,5 @@
 script:
-- 'export PULL_REQUEST_ID=${TRAVIS_PULL_REQUEST} &&
-   bundle exec pronto run -f github_pr'
+- 'bundle exec pronto run -f github -c origin/master'
 language: ruby
 rvm:
   - 2.3.0
