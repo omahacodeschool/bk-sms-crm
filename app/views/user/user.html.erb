@@ -18,9 +18,7 @@
 
 <%= form_tag("/user/#{@user.id}") do %>
 
-  <p>Name
-    <input type="text" name="name" value="<%=@user.name%>">
-  </p>
+  
   <p>Phone Number
     <input type="text" name="phone_number" value="<%=@user.phone_number%>" required>
   </p>

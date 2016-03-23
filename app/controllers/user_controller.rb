@@ -8,7 +8,8 @@ class UserController < ApplicationController
     redirect_to "/user/#{@business.id}"
   end
   def settings
-    @user = User.find_by_id(params[:id])
+    @user = current_user
+    @business = Business.find_by_id(@user.id)
     render "user"
   end
   def change_user_settings
