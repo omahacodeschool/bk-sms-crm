@@ -1,20 +1,6 @@
 
 <script type="text/javascript" src="mike.js"></script>
-<div id="left" class="mike">
-  <%= form_tag("/touch/search_touch") do %>
-    <p> Search(Name, Number, Etc)
-    <input type="text" name="search"></p>
-  <% end %>
-<h1>Messages</h1>
-  <%@touches.each do |t|%>
-  <h3>Client:</h3>
-  <%=t.client.first_name%>
-  <%=t.client.last_name%>
-  <h3>Message:</h3>
-  <%=t.message%>
-<%end%>
-</div>
-  <div id="messages" style="display:none"></div>
+
 
 
 <!-- ////////////////////////////////////////////////////////// -->
@@ -24,7 +10,7 @@
 
 <div id="current_message_thread" class="center">
 
-<%= @touches.where(client_id == current_client). each do |x| %>
+<%= @touches.where(client_id => @current_client.id). each do |x| %>
   <p>
     <%= x.message %>
   </p>
