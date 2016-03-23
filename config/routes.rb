@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users 
   root to: "home#index"
 
 # TOUCH 
@@ -33,10 +33,22 @@ Rails.application.routes.draw do
 
   post "clients/add" => 'clients#add'
 
-  get "clients/view(/:client_id)" => 'clients#view'
+  get "clients/info/(:id)" => 'clients#info'
+
+  post "clients/view" => 'clients#view'
+
+
+# USER
+  get "settings" => "user#settings"
+
+  get "user/:id" => "user#change_user_settings"
+
+  get "user/:id/update" => "user#change_business_settings"
+
 
 #BUSINESSES
   post "businesses/:user_id/new" => 'businesses#new'
+
 
 end
 

@@ -1,0 +1,51 @@
+<h3>Add Business!</h3>
+
+<%= form_tag("/businesses/:user_id/new") do %>
+
+  <p>Name 
+    <input type="text" name="name" value="">
+  </p>
+  <p>User Id
+    <input type="text" name="user_id" value="">
+  </p>
+  <p>Business Phone Number
+    <input type="integer" name="business_phone" value="">
+  </p>
+  <input type="submit">
+<%end%>
+
+  <h1>User Settings Changes</h1>
+
+<%= form_tag("/user/#{@user.id}") do %>
+
+  
+  <p>Phone Number
+    <input type="text" name="phone_number" value="<%=@user.phone_number%>" required>
+  </p>
+  <p>Email
+    <input type="integer" name="emial" value="<%=@user.email%>" >
+  </p>
+  <p>password
+    <input type="text" name="notes" value="<%=@user.password%>">
+  </p>
+  <input type="submit">
+  
+<% end %>
+
+<h1>Business Settings Changes</h1>
+
+<%= form_tag("/user/#{@business.id}/update") do %>
+
+  <p>Name
+    <input type="text" name="name" value="<%=@business.name%>" >
+  </p>
+  <p>User_ID
+    <input type="text" name="user_id" value="<%=@business.user_id%>">
+  </p>
+  <p>Business Phone Number
+    <input type="integer" name="business_phone" value="<%=@business.business_phone%>" >
+  </p>
+  
+  
+<% end %>
+
