@@ -11,23 +11,23 @@ class BusinessesController < ApplicationController
 
   def view
     @user = current_user
-    if Business.find_by_id(@user.id) != nil
-      @business_list = Business.find_by_id(@user.id)
-    else 
-       @business_list = nil
+    if Business.where({"user_id" => @user.id}) != nil
+      @business_list = Business.where({"user_id" => @user.id})
+    else
+      @business_list = nil
     end
     render 'view'
   end
 
   def edit
     @user = current_user
-    @business = Business.find_by_id(params[:business_id])
+    @business = Business.find_by_id(params[:id])
     render 'edit'
   end
 
     def update
     @user = current_user
-    @business = Business.find_by_id(params[:business_id])
+    @business = Business.find_by_id(params[:id])
     @business.phone_number = params[:phone_number]
     @business.name = params[:name]
     @business.save
@@ -36,7 +36,8 @@ class BusinessesController < ApplicationController
 
   def delete
     @user = current_user
-    @business = Business.find_by_id(params[:business_id])
+    @business = Business.find_by_id(params[:id])
+    Business.destroy(@business)
     redirect_to "/businesses/view"
   end
 

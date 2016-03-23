@@ -44,7 +44,7 @@ Rails.application.routes.draw do
 
   post "businesses/new" => 'businesses#new'
 
-  get "businessess/:id/edit" => 'businesses#edit'
+  get "businesses/:id/edit" => 'businesses#edit'
 
   post "businesses/:id/update" => 'businesses#update'
 
