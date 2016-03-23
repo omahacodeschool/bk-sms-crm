@@ -1,17 +1,24 @@
 <%@touch.each do |p|%>
+<a href="message_client/<%= p.client_id%>">
 <%=p.client.first_name%>
-<%=p.client.last_name%>
+<%=p.client.last_name%></a>
 <%=p.message%>
+<br>
 <%end%>
 
 <%@first_name.each do |p|%>
+<a href="message_client/<%= p.id%>">
 <%=p.first_name%>
 <%=p.last_name%>
 <%end%>
 
 <%@last_name.each do |p|%>
+<a href="message_client/<%= p.id%>">
 <%=p.first_name%>
 <%=p.last_name%>
 <%end%>
+
+
+
 
 
