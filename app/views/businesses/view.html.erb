@@ -1,0 +1,31 @@
+
+  <% if @business_list != nil && @business_list.length == 1%>
+  <h3>Your Business</h3>
+    <%= @business_List.name %>
+    <% elsif @business_list != nil %>
+    <h3>Your Businesses</h3>
+    <% @business_list.each do |business| %>
+    <%= business.name %>
+    <a href="/businesses/<%= business.id %>/edit">Edit</a>
+    <% end %>
+    <% else %>
+    <p>You currently have no businesses.</p>
+  <% end %>
+
+
+<h3>Add Business:</h3>
+
+<%= form_tag("/businesses/new") do %>
+
+  <p> Business name:
+    <input type="text" name="name" value="business name">
+  </p>
+  <p>Phone number:
+    <input type="tel" size=10 name="business_phone" value="##########">
+  </p>
+  <p><input type="submit" value="Create"></p>
+
+<% end %>
+
+
+

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   
   # get "dashboard(/:client_id)" => 'pages#dashboard'
 
-  get "onboard" => 'pages#onboard'
+  # get "onboard" => 'pages#onboard'
 
 # CLIENTS
   get "clients/:id/name" => 'clients#client_name'
@@ -33,21 +33,22 @@ Rails.application.routes.draw do
 
   post "clients/add" => 'clients#add'
 
-  get "clients/info/(:id)" => 'clients#info'
+  get "clients/info(/:id)" => 'clients#info'
 
   post "clients/view" => 'clients#view'
 
-
-# USER
-  get "settings" => "user#settings"
-
-  get "user/:id" => "user#change_user_settings"
-
-  get "user/:id/update" => "user#change_business_settings"
-
+  post "clients/:id/delete" => 'clients#delete'
 
 #BUSINESSES
-  post "businesses/:user_id/new" => 'businesses#new'
+  get "businesses/view" => 'businesses#view'
+
+  post "businesses/new" => 'businesses#new'
+
+  get "businessess/:id/edit" => 'businesses#edit'
+
+  post "businesses/:id/update" => 'businesses#update'
+
+  post "businesses/:id/delete" => 'businesses#delete'
 
 
 end

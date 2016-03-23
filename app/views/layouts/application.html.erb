@@ -19,10 +19,13 @@
   <%= render "javascript" %>
   <%= render "css_overrides" %>
   <nav>
-
+///////////////NAV//////////////
   <% if user_signed_in? %>
     <li>
-    <%= link_to('Edit profile', edit_user_registration_path) %>
+      <%= link_to('Edit profile', edit_user_registration_path) %>
+    </li>
+    <li>
+      <a href="/businesses/view">Businesses</a>
     </li>
   <% else %>
     <li>
