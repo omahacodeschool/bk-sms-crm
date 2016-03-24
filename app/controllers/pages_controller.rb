@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def dashboard_business
-    # @business = Business.find_by_id(params[:business_id])
+    @business = Business.find_by_id(params[:id])
 
     # @clients = @business.clients
   end

@@ -1,7 +1,7 @@
 <!-- A NEW CLIENT-->
-  <a href ="/clients/new">Add new client</a>
+  <a href ="/clients/new/<%= @business.id%>">Add new client</a>
 
-<!-- This is the dropdown menu of all clients -->
+<!-- This is the dropdown menu of all business clients -->
   <%= form_tag("/clients/view", class: "dropdown") do %>
   <select name="client_id">
         <option selected disabled>Choose client</option>

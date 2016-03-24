@@ -9,6 +9,21 @@
       <p>You currently have no businesses.</p>
   <% end %>
 
+<% if @business_list != nil %>
+  <%= form_tag("/businesses/select", class: "dropdown") do %>
+    <select name="business_id">
+          <option selected disabled>Choose business</option>
+          <% @business_list.each do |business| %>
+            <option value="<%= business.id %>"
+            <%= business.name %>
+            </option>
+          <%end%>
+    </select>
+      <input type="Select">
+    <% end %>
+<% end %>
+
+
 
 <h3>Add Business:</h3>
 

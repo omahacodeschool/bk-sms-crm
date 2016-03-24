@@ -11,6 +11,7 @@ class BusinessesController < ApplicationController
 
   def view
     @user = current_user
+    @business_list = []
     if Business.where({"user_id" => @user.id}) != nil
       @business_list = Business.where({"user_id" => @user.id})
     else
@@ -25,7 +26,7 @@ class BusinessesController < ApplicationController
     render 'edit'
   end
 
-    def update
+  def update
     @user = current_user
     @business = Business.find_by_id(params[:id])
     @business.phone_number = params[:phone_number]
@@ -39,6 +40,18 @@ class BusinessesController < ApplicationController
     @business = Business.find_by_id(params[:id])
     Business.destroy(@business)
     redirect_to "/businesses/view"
+  end
+
+  def select
+    @user = current_user
+    @business_list = []
+    if Business.where({"user_id" => @user.id}) != nil
+      @business_list = Business.where({"user_id" => @user.id})
+    else
+      @business_list = nil
+    end
+    @business = Business.find_by_id(params[:business_id])
+    redirect_to "/pages/dashboard/#{@business.id}"
   end
 
 end
