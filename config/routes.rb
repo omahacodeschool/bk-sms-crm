@@ -2,14 +2,21 @@ Rails.application.routes.draw do
   devise_for :users 
   root to: "home#index"
 
+# TOUCH 
   post "touch/create_new(/:client_id)" => "touch#create_new"
 
   get "touch" => 'touch#list'
 
+  post "touch/search_touch" => "touch#search_touch"
+
+# PAGES
   get "dashboard/business/:id" => 'pages#dashboard_business'
   
-  get "dashboard(/:client_id)" => 'pages#dashboard'
+  # get "dashboard(/:client_id)" => 'pages#dashboard'
 
+  get "onboard" => 'pages#onboard'
+
+# CLIENTS
   get "clients/:id/name" => 'clients#client_name'
 
   get "clients/:id/number" => 'clients#client_number'
@@ -22,23 +29,28 @@ Rails.application.routes.draw do
 
   post "clients/:id/update" => 'clients#update_client'
 
-  get "clients/new" => 'clients#new'
+  get "clients/new/:business_id" => 'clients#new'
 
-  post "clients/add" => 'clients#add'
+  post "clients/add/:business_id" => 'clients#add'
 
-  post "clients/view" => 'clients#view'
+  get "clients/view/:business_id" => 'clients#view'
 
-  post "touch/search_touch" => "touch#search_touch"
+  post "clients/info" => 'clients#info'
 
-  get "settings" => "user#settings"
+  post "clients/:id/delete" => 'clients#delete'
 
-  get "user/:id" => "user#change_user_settings"
+#BUSINESSES
+  get "businesses/view" => 'businesses#view'
 
-  get "user/:id/update" => "user#change_business_settings"
+  post "businesses/new" => 'businesses#new'
 
-  get "onboard" => 'pages#onboard'
+  get "businesses/:id/edit" => 'businesses#edit'
 
-  post "businesses/:user_id/new" => 'businesses#new'
+  post "businesses/:id/update" => 'businesses#update'
+
+  post "businesses/:id/delete" => 'businesses#delete'
+
+  get "businesses/:id/select/" => 'businesses#select'
 
 
 end

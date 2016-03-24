@@ -1,0 +1,60 @@
+<h1><%= @business.name %> Clients</h1>
+
+<!-- A NEW CLIENT-->
+  <a href ="/clients/new/<%= @business.id%>">Add new client</a>
+
+
+<% if @list_clients != nil %>
+      <% @list_clients.each do |client| %>
+        <%= client.name %>
+        <a href="/clients/<%= client.id %>/edit">Edit</a>
+    <% end %>
+    <% else %>
+      <p>You currently have no clients.</p>
+  <% end %>
+
+
+<!-- NOT WORKING This is the dropdown menu of all business clients  -->
+  <%= form_tag("/clients/info", class: "dropdown") do %>
+  <select name="client_id">
+        <option selected disabled>Choose client</option>
+        <% @list_clients.each do |client| %>
+          <option value= "<%= client.id %>"
+          <%= "selected" if @client != nil && client.id == @client.id %>>
+          <%=client.first_name %>
+          <%=client.last_name %>
+          </option>
+        <%end%>
+  </select>
+    <input type="submit">
+  <% end %>
+
+<!-- This is the currently-selected client's info-->
+<% if @client != nil %>
+  <div id="client_info">
+    <h2>Client info:</h2>
+        <p id="client_name"><%= @client.first_name %> <%= @client.last_name %> </p>
+      <h4> Client Number:</h4>
+        <p id="client_number"><%= @client.phone_number %></p>
+      <h4> Client Notes:</h4>
+        <p id="client_notes"><%= @client.notes %></p>
+      <h4> Client Status: 
+      <!-- This toggles the client's active/inactive status -->
+      <a href ="/clients/<%= @client.id %>/update_status">Toggle Status</a>
+      </h4>
+        <p id="client_status">
+          <% if @client.active == true %>
+            Active
+          <% else %>
+            Inactive
+            <% end %>
+        </p>
+
+<!-- This edits the current client-->
+      <a href ="/clients/<%= @client.id %>/edit">Edit Client</a>
+<!-- This creates a new message -->
+<!--  ##need to add feature where client is automatically filled in -->
+      <!-- <a href ="/touch/create_new/<%= @client.id %>">Send Client New Message</a> -->
+
+  </div>
+<% end %>

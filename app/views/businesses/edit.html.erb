@@ -1,0 +1,16 @@
+<h1>Update Business</h1>
+
+<%= form_tag("/businesses/#{@business.id}/update") do %>
+
+  <p>Name
+    <input type="text" name="name" value="<%=@business.name%>" >
+  </p>
+  <p>Business Phone Number
+    <input type="tel" size=10 name="business_phone" value="<%=@business.business_phone%>">
+  </p>
+  
+<% end %>
+
+<%= form_tag("/businesses/#{@business.id}/delete") do %>
+  <input type="submit" value="delete">
+<% end %>
