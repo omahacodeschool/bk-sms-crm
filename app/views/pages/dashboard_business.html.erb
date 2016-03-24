@@ -14,7 +14,7 @@
 
 <div id="current_message_thread" class="center">
 
-<%= @touches.where(client_id => @current_client.id). each do |x| %>
+<%= @touches.each do |x| %>
   <p>
     <%= x.message %>
   </p>

@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
   def dashboard_business
     @business = Business.find_by_id(params[:id])
-
-    # @clients = @business.clients
+    @touches= Touch.where({"client_id" => @current_client})
   end
 
   def dashboard
