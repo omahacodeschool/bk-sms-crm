@@ -4,6 +4,10 @@ class ClientsController < ApplicationController
     @client = Client.find_by_id(params[:id])
   end
 
+  def current_business
+    @business = Business.find_by_id(params[:business_id])
+  end
+
   # def client_name
   #   current_client
   #   render "name"
@@ -21,20 +25,23 @@ class ClientsController < ApplicationController
 
   def change_status
     current_client
+    current_business
     if @client.active == true
       @client.active = false
     else
       @client.active = true
     end
     @client.save
-    redirect_to "/clients/info"
+    redirect_to "/clients/view/#{current_business.id}"
   end
 
   def new
+    current_business
     render "new"
   end
 
   def add
+    current_business
     client = Client.new
     client.first_name = params[:first_name]
     client.last_name = params[:last_name]
@@ -42,7 +49,7 @@ class ClientsController < ApplicationController
     client.notes = params[:notes]
     client.active = true
     client.save
-    redirect_to "/clients/info"
+    redirect_to "/clients/view/#{current_business.id}"
   end
 
   def edit_client
@@ -52,21 +59,24 @@ class ClientsController < ApplicationController
 
   def update_client
     current_client
+    current_business
     @client.first_name = params[:first_name]
     @client.last_name = params[:last_name]
     @client.phone_number = params[:phone_number]
     @client.notes = params[:notes]
     @client.save
-    redirect_to "/clients/info"
+    redirect_to "/clients/view/#{current_business.id}"
   end
 
   def delete
+    current_business
     current_client
     Client.destroy(@client)
-    redirect_to "/clients/info"
+    redirect_to "/clients/view/#{current_business.id}"
   end
 
-  def view
+  def info
+    current_business
     if client_from_params = Client.find_by_id(params[:client_id])
       @client = client_from_params
     else
@@ -74,11 +84,13 @@ class ClientsController < ApplicationController
     end
     # current_client
     # @client = Client.find_by_id(params[:client_id])
-    redirect_to "/clients/info"
-    # redirect_to "/dashboard/#{@client.id}"
+    redirect_to "/clients/view/#{current_business.id}"
   end
 
-   def info
+   def view
+    current_business
+    @list_clients = Client.find_business_clients(params[:id])
+     # @list_clients = Client.where({"active" => true},)
     if client_from_params = Client.find_by_id(params[:client_id])
       @client = client_from_params
     else

@@ -1,6 +1,6 @@
 <h1>Add client:</h1>
 
-<%= form_tag("/clients/add", class: "client_form") do %>
+<%= form_tag("/clients/add/#{@business.id}", class: "client_form") do %>
 
   <p>First name: 
     <input type="text" name="first_name" value="Lady" required>
