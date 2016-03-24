@@ -46,12 +46,14 @@
 
 <div id="current_message_thread" class="center">
 
-<%= @touches.each do |x| %>
-  <p>
-    <%= x.message %>
-  </p>
-  <% if x.read == false %>
-    <% x.read = true %>
+<% if @touches != nil %>
+  <%= @touches.each do |x| %>
+    <p>
+      <%= x.message %>
+    </p>
+    <% if x.read == false %>
+      <% x.read = true %>
+    <% end %>
   <% end %>
 <% end %>
 
