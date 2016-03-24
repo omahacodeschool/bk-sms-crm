@@ -1,4 +1,5 @@
 class Client < ActiveRecord::Base
+  include PgSearch
    has_many :touches
    belongs_to :business
 

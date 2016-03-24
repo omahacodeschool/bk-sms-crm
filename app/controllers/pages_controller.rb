@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     @business = Business.find_by_id(params[:id])
 
     # @clients = @business.clients
+  render "pages/dashboard_business"
   end
 
   def dashboard
