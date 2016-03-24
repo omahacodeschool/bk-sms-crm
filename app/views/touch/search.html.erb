@@ -1,44 +1,16 @@
-<%@touch.each do |p|%>
-<a href="message_client/<%= p.client_id%>">
-<%=p.client.first_name%>
-<%=p.client.last_name%></a>
-<%=p.message%>
-<br>
-<%end%>
+<% @results.each do |result| %>
+  <p>Found result: <%= result.searchable_type %> #<%= result.searchable_id %></p>
 
-<%@first_name.each do |p|%>
-<a href="message_client/<%= p.id%>">
-<%=p.first_name%>
-<%=p.last_name%>
-<%=p.phone_number%>
-<%end%>
+  <% if result.searchable_type == "Touch" %>
+    <p>
+      <a href="#"><%= result.searchable.message %></a>
+    </p>
+  <% end %>
 
-<%@last_name.each do |p|%>
-<a href="message_client/<%= p.id%>">
-<%=p.first_name%>
-<%=p.last_name%>
-<%=p.phone_number%>
-<%end%>
+  <% if result.searchable_type == "Client" %>
+    <p><%= result.searchable.first_name %> <%= result.searchable.last_name %></p>
+  <% end %>
 
-<%@phone_number.each do |p|%>
-<a href="message_client/<%= p.id%>">
-<%=p.first_name%>
-<%=p.last_name%>
-<%=p.phone_number%>
-<%end%>
-
-<%@notes.each do |p|%>
-<a href="message_client/<%= p.id%>">
-<%=p.first_name%>
-<%=p.last_name%></a>
-<%=p.phone_number%>
-<%=p.notes%>
-<%end%>
-
-
-
-
-
-
-
+  <hr>
+<% end %>
 

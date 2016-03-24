@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include PgSearch
   has_many :businesses
   
   # Include default devise modules. Others available are:
