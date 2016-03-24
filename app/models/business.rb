@@ -1,4 +1,4 @@
 class Business < ActiveRecord::Base
-  has_many :users
-  has_many :touches
+  belongs_to :user
+  has_many :clients
 end

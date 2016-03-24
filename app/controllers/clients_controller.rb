@@ -8,21 +8,6 @@ class ClientsController < ApplicationController
     @business = Business.find_by_id(params[:business_id])
   end
 
-  # def client_name
-  #   current_client
-  #   render "name"
-  # end
-
-  # def client_number
-  #   current_client
-  #   render "number"
-  # end
-
-  # def client_notes
-  #   current_client
-  #   render "notes"
-  # end
-
   def change_status
     current_client
     current_business
@@ -89,17 +74,14 @@ class ClientsController < ApplicationController
 
    def view
     current_business
-    @list_clients = Client.find_business_clients(params[:id])
+    # @list_clients = current_business.clients
      # @list_clients = Client.where({"active" => true},)
     if client_from_params = Client.find_by_id(params[:client_id])
       @client = client_from_params
     else
       @client = nil
     end
-    # current_client
-    # @client = Client.find_by_id(params[:client_id])
     render "view"
-    # redirect_to "/dashboard/#{@client.id}"
   end
 
 end

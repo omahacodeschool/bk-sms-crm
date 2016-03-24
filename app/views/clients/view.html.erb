@@ -4,8 +4,8 @@
   <a href ="/clients/new/<%= @business.id%>">Add new client</a>
 
 
-<% if @list_clients != nil %>
-      <% @list_clients.each do |client| %>
+<% if @business.clients != nil %>
+      <% @business.clients.each do |client| %>
         <%= client.name %>
         <a href="/clients/<%= client.id %>/edit">Edit</a>
     <% end %>
@@ -18,7 +18,7 @@
   <%= form_tag("/clients/info", class: "dropdown") do %>
   <select name="client_id">
         <option selected disabled>Choose client</option>
-        <% @list_clients.each do |client| %>
+        <% @business.clients.each do |client| %>
           <option value= "<%= client.id %>"
           <%= "selected" if @client != nil && client.id == @client.id %>>
           <%=client.first_name %>
