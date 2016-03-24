@@ -32,6 +32,7 @@ class ClientsController < ApplicationController
     client.last_name = params[:last_name]
     client.phone_number = params[:phone_number]
     client.notes = params[:notes]
+    client.business_id = params[:business_id]
     client.active = true
     client.save
     redirect_to "/clients/view/#{current_business.id}"
@@ -39,6 +40,7 @@ class ClientsController < ApplicationController
 
   def edit_client
     current_client
+    current_business
     render "edit"
   end
 
@@ -69,15 +71,16 @@ class ClientsController < ApplicationController
     end
     # current_client
     # @client = Client.find_by_id(params[:client_id])
-    redirect_to "/clients/view/#{current_business.id}"
+    redirect_to "/clients/view/#{current_business.id}/#{@client.id}"
   end
 
    def view
     current_business
-    # @list_clients = current_business.clients
      # @list_clients = Client.where({"active" => true},)
-    if client_from_params = Client.find_by_id(params[:client_id])
-      @client = client_from_params
+    #if client_from_params = Client.find_by_id(params[:client_id])
+    #@client = client_from_params
+    if current_client != nil
+      current_client
     else
       @client = nil
     end
