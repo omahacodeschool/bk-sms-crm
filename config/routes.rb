@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   post "clients/add/:business_id" => 'clients#add'
 
-  get "clients/view/:business_id(/:id)(/:active_only)" => 'clients#view'
+  get "clients/view/:business_id(/:id)" => 'clients#view'
 
   post "clients/info/:business_id" => 'clients#info'
 
