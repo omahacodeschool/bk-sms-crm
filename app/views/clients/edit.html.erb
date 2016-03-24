@@ -1,6 +1,6 @@
 <h1>Edit client:</h1>
 
-<%= form_tag("/clients/#{@client.id}/update", class: "client_form") do %>
+<%= form_tag("/clients/#{@client.id}/update/#{@business.id}", class: "client_form") do %>
 
   <p>First name: 
     <input type="text" name="first_name" value="<%= @client.first_name %>" required>
@@ -25,4 +25,4 @@
   <input type="submit" value="delete">
 <% end %>
 
-<p><a href="/dashboard/<%= @client.id %>"> Back </a></p>
+<p><a href="/dashboard/business/<%= @business.id %>"> Back </a></p>

@@ -1,7 +1,68 @@
+   <nav>
+///////////////NAV//////////////
+ <% if user_signed_in? %>
+    <li>
+      <%= link_to('Profile settings', edit_user_registration_path) %>
+    </li>
+    <li>
+      <a href="/businesses/view">Business settings</a>
+    </li>
+    <% current_user.businesses.each do |business| %>
+    <li>
+      <a href="/dashboard/business/<%=business.id%>"><%= business.name %> dashboard</a>
+    </li>
+    <% end %>
+  <% else %>
+    <li>
+    <%= link_to('Register', new_user_registration_path)  %>
+    </li>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <li>
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Login', new_user_session_path)  %>  
+    </li>
+  <% end %>
+
+  </nav>
+
 <div id="left" class="mike">
   <%= form_tag("/touch/search_touch") do %>
     <p> Search(Name, Number, Etc)
     <input type="text" name="search"></p>
   <% end %>
   
- 
+  <h1>Messages</h1>
+
+
+</div>
+
+
+//////////////////THIS IS THE CURRENT MESSAGE THREAD DIV://///////////
+
+<div id="current_message_thread" class="center">
+
+<% if @touches != nil %>
+  <%= @touches.each do |x| %>
+    <p>
+      <%= x.message %>
+    </p>
+    <% if x.read == false %>
+      <% x.read = true %>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+</div>
+////////////////////////////END///////////////////////////////////////
+
+
+<!-- CLIENTS COLUMN -->
+<div id="right" class="beth">
+<h3><a href ="/clients/view/<%= @business.id %>">View clients</a></h3>
+</div>

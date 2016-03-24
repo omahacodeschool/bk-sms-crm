@@ -1,9 +1,13 @@
 class PagesController < ApplicationController
   def dashboard_business
+    current_user
     @business = Business.find_by_id(params[:id])
 
-    # @clients = @business.clients
-  render "pages/dashboard_business"
+    if Touch.where({"client_id" => @current_client}) != nil
+      @touches = Touch.where({"client_id" => @current_client})
+    else
+      @touches = nil
+    end
   end
 
   def dashboard

@@ -8,21 +8,6 @@ class ClientsController < ApplicationController
     @business = Business.find_by_id(params[:business_id])
   end
 
-  # def client_name
-  #   current_client
-  #   render "name"
-  # end
-
-  # def client_number
-  #   current_client
-  #   render "number"
-  # end
-
-  # def client_notes
-  #   current_client
-  #   render "notes"
-  # end
-
   def change_status
     current_client
     current_business
@@ -32,7 +17,7 @@ class ClientsController < ApplicationController
       @client.active = true
     end
     @client.save
-    redirect_to "/clients/view/#{current_business.id}"
+    redirect_to "/clients/view/#{current_business.id}/#{@client.id}"
   end
 
   def new
@@ -47,6 +32,7 @@ class ClientsController < ApplicationController
     client.last_name = params[:last_name]
     client.phone_number = params[:phone_number]
     client.notes = params[:notes]
+    client.business_id = params[:business_id]
     client.active = true
     client.save
     redirect_to "/clients/view/#{current_business.id}"
@@ -54,6 +40,7 @@ class ClientsController < ApplicationController
 
   def edit_client
     current_client
+    current_business
     render "edit"
   end
 
@@ -84,22 +71,20 @@ class ClientsController < ApplicationController
     end
     # current_client
     # @client = Client.find_by_id(params[:client_id])
-    redirect_to "/clients/view/#{current_business.id}"
+    redirect_to "/clients/view/#{current_business.id}/#{@client.id}"
   end
 
    def view
     current_business
-    @list_clients = Client.find_business_clients(params[:id])
      # @list_clients = Client.where({"active" => true},)
-    if client_from_params = Client.find_by_id(params[:client_id])
-      @client = client_from_params
+    #if client_from_params = Client.find_by_id(params[:client_id])
+    #@client = client_from_params
+    if current_client != nil
+      current_client
     else
       @client = nil
     end
-    # current_client
-    # @client = Client.find_by_id(params[:client_id])
     render "view"
-    # redirect_to "/dashboard/#{@client.id}"
   end
 
 end
