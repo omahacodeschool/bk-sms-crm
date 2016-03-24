@@ -10,8 +10,23 @@ class TouchController < ApplicationController
 
     x.save
 
-    redirect_to("/dashboard")
+    render "create_message"
   end
+
+  def current_conversation_thread
+
+    ###### SETUP FOR TESTING
+    current_business = Business.find_by_id(3)
+    current_client = Client.find_by_id(4)
+    ######
+
+    @touches = Touch.where("business_id" => current_business.id)
+
+    @current_conversation_touches = @touches.where("client_id" => current_client.id)
+
+    render "current_conversation"
+  end
+
 
   def list
     @touches = Touch.all

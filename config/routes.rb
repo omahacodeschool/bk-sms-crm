@@ -3,11 +3,13 @@ Rails.application.routes.draw do
   root to: "home#index"
 
 # TOUCH 
-  post "touch/create_new(/:client_id)" => "touch#create_new"
+  post "touch/create_new" => "touch#create_new"
 
   get "touch" => 'touch#list'
 
   post "touch/search_touch" => "touch#search_touch"
+
+  get "touch/current_thread" => "touch#current_conversation_thread"
 
 # PAGES
   get "dashboard/business/(:id)" => 'pages#dashboard_business'
