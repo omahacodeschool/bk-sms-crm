@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   get "clients/:id/notes" => 'clients#client_notes'
 
-  get "clients/:id/update_status" => 'clients#change_status'
+  get "clients/:id/update_status/:business_id" => 'clients#change_status'
 
   get "clients/:id/edit/:business_id" => 'clients#edit_client'
 

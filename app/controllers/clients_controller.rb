@@ -17,7 +17,7 @@ class ClientsController < ApplicationController
       @client.active = true
     end
     @client.save
-    redirect_to "/clients/view/#{current_business.id}"
+    redirect_to "/clients/view/#{current_business.id}/#{@client.id}"
   end
 
   def new
