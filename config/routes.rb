@@ -31,11 +31,11 @@ Rails.application.routes.draw do
 
   get "clients/new/:business_id" => 'clients#new'
 
-  post "clients/add" => 'clients#add'
+  post "clients/add/:business_id" => 'clients#add'
 
-  get "clients/info(/:id)" => 'clients#info'
+  get "clients/view/:business_id" => 'clients#view'
 
-  post "clients/view/:business_id" => 'clients#view'
+  post "clients/info" => 'clients#info'
 
   post "clients/:id/delete" => 'clients#delete'
 
