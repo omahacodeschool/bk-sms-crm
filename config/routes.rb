@@ -52,6 +52,8 @@ Rails.application.routes.draw do
 
   get "businesses/:id/select/" => 'businesses#select'
 
+  post "message" => 'message#current_message'
+
 
 end
 
