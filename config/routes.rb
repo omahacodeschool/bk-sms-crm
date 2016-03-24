@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post "touch/search_touch" => "touch#search_touch"
 
 # PAGES
-  get "dashboard/business/(:id)" => 'pages#dashboard_business'
+  get "dashboard/business/:id" => 'pages#dashboard_business'
   
   # get "dashboard(/:client_id)" => 'pages#dashboard'
 
@@ -50,7 +50,7 @@ Rails.application.routes.draw do
 
   post "businesses/:id/delete" => 'businesses#delete'
 
-  post "businesses/select" => 'businesses#select'
+  get "businesses/:id/select/" => 'businesses#select'
 
 
 end

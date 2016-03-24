@@ -44,14 +44,8 @@ class BusinessesController < ApplicationController
 
   def select
     @user = current_user
-    @business_list = []
-    if Business.where({"user_id" => @user.id}) != nil
-      @business_list = Business.where({"user_id" => @user.id})
-    else
-      @business_list = nil
-    end
-    @business = Business.find_by_id(params[:business_id])
-    redirect_to "/pages/dashboard/#{@business.id}"
+    @business = Business.find_by_id(params[:id])
+    redirect_to "/dashboard/business/#{@business.id}"
   end
 
 end
