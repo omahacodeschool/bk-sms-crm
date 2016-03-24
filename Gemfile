@@ -20,6 +20,8 @@ gem "sprockets-es6"
 gem "title"
 gem "uglifier"
 gem "devise"
+gem 'pg_search'
+
 
 group :development do
   gem "quiet_assets"
@@ -58,3 +60,5 @@ group :staging, :production do
   gem "rails_stdout_logging"
   gem "rack-timeout"
 end
+
+gem "rails-erd"

@@ -1,4 +1,6 @@
 class Business < ActiveRecord::Base
-  has_many :users
-  has_many :touches
+  include PgSearch
+  belongs_to :user
+  has_many :clients
+  has_many :touches, through: "clients"
 end

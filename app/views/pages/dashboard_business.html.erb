@@ -4,32 +4,4 @@
     <input type="text" name="search"></p>
   <% end %>
   
-  <h1>Messages</h1>
-
-
-</div>
-
-
-//////////////////THIS IS THE CURRENT MESSAGE THREAD DIV://///////////
-
-<div id="current_message_thread" class="center">
-
-<%= @touches.where(client_id => @current_client.id). each do |x| %>
-  <p>
-    <%= x.message %>
-  </p>
-  <% if x.read == false %>
-    <% x.read = true %>
-  <% end %>
-<% end %>
-
-
-</div>
-////////////////////////////END///////////////////////////////////////
-
-
-<!-- CLIENTS COLUMN -->
-<div id="right" class="beth">
-<a href ="/clients/view/<%= @business.id %>">View clients</a>
-</div>
-
+ 
