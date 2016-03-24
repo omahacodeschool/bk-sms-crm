@@ -64,23 +64,31 @@ class ClientsController < ApplicationController
 
   def info
     current_business
+    # below is code for active users only checkbox
+    # if params[:active_only] == nil
+    #   @active_only = 2
+    # else
+    #   @active_only = params[:active_only]
+    # end
     if client_from_params = Client.find_by_id(params[:client_id])
       @client = client_from_params
     else
       @client = nil
     end
-    # current_client
-    # @client = Client.find_by_id(params[:client_id])
-    redirect_to "/clients/view/#{current_business.id}/#{@client.id}"
+    redirect_to "/clients/view/#{current_business.id}/#{@client.id}/#{@active_only}"
   end
 
    def view
     current_business
-     # @list_clients = Client.where({"active" => true},)
-    #if client_from_params = Client.find_by_id(params[:client_id])
-    #@client = client_from_params
-    if current_client != nil
-      current_client
+    # below is code for active users only checkbox
+    # @active_only = params[:active_only]
+    # if @active_only == 1
+    #   @list_clients = current_business.clients.where({"active" => true})
+    # else
+    #   @list_clients = current_business.clients
+    # end
+    if client_from_params = Client.find_by_id(params[:id])
+    @client = client_from_params
     else
       @client = nil
     end

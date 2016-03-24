@@ -6,14 +6,14 @@
       <% @business.clients.each do |client| %>
         <%= client.first_name %>
         <%= client.last_name %>
-        <a href="/clients/<%= client.id %>/edit/<%= @business.id %>">Edit</a>
+        <a href="/clients/<%= client.id %>/edit/<%= @business.id %>">Edit</a></br>
     <% end %>
     <% else %>
       <p>You currently have no clients.</p>
   <% end %>
 
 
-<!-- NOT WORKING This is the dropdown menu of all business clients  -->
+<!--  This is the dropdown menu of all business clients  -->
   <%= form_tag("/clients/info/#{@business.id}", class: "dropdown") do %>
   <select name="client_id">
         <option selected disabled>Choose client</option>
@@ -25,6 +25,8 @@
           </option>
         <%end%>
   </select>
+    <input type="checkbox" name="active_only" value="1">
+    <label>Active Users Only</label>
     <input type="submit">
   <% end %>
 
