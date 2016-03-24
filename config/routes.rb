@@ -40,6 +40,8 @@ Rails.application.routes.draw do
 
   post "businesses/:user_id/new" => 'businesses#new'
 
+  post "message" => 'message#current_message'
+
 
 end
 
