@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 x = User.new
-x.phone_number = "7777777777" 
+x.phone_number = "+14028502532" 
 x.email ="user@gmail.com"
 x.password = "password"
 x.save
@@ -17,7 +17,7 @@ x.save
 b = Business.new
 b.user_id = x.id
 b.name = "Moo-Moo Steakhouse"
-b.business_phone = "3333333333"
+b.business_phone = "+14028502532"
 b.save
 
 r = Business.new
@@ -29,13 +29,13 @@ r.save
 e = Business.new
 e.user_id = x.id
 e.name = "Stuff To Put On Your Face, LLC"
-e.business_phone = "9999999999"
+e.business_phone = "+14028502532"
 e.save
 
 k = Business.new
 k.user_id = x.id
 k.name = "QWERTY Keyboard Cleaning"
-k.business_phone = "0000000000"
+k.business_phone = "+14028502532"
 k.save
 
 # /////////////////////////////////////////////////
@@ -52,11 +52,11 @@ y.business_id = r.id
 y.save
 
 a = Client.new
-a.first_name = "John"
-a.last_name = "Updike"
-a.notes = "Just a guy"
+a.first_name = "Mike"
+a.last_name = "Myers"
+a.notes = "Just a guy- Not that Wayne's World guy."
 a.active = true
-a.phone_number = "1111111111"
+a.phone_number = "4025771928"
 a.business_id = b.id
 a.save
 
