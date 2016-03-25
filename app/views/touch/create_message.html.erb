@@ -15,17 +15,7 @@ This is the post action for creating a new message.
   -->
 
 
-<%= form_tag("/touch/create_new") do %>
-
-<!-- Equal to the current user's ID. This Beta Version requires input to form. -->
-<p> Client ID: 
-<input type="integer" name="client_id" value="<%= params[:client_id] %>"></p>
-
-
-<!-- Equal to the current user's ID. This Beta Version requires input to form. -->
-<p>Business ID:
-<input type="integer" name="business_id" value="<%= params[:business_id] %>"></p>
-
+<%= form_tag("/touch/create_new/#{@client.id}") do %>
 
 <!-- This is the text box for entering the message content.-->
 <p>Message:
