@@ -50,10 +50,10 @@ class TouchController < ApplicationController
     @text_recipient = Client.find_by_id(@text_to_send.client_id)
     @text_content = @text_to_send.message
     @text_sender_business = Business.find_by_id(@text_recipient.business_id)
-    # credentials:
 
-    account_sid = 'AC7f31bedb178e5c29681712d702181f29' 
-    auth_token = '0b67f2ae87cae02e784c98378a806368' 
+    # Twilio credentials:
+    account_sid = 'XXXXXXXXX' 
+    auth_token = 'XXXXXXXXX' 
 
     # set up a client to talk to the Twilio REST API 
     @client = Twilio::REST::Client.new(account_sid, auth_token) 
