@@ -24,7 +24,7 @@ class TouchController < ApplicationController
     @business = @client.business
     @touches = @client.touches
   
-    render "current_conversation"
+    render "current_conversation", layout: nil
   end
 
 
