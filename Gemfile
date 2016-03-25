@@ -20,6 +20,8 @@ gem "sprockets-es6"
 gem "title"
 gem "uglifier"
 gem "devise"
+gem 'pg_search'
+
 
 group :development do
   gem "quiet_assets"
@@ -60,3 +62,8 @@ group :staging, :production do
 end
 
 gem "rails-erd"
+
+gem 'pronto'
+gem 'pronto-rubocop'
+gem 'pronto-reek'
+gem 'pronto-rails_best_practices'

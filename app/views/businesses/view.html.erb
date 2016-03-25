@@ -1,7 +1,6 @@
-
-  <% if @business_list != nil %>
+ <% if current_user.businesses != nil %> 
       <h3>Your Businesses</h3>
-      <% @business_list.each do |business| %>
+      <% current_user.businesses.each do |business| %>
         <%= business.name %>
         <a href="/businesses/<%= business.id %>/edit">Edit</a>
         <a href="/businesses/<%= business.id %>/select">Select</a></br>
@@ -9,21 +8,6 @@
     <% else %>
       <p>You currently have no businesses.</p>
   <% end %>
-
-<% if @business_list != nil %>
-  <%= form_tag("/businesses/select", class: "dropdown") do %>
-    <select name="business_id">
-          <option selected disabled>Choose business</option>
-          <% @business_list.each do |business| %>
-            <option value="<%= business.id %>"
-            <%= business.name %>
-            </option>
-          <%end%>
-    </select>
-      <input type="submit" value="select">
-    <% end %>
-<% end %>
-
 
 
 <h3>Add Business:</h3>
