@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: "home#index"
 
 # TOUCH 
-  post "touch/create_new" => "touch#create_new"
+  get "touch/new/:client_id" => "touch#show_new_form"
+  post "touch/create_new/:client_id" => "touch#create_new"
 
   get "touch" => 'touch#list'
 

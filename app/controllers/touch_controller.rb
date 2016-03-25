@@ -1,16 +1,21 @@
 class TouchController < ApplicationController
   # require 'twilio-ruby'
   
+  def show_new_form
+    @client = Client.find_by_id(params[:client_id])
+    render "create_message"
+  end
+
   def create_new
     x = Touch.new
-    x.client_id = (params[:client_id])
-    x.message = (params[:message_content])
+    x.client_id = params[:client_id]
+    x.message = params[:message_content]
     x.outgoing = true
     x.read = true
 
     x.save
 
-    render "create_message"
+    redirect_to("/")
   end
 
   def current_conversation_thread
