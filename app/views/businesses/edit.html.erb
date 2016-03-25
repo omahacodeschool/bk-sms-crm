@@ -8,7 +8,8 @@
   <p>Business Phone Number
     <input type="tel" size=10 name="business_phone" value="<%=@business.business_phone%>">
   </p>
-  
+  <input type="submit" value="update">
+
 <% end %>
 
 <%= form_tag("/businesses/#{@business.id}/delete") do %>

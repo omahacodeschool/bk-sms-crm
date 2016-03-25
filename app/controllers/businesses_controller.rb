@@ -10,40 +10,29 @@ class BusinessesController < ApplicationController
   end
 
   def view
-    @user = current_user
-    @business_list = []
-    if Business.where({"user_id" => @user.id}) != nil
-      @business_list = Business.where({"user_id" => @user.id})
-    else
-      @business_list = nil
-    end
     render 'view'
   end
 
   def edit
-    @user = current_user
     @business = Business.find_by_id(params[:id])
     render 'edit'
   end
 
   def update
-    @user = current_user
     @business = Business.find_by_id(params[:id])
-    @business.phone_number = params[:phone_number]
+    @business.business_phone = params[:business_phone]
     @business.name = params[:name]
     @business.save
     redirect_to "/businesses/view"
   end
 
   def delete
-    @user = current_user
     @business = Business.find_by_id(params[:id])
     Business.destroy(@business)
     redirect_to "/businesses/view"
   end
 
   def select
-    @user = current_user
     @business = Business.find_by_id(params[:id])
     redirect_to "/dashboard/business/#{@business.id}"
   end
