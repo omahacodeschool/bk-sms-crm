@@ -38,6 +38,12 @@
   
   <h1>Messages</h1>
 
+  <h2>All Clients</h2>
+
+  <% @clients.each do |client| %>
+    <%= client.first_name %> <%= client.last_name %>
+  <% end %>
+
 
 </div>
 
