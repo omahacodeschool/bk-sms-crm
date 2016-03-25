@@ -1,21 +1,22 @@
 <h1>Current Conversation Thread</h1>
+<% if @current_client != nil %>
+  <% @current_conversation_touches.each do |touch| %>
+        <% if touch.outgoing == true %>
 
-<% @current_conversation_touches.each do |touch| %>
-      <% if touch.outgoing == true %>
+          <div class="outgoing">
+            <p> 
+              <%= touch.message %> 
+            </p>
+          </div>
 
-        <div class="outgoing">
-          <p> 
-            <%= touch.message %> 
-          </p>
-        </div>
+        <% else %>
+          <div class="incoming">
+            <p> 
+              <%= touch.message %> 
+            </p>
+          </div>
 
-      <% else %>
-        <div class="incoming">
-          <p> 
-            <%= touch.message %> 
-          </p>
-        </div>
+        <% end %>
 
-      <% end %>
-
+  <% end %>
 <% end %>
