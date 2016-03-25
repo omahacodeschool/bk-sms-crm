@@ -21,7 +21,7 @@
   
 <% end %>
 
-<%= form_tag("/clients/#{@client.id}/delete") do %>
+<%= form_tag("/clients/#{@client.id}/delete/#{@business.id}") do %>
   <input type="submit" value="delete">
 <% end %>
 
