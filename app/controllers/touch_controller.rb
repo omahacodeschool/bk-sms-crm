@@ -7,13 +7,15 @@ class TouchController < ApplicationController
   end
 
   def create_new
-    x = Touch.new
-    x.client_id = params[:client_id]
-    x.message = params[:message_content]
-    x.outgoing = true
-    x.read = true
+    @x = Touch.new
+    @x.client_id = params[:client_id]
+    @x.message = params[:message_content]
+    @x.outgoing = true
+    @x.read = true
 
-    x.save
+    @x.save
+    
+    send_sms
 
     redirect_to("/")
   end
@@ -40,11 +42,11 @@ class TouchController < ApplicationController
   end
 
 
-  # Method takes a Touch object and its ID... and creates a text message from the data saved in DB.
+  # Method takes a Touch object IF it is the most recent OUTGOING touch... and creates a text message from the data saved in the DB.
   #returns nil.
-  def send_sms(id)
-    
-    @text_to_send = Touch.find_by_id(id)  
+  def send_sms
+  
+    @text_to_send = @x 
     @text_recipient = Client.find_by_id(@text_to_send.client_id)
     @text_content = @text_to_send.message
     @text_sender_business = Business.find_by_id(@text_recipient.business_id)
