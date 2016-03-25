@@ -1,9 +1,8 @@
 class TouchController < ApplicationController
-  require 'twilio-ruby'
+  # require 'twilio-ruby'
   
   def create_new
     x = Touch.new
-    x.business_id = (params[:business_id])
     x.client_id = (params[:client_id])
     x.message = (params[:message_content])
     x.outgoing = true
@@ -18,13 +17,15 @@ class TouchController < ApplicationController
 
     ###### SETUP FOR TESTING
     current_business = Business.find_by_id(3)
-    current_client = Client.find_by_id(4)
-    ######
-
     @touches = Touch.where("business_id" => current_business.id)
-
+    if Client.find_by_id(4) != nil
+    current_client = Client.find_by_id(4)
+   
+    ######
     @current_conversation_touches = @touches.where("client_id" => current_client.id)
-
+  else
+    current_client = nil
+     end
     render "current_conversation"
   end
 
