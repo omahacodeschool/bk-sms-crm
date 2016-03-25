@@ -1,6 +1,6 @@
-<h1>Current Conversation Thread</h1>
-<% if @current_client != nil %>
-  <% @current_conversation_touches.each do |touch| %>
+<h1>Conversation Thread</h1>
+<% if @client != nil %>
+  <% @touches.each do |touch| %>
         <% if touch.outgoing == true %>
 
           <div class="outgoing">
@@ -17,6 +17,5 @@
           </div>
 
         <% end %>
-
   <% end %>
 <% end %>

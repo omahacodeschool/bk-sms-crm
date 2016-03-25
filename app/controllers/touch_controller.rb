@@ -14,18 +14,11 @@ class TouchController < ApplicationController
   end
 
   def current_conversation_thread
+    @client = Client.find_by_id(params[:client_id])
 
-    ###### SETUP FOR TESTING
-    current_business = Business.find_by_id(3)
-    @touches = Touch.where("business_id" => current_business.id)
-    if Client.find_by_id(4) != nil
-    current_client = Client.find_by_id(4)
-   
-    ######
-    @current_conversation_touches = @touches.where("client_id" => current_client.id)
-  else
-    current_client = nil
-     end
+    @business = @client.business
+    @touches = @client.touches
+  
     render "current_conversation"
   end
 
