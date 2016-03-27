@@ -1,13 +1,15 @@
 class MessageController < ApplicationController
   def current_messages
+    touch = 1
     user = current_user
-    business = Business.where("user_id" => user.id)
-    #loops the array of business AP relations giving the .id to
-    #bring matching Touch objects
-    business.each do |business|
-    touch = Touch.where("business_id" => business.id)
+    business = Business.find_by_id(params[:id])
+    client = Client.where("business_id" => business.id)
+    client.each do |client|
+    @touch = Touch.where("client_id" => client.id)
     end
-    #pulls the most recent touch object
-    @post = touch.order("created_at").last
+    @incoming = @touch.where("outgoing" => false)
+    @outgoing = @touch.where("outgoing" => true)
+    
+    render "thread"
   end
 end

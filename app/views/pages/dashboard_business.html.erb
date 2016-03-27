@@ -4,13 +4,14 @@
     <input type="text" name="search"></p>
   <% end %>
   
-  <h1>Messages</h1>
+  <h1>Messages</h1> 
 
   <h2>All Clients</h2>
-
+  
   <% @clients.each do |client| %>
-    <a href="#" class="client" data-client-id="<%= client.id %>"><%= client.first_name %> <%= client.last_name %></a>
+    <a href="message/:@business.id" class="client" data-client-id="<%= client.id %>"> <%= client.first_name %> <%= client.last_name %></a>
   <% end %>
+
 
 
 </div>

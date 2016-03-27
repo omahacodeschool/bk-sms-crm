@@ -12,6 +12,16 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    touch = 1
+    user = current_user
+    @business = Business.find_by_id(params[:id])
+    @client = Client.where("business_id" => @business.id)
+    client.each do |client|
+    @touch = Touch.where("client_id" => client.id)
+    end
+    @incoming = @touch.where("outgoing" => false)
+    @outgoing = @touch.where("outgoing" => true)
+    ############################################################
     @list_clients = Client.where({"active" => true})
     @touches = Touch.all
     if client_from_params = Client.find_by_id(params[:client_id])
