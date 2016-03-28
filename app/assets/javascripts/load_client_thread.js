@@ -1,5 +1,5 @@
 window.onload = function(){
-  var client = document.getElementsByClassName('client');
+  var clients = document.getElementsByClassName('client');
   var center = document.getElementById("center");
 
   
@@ -10,9 +10,9 @@ window.onload = function(){
   //       addEventListener like below:
               // var client_id = this element (this client)'s value for the "data-client-id" attribute
               
-          for (i =0; i < client.length; i++){
-            var client_id = client[i].dataset.client};
-          client.addEventListener("click", function(){
+          for (i =0; i < clients.length; i++){
+            var client_id = clients[i].dataset.client};
+          clients.addEventListener("click", function(){
             var touches_request = new XMLHttpRequest();
             touches_request.open("GET", "message/" + client_id);
             touches_request.addEventListener("load", function(request_object){
