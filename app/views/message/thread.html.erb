@@ -1,6 +1,11 @@
+<h3>From Client</h3><br>
 <%@incoming.each do |incoming|%>
-<%@outgoing.each do |outgoing|%>
-<%=incoming.message%>
+
+<%=incoming.message%><br>
 
 <%end%>
+<h3>From Business</h3><br>
+<%@outgoing.each do |outgoing|%>
+<%=outgoing.message%><br>
+
 <%end%>

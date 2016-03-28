@@ -57,6 +57,7 @@ Rails.application.routes.draw do
 
   get "dashboard/business/message/:client_id" => 'message#current_messages'
 
+  get "dashboard/business/current_thread/:client_id" => "touch#current_conversation_thread"
 
 end
 
