@@ -55,7 +55,7 @@ Rails.application.routes.draw do
 
   get "businesses/:id/select/" => 'businesses#select'
 
-  get "dashboard/business/message/:@business.id" => 'message#current_messages'
+  get "dashboard/business/message/:client_id" => 'message#current_messages'
 
 
 end

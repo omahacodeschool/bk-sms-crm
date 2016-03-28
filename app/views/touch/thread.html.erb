@@ -1,6 +1,11 @@
+Incoming
 <%@incoming.each do |incoming|%>
-<%@outgoing.each do |outgoing|%>
+
 <%=incoming.message%>
-<%=outgoing.message%>
+
+
 <%end%>
+Outgoing
+<%@outgoing.each do |outgoing|%>
+<%=outgoing.message%>
 <%end%>

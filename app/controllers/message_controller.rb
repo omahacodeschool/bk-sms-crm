@@ -2,11 +2,10 @@ class MessageController < ApplicationController
   def current_messages
     touch = 1
     user = current_user
-    business = Business.find_by_id(params[:id])
-    client = Client.where("business_id" => business.id)
-    client.each do |client|
-    @touch = Touch.where("client_id" => client.id)
-    end
+
+    @client = Client.find_by_id(params[:client_id])
+    @touch = Touch.where("client_id" => @client.id)
+    
     @incoming = @touch.where("outgoing" => false)
     @outgoing = @touch.where("outgoing" => true)
     

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
+
+
   <meta charset="utf-8" />
   <meta name="ROBOTS" content="NOODP" />
   <meta name="viewport" content="initial-scale=1" />
@@ -14,11 +17,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
+  <%= render "javascript" -%>
   <%= render "flashes" -%>
   <%= yield %>
-  <%= render "javascript" %>
   <%= render "css_overrides" %>
   <nav>
+
 ///////////////NAV//////////////
  <% if user_signed_in? %>
     <li>

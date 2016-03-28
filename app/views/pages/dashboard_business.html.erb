@@ -1,3 +1,4 @@
+
 <div id="left" class="mike">
   <%= form_tag("/touch/search_touch") do %>
     <p> Search(Name, Number, Etc)
@@ -9,7 +10,7 @@
   <h2>All Clients</h2>
   
   <% @clients.each do |client| %>
-    <a href="message/:@business.id" class="client" data-client-id="<%= client.id %>"> <%= client.first_name %> <%= client.last_name %></a>
+    <a href="message/<%=client.id%>" class="client" data-client-id="<%= client.id %>"> <%= client.first_name %> <%= client.last_name %></a>
   <% end %>
 
 
