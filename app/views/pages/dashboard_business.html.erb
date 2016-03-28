@@ -10,7 +10,7 @@
   <h2>All Clients</h2>
   
   <% @clients.each do |client| %>
-    <a href="message/<%=client.id%>" class="client" data-client-id="<%= client.id %>"> <%= client.first_name %> <%= client.last_name %></a>
+    <a href="#" class="client" data-client-id="<%= client.id %>"> <%= client.first_name %> <%= client.last_name %></a>
   <% end %>
 
 
