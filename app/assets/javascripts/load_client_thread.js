@@ -11,7 +11,8 @@ window.onload = function(){
               // var client_id = this element (this client)'s value for the "data-client-id" attribute
               
           for (i =0; i < clients.length; i++){
-            var client_id = clients[i].dataset.client};
+            var client = clients[i];
+            var client_id = client.dataset.client};
           clients.addEventListener("click", function(){
             var touches_request = new XMLHttpRequest();
             touches_request.open("GET", "message/" + client_id);
