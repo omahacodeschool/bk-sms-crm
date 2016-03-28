@@ -44,8 +44,9 @@ class TouchController < ApplicationController
 
   # Method takes a Touch object IF it is the most recent OUTGOING touch... and creates a text message from the data saved in the DB.
   #returns nil.
+  #Also adds country code to phone number. Default is US ("+1")
   def send_sms
-  
+
     @text_to_send = @x 
     @text_recipient = Client.find_by_id(@text_to_send.client_id)
     @text_content = @text_to_send.message
@@ -62,7 +63,7 @@ class TouchController < ApplicationController
 
     @client.account.messages.create(
       :from => @text_sender_business.business_phone, 
-      :to => @text_recipient.phone_number, 
+      :to => '+1' + @text_recipient.phone_number, 
       :body => @text_content 
 
       # UNCOMMENT THIS (AND ADD SOME FUNCTIONALITY, PERHAPS) FOR MULTIMEDIA MESSAGE:
