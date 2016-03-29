@@ -15,10 +15,6 @@ Rails.application.routes.draw do
 # PAGES
   get "dashboard/business/:id" => 'pages#dashboard_business'
   
-  # get "dashboard(/:client_id)" => 'pages#dashboard'
-
-  get "onboard" => 'pages#onboard'
-
 # CLIENTS
   get "clients/:id/name" => 'clients#client_name'
 
