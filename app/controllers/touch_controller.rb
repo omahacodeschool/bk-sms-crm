@@ -2,7 +2,7 @@ class TouchController < ApplicationController
   # require 'twilio-ruby'
 
   def save_incoming_sms
-    
+    binding.pry
     @i = Touch.new
     @i.client_id = params[:NUMBER?]
     @i.message = params[:BODY?]

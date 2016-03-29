@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
 # TOUCH 
-  post "touch/incoming" => "touch#save_incoming_sms"
+  get "touch/incoming" => "touch#save_incoming_sms"
 
   get "touch/new/:client_id" => "touch#show_new_form"
   
