@@ -2,10 +2,10 @@ window.onload = function(){
   var clients = document.getElementsByClassName("client");
   var center = document.getElementById("center");
   var sendMessage = document.getElementById("sendMessage");
-                
-    for (i =0; i < clients.length; i++){
-      var client = clients[i];
-      var client_id = client.dataset.clientId;
+
+  for (i =0; i < clients.length; i++){
+    var client = clients[i];
+    var client_id = client.dataset.clientId;
 
     client.addEventListener("click", function(){
       var touches_request = new XMLHttpRequest();
@@ -14,14 +14,14 @@ window.onload = function(){
       client_request.open("GET", "clients/profile/" + client_id);
 
       touches_request.addEventListener("load", function(request_object){
-      center.innerHTML = request_object.target.response;
-      center.style.display = "block";
-       });
+        center.innerHTML = request_object.target.response;
+        center.style.display = "block";
+      });
 
       client_request.addEventListener("load", function(request_object){
-      right.innerHTML = request_object.target.response;
-      right.style.display = "block";
-       });
+        right.innerHTML = request_object.target.response;
+        right.style.display = "block";
+      });
 
       touches_request.send();
       client_request.send();
