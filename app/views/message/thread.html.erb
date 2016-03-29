@@ -13,10 +13,10 @@
 <div id="sendMessage" class="mike">
   <%= form_tag("send_message/<%=@cliend.id=>") do %>
     <p> 
-    <textarea name="message_content" rows="1" cols="75" value="<%= params[:message_content] %>">
+    <textarea name="message_content" rows="2" cols="70" value="<%= params[:message_content] %>">
     </textarea>
     </p>   
-    <input type="text" value="SEND"></p>
+    <input type="submit" value="send"></p>
   <% end %>
 </div>
 
