@@ -1,4 +1,4 @@
-window.onload = function(){
+jQuery(document).ready(function(){
   var clients = document.getElementsByClassName("client");
   var center = document.getElementById("center");
   var sendMessage = document.getElementById("sendMessage");
@@ -27,4 +27,4 @@ window.onload = function(){
       client_request.send();
     });
   };
-};
+});

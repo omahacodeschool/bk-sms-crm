@@ -8,7 +8,7 @@
         <p id="client_notes"><%= @client.notes %></p>
       <h4> Client Status: 
       <!-- This toggles the client's active/inactive status -->
-      <a href ="/clients/<%= @client.id %>/update_status">Toggle Status</a>
+      <a href ="/clients/<%= @client.id %>/update_status" class="toggle_status_link" data-client-id="<%= @client.id %>">Toggle Status</a>
       </h4>
         <p id="client_status">
           <% if @client.active == true %>

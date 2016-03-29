@@ -17,7 +17,12 @@ class ClientsController < ApplicationController
       @client.active = true
     end
     @client.save
-    redirect_to "/dashboard/business/clients/profile/#{@client.id}"
+
+    if @client.active?
+      render text: "Active", layout: nil
+    else
+      render text: "Inactive", layout: nil
+    end
   end
 
   def new
