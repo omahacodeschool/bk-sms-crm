@@ -2,6 +2,7 @@ class TouchController < ApplicationController
   # require 'twilio-ruby'
 
   def save_incoming_sms
+    
     @i = Touch.new
     @i.client_id = params[:NUMBER?]
     @i.message = params[:BODY?]
@@ -78,7 +79,7 @@ class TouchController < ApplicationController
 
     @client.account.messages.create(
       :from => text_sender_business.business_phone, 
-      :to => text_recipient.phone_number, 
+      :to => '+1' + text_recipient.phone_number, 
       :body => text_content 
 
       # UNCOMMENT THIS (AND ADD SOME FUNCTIONALITY, PERHAPS) FOR MULTIMEDIA MESSAGE:
