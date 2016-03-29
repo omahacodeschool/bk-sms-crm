@@ -1,15 +1,15 @@
-<ul>
 <% @touch.each do |touch| %>
+<ul>
   <% if touch.outgoing == false %>
-    <li class="outgoing">
-      <%=touch.message%>
-    </li>
-  <% else %>
     <li class="incoming">
       <%=touch.message%>
     </li>
+  <% else %>
+    <li class="outgoing">
+      <%=touch.message%>
+    </li>
+    </ul>
 <% end %>
-</ul>
 
 <%end%>
 <div id="sendMessage" class="mike">
