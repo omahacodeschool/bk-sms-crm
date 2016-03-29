@@ -2,6 +2,7 @@ jQuery(document).ready(function(){
   var clients = document.getElementsByClassName("client");
   var center = document.getElementById("center");
   var sendMessage = document.getElementById("sendMessage");
+  var client_id = ""
 
   for (i =0; i < clients.length; i++){
     var client = clients[i];
@@ -22,6 +23,7 @@ jQuery(document).ready(function(){
         right.innerHTML = request_object.target.response;
         right.style.display = "block";
       });
+
 
       touches_request.send();
       client_request.send();
