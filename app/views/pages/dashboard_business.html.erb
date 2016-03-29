@@ -1,58 +1,60 @@
+<div class="row">
 
-<div id="left">
-  <%= form_tag("/touch/search_touch") do %>
-    <p> Search(Name, Number, Etc)
-    <input type="text" name="search"></p>
-  <% end %>
-  
-  
+  <div id="left" class="col-3">
+    <%= form_tag("/touch/search_touch") do %>
+      <input type="text" name="search" placeholder="search">
+      <input type="submit">
+    <% end %>
+    
+    <h3>Messages</h3>
+    <ul>
+    <% @clients.each do |client| %>
+      <li>
+        <a href="#" class="client" data-client-id="<%= client.id %>"> <%= client.first_name %> <%= client.last_name %></a>
+      </li>
+    <% end %>
+    </ul>
 
+  </div>
+  <!-- CONVERSATION COLUMN -->
+  <div id="center" class="col-7">
+  <h3><%= @business.name %> </h3>
+  <div id="thread"></div>
+  </div>
+    
+
+  <!-- CLIENTS COLUMN -->
+  <div id="right" class="col-2">
   <h3>Clients</h3>
-  
-  <% @clients.each do |client| %>
-    <a href="#" class="client" data-client-id="<%= client.id %>"> <%= client.first_name %> <%= client.last_name %></a>
+  <!--  This is the dropdown menu of all business clients  -->
+
+  <% if @business.clients != nil %>
+    <%= form_tag("/clients/info/#{@business.id}", class: "dropdown") do %>
+    <select name="client_id">
+          <option selected disabled>Choose client</option>
+          <% @business.clients.each do |client| %>
+            <option value= "<%= client.id %>"
+            <%= "selected" if @client != nil && client.id == @client.id %>>
+            <%=client.first_name %>
+            <%=client.last_name %>
+            </option>
+          <%end%>
+    </select>
+      <input type="checkbox" name="active_only" value="1" style="display:none;">
+      <label style="display:none;">Active Users Only (not functional - will require js)</label>
+      <input type="submit">
+    <% end %>
+    <% else %>
+    <p>You have no clients.</p>
   <% end %>
 
+  <div id="current_client"></div>
 
+    <!-- A NEW CLIENT-->
+    <h4><a href="/clients/new/<%= @business.id%>">Add new client</a></h4>
+    <!-- ALL CLIENTS-->
+    <h4><a href="/clients/view/<%= @business.id %>">View all clients</a></h4>
 
-</div>
-
-<!-- CONVERSATION COLUMN -->
-
-
-<div id="center">
-</div>
-  
-
-
-<!-- CLIENTS COLUMN -->
-<div id="right">
-<h3><%= @business.name %> Clients</h3>
-<!--  This is the dropdown menu of all business clients  -->
-
-<% if @business.clients != nil %>
-  <%= form_tag("/clients/info/#{@business.id}", class: "dropdown") do %>
-  <select name="client_id">
-        <option selected disabled>Choose client</option>
-        <% @business.clients.each do |client| %>
-          <option value= "<%= client.id %>"
-          <%= "selected" if @client != nil && client.id == @client.id %>>
-          <%=client.first_name %>
-          <%=client.last_name %>
-          </option>
-        <%end%>
-  </select>
-    <input type="checkbox" name="active_only" value="1">
-    <label>Active Users Only (not functional - will require js)</label>
-    <input type="submit">
-  <% end %>
-  <% else %>
-  <p>You have no clients.</p>
-<% end %>
-
-  <!-- A NEW CLIENT-->
-  <h5><a href ="/clients/new/<%= @business.id%>">Add new client</a></h3>
-  <!-- ALL CLIENTS-->
-  <h5><a href ="/clients/view/<%= @business.id %>">View all clients</a></h3>
+  </div>
 
 </div>

@@ -6,6 +6,6 @@ class MessageController < ApplicationController
     
     @incoming = @touch.where("outgoing" => false)
     @outgoing = @touch.where("outgoing" => true)
-    render "thread"
+    render "thread", layout: nil
   end
 end
