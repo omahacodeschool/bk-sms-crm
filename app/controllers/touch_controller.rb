@@ -3,10 +3,11 @@ class TouchController < ApplicationController
 
   def save_incoming_sms
     @i = Touch.new
-    @x.client_id = params[:NUMBER?]
-    @x.message = params[:BODY?]
-    @x.outgoing = false
-    @x.read = false
+    @i.client_id = params[:NUMBER?]
+    @i.message = params[:BODY?]
+    @i.outgoing = false
+    @i.read = false
+    @i.save
 
   end  
   
@@ -77,7 +78,7 @@ class TouchController < ApplicationController
 
     @client.account.messages.create(
       :from => text_sender_business.business_phone, 
-      :to => '+1' + text_recipient.phone_number, 
+      :to => text_recipient.phone_number, 
       :body => text_content 
 
       # UNCOMMENT THIS (AND ADD SOME FUNCTIONALITY, PERHAPS) FOR MULTIMEDIA MESSAGE:
