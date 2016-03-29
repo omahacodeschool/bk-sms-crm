@@ -17,11 +17,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= body_class %>">
-  <%= render "javascript" -%>
-  <%= render "flashes" -%>
-  <%= yield %>
-  <%= render "css_overrides" %>
-  <nav>
+<nav>
  <% if user_signed_in? %>
     <li>
       <%= link_to('Profile settings', edit_user_registration_path) %>
@@ -51,5 +47,10 @@
   <% end %>
 
   </nav>
+  <%= render "javascript" -%>
+  <%= render "flashes" -%>
+  <%= yield %>
+  <%= render "css_overrides" %>
+  
 </body>
 </html>

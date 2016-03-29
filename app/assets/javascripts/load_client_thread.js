@@ -8,19 +8,28 @@ window.onload = function(){
   
 
               
-          for (i =0; i < clients.length; i++){
-            var client = clients[i]};
-            
-            var client_id = client.dataset.clientId;
-          client.addEventListener("click", function(){
-            var touches_request = new XMLHttpRequest();
-            touches_request.open("GET", "message/" + client_id);
-            touches_request.addEventListener("load", function(request_object){
-            center.innerHTML = request_object.target.response;
-            quiz.style.display = "block";
-             });
+    for (i =0; i < clients.length; i++){
+      var client = clients[i];
+      var client_id = client.dataset.clientId;
+
+    client.addEventListener("click", function(){
+      var touches_request = new XMLHttpRequest();
+      var client_request = new XMLHttpRequest();
+      touches_request.open("GET", "message/" + client_id);
+      client_request.open("GET", "clients/profile/" + client_id);
+
+      touches_request.addEventListener("load", function(request_object){
+      center.innerHTML = request_object.target.response;
+      center.style.display = "block";
+       });
+
+      client_request.addEventListener("load", function(request_object){
+      right.innerHTML = request_object.target.response;
+      right.style.display = "block";
+       });
 
       touches_request.send();
+      client_request.send();
     });
-  
+  };
 };

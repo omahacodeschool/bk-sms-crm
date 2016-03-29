@@ -17,7 +17,7 @@ class ClientsController < ApplicationController
       @client.active = true
     end
     @client.save
-    redirect_to "/clients/view/#{current_business.id}/#{@client.id}"
+    redirect_to "/dashboard/business/clients/profile/#{@client.id}"
   end
 
   def new
@@ -93,6 +93,23 @@ class ClientsController < ApplicationController
       @client = nil
     end
     render "view"
+  end
+
+   def profile
+    current_business
+    # below is code for active users only checkbox
+    # @active_only = params[:active_only]
+    # if @active_only == 1
+    #   @list_clients = current_business.clients.where({"active" => true})
+    # else
+    #   @list_clients = current_business.clients
+    # end
+    if client_from_params = Client.find_by_id(params[:id])
+    @client = client_from_params
+    else
+      @client = nil
+    end
+    render "profile", layout: nil
   end
 
 end
