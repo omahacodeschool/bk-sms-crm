@@ -2,12 +2,7 @@ window.onload = function(){
   var clients = document.getElementsByClassName("client");
   var center = document.getElementById("center");
   var sendMessage = document.getElementById("sendMessage");
-
-
-
-  
-
-              
+                
     for (i =0; i < clients.length; i++){
       var client = clients[i];
       var client_id = client.dataset.clientId;
