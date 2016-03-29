@@ -1,7 +1,7 @@
 jQuery(document).ready(function(){
   var clients = document.getElementsByClassName("client");
-  var center = document.getElementById("center");
-  var sendMessage = document.getElementById("sendMessage");
+  var thread_display = document.getElementById("thread");
+  var client_display = document.getElementById("current_client");
   var client_id = ""
 
   for (i =0; i < clients.length; i++){
@@ -15,13 +15,13 @@ jQuery(document).ready(function(){
       client_request.open("GET", "clients/profile/" + client_id);
 
       touches_request.addEventListener("load", function(request_object){
-        center.innerHTML = request_object.target.response;
-        center.style.display = "block";
+        thread_display.innerHTML = request_object.target.response;
+        thread_display.style.display = "block";
       });
 
       client_request.addEventListener("load", function(request_object){
-        right.innerHTML = request_object.target.response;
-        right.style.display = "block";
+        client_display.innerHTML = request_object.target.response;
+        client_display.style.display = "block";
       });
 
 
