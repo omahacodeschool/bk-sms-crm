@@ -22,8 +22,6 @@
   <%= yield %>
   <%= render "css_overrides" %>
   <nav>
-
-///////////////NAV//////////////
  <% if user_signed_in? %>
     <li>
       <%= link_to('Profile settings', edit_user_registration_path) %>
