@@ -43,6 +43,22 @@ ul, ol {
   text-align: center;
 }
 
+
+#thread .outgoing {
+  float: left;
+}
+
+#thread .incoming {
+  float: right;
+}
+
+#thread .incoming, .outgoing ul{
+  list-style: none;
+}
+
+#thread li{
+  text-decoration: none;
+}
 /***********************
 NAVIGATION
 ***********************/
