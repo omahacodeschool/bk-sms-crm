@@ -45,12 +45,17 @@ class TouchController < ApplicationController
   # Method takes a Touch object IF it is the most recent OUTGOING touch... and creates a text message from the data saved in the DB.
   #returns nil.
   #Also adds country code to phone number. Default is US ("+1")
-  def send_sms
-
-    @text_to_send = @x 
-    @text_recipient = Client.find_by_id(@text_to_send.client_id)
-    @text_content = @text_to_send.message
-    @text_sender_business = Business.find_by_id(@text_recipient.business_id)
+  def send_sms(client_id)#if we add an argument of client.id....
+    # @text_to_send = @x  #  << I have no idea what this is 
+    text_recipient = Client.find_by_id(client_id)#and pass it in here
+    text_content = params[:message_content]
+    text_sender_business = client.business #setting the business by the client
+    add_touch = Touch.new
+    add_touch.client_id = client_id #is there limit?
+    add_touch.message = text_content
+    add_touch.outgoing = true
+    add_touch.read = true  
+    add_touch.save #adding this message to the database
 
     # Twilio credentials:
     account_sid = 'XXXXXXXXX' 

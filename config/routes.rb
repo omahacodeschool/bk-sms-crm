@@ -59,5 +59,7 @@ Rails.application.routes.draw do
 
   get "dashboard/business/current_thread/:client_id" => "touch#current_conversation_thread"
 
+  post "dashboard/business/send_message/:client_id"  => "touch#send_sms"
+
 end
 
