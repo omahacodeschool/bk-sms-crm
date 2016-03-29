@@ -144,7 +144,7 @@ p.read = true
 p.save
 
 q = Touch.new
-q.business_id = k.id
+q.client_id = h.id
 q.message = "I can deffinately help you with that, what exactly are you looking for?"
 q.outgoing = true
 q.read = true
@@ -158,7 +158,7 @@ s.read = true
 s.save
 
 t = Touch.new
-t.business_id = k.id
+t.client_id = h.id
 t.message = "Shouldnt be a problem, are you working with a price range?"
 t.outgoing = true
 t.read = true
@@ -172,7 +172,7 @@ v.read = true
 v.save
 
 i = Touch.new
-i.business_id = k.id
+i.client_id = h.id
 i.message = "Is there an area of town you would like to live in?"
 i.outgoing = true
 i.read = true
@@ -193,7 +193,7 @@ p2.read = true
 p2.save
 
 q2 = Touch.new
-q2.business_id = k.id
+q2.client_id = c.id
 q2.message = "I would love to help you, have you looked at all?"
 q2.outgoing = true
 q2.read = true
@@ -207,7 +207,7 @@ s2.read = true
 s2.save
 
 t2 = Touch.new
-t2.business_id = k.id
+t2.client_id = c.id
 t2.message = "No problem at all, I can start putting some thing together for you now."
 t2.outgoing = true
 t2.read = true
@@ -221,7 +221,7 @@ v2.read = true
 v2.save
 
 i2 = Touch.new
-i2.business_id = k.id
+i2.client_id = c.id
 i2.message = "Wouldnt hurt, what kind of house are you looking for?"
 i2.outgoing = true
 i2.read = true
