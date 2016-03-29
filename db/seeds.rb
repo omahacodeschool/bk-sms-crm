@@ -135,7 +135,7 @@ w.message = "I'd love to buy those things!"
 w.outgoing = false
 w.read = true
 w.save
----
+
 p = Touch.new
 p.client_id = h.id
 p.message = "I hear your the man to see about a house!"
@@ -185,7 +185,6 @@ j.outgoing = false
 j.read = true
 j.save
 
-___
 p2 = Touch.new
 p2.client_id = c.id
 p2.message = "I got your card from a friend, I am looking for a house."
