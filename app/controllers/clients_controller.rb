@@ -45,13 +45,13 @@ class ClientsController < ApplicationController
 
   def edit_client
     current_client
-    current_business
+    @business = current_client.business
     render "edit",layout: nil
   end
 
   def update_client
     current_client
-    current_business
+    @business = current_client.business
     @client.first_name = params[:first_name]
     @client.last_name = params[:last_name]
     @client.phone_number = params[:phone_number]
