@@ -4,7 +4,7 @@
 }
 
 body {
-  color: darkgray;
+  color: #797571;
 }
 
 ul, ol {
@@ -12,7 +12,23 @@ ul, ol {
     margin-top: 0;
     margin-bottom: 0;
 }
+.button_link {
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: #FE8402;
+    display: inline-block;
+    color: white;
+    padding: 3px 6px;
+    font-size: 10px;
+    border: none;
+    // border-bottom: 2px solid #d06b00;
+    // border-right: 2px solid #d06b00;
+    cursor: pointer;
+ }
 
+ h1{
+  text-align: center;
+ }
 /***********************
 NAVIGATION
 ***********************/
@@ -100,6 +116,7 @@ DROPDOWN
   background-color: transparent;
   display: block;
   padding: 0;
+  text-align: left;
 }
 
 /* Links inside the dropdown */

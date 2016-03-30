@@ -24,5 +24,3 @@
 <%= form_tag("/clients/#{@client.id}/delete/#{@business.id}") do %>
   <input type="submit" value="delete">
 <% end %>
-
-<p><a href="/dashboard/business/<%= @business.id %>"> Back </a></p>
