@@ -2,18 +2,15 @@ class ClientsController < ApplicationController
 
   def current_client
     @client = Client.find_by_id(params[:id])
-    return @client
   end
 
- def current_business
-    current_client
-    @business = current_client.business
-    return @business
+  def current_business
+    @business = Business.find_by_id(params[:business_id])
   end 
 
   def change_status
     current_client
-    current_business
+    @business = current_client.business
     if @client.active == true
       @client.active = false
     else
@@ -43,7 +40,7 @@ class ClientsController < ApplicationController
     client.business_id = params[:business_id]
     client.active = true
     client.save
-    redirect_to "/clients/view/#{current_business.id}"
+    redirect_to "/clients/view/#{@business.id}"
   end
 
   def edit_client
@@ -60,14 +57,14 @@ class ClientsController < ApplicationController
     @client.phone_number = params[:phone_number]
     @client.notes = params[:notes]
     @client.save
-    redirect_to "/dashboard/business/#{current_business.id}"
+    redirect_to "/dashboard/business/#{@business.id}"
   end
 
   def delete
     current_business
     current_client
     Client.destroy(@client)
-    redirect_to "/clients/view/#{current_business.id}"
+    redirect_to "/clients/view/#{@business.id}"
   end
 
   def info
@@ -87,7 +84,7 @@ class ClientsController < ApplicationController
   end
 
    def view
-    current_business
+    @business = current_client.business
     # below is code for active users only checkbox
     # @active_only = params[:active_only]
     # if @active_only == 1
@@ -104,7 +101,7 @@ class ClientsController < ApplicationController
   end
 
    def profile
-    current_business
+    current_business = current_client.business
     # below is code for active users only checkbox
     # @active_only = params[:active_only]
     # if @active_only == 1
