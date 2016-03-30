@@ -46,7 +46,7 @@ class ClientsController < ApplicationController
   def edit_client
     current_client
     current_business
-    render "edit"
+    render "edit",layout: nil
   end
 
   def update_client

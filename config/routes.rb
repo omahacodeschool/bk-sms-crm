@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   get "clients/:id/update_status" => 'clients#change_status'
 
-  get "clients/:id/edit/:business_id" => 'clients#edit_client'
+  get "clients/:id/edit(/:business_id)" => 'clients#edit_client'
 
   post "clients/:id/update/:business_id" => 'clients#update_client'
 
