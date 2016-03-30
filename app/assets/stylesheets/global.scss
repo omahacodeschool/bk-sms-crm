@@ -115,6 +115,8 @@ DROPDOWN
 .dropdown-content li, .dropdown-content li:hover {
   background-color: transparent;
   display: block;
+  text-transform: capitalize;
+  font-size: .9em;
   padding: 0;
   text-align: left;
 }
