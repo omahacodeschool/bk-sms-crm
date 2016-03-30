@@ -1,5 +1,21 @@
 class TouchController < ApplicationController
-  # require 'twilio-ruby'
+  skip_before_filter :authenticate_user!, only: [:save_incoming_sms]
+
+  def save_incoming_sms
+    binding.pry
+    @i = Touch.new
+    x = Client.where("phone_number" => params[:From].last(10))
+
+    x.each do |e|
+      @i.client_id = e.id
+    end
+    
+    @i.message = params[:Body]
+    @i.outgoing = false
+    @i.read = false
+    @i.save
+
+  end  
   
   def show_new_form
     @client = Client.find_by_id(params[:client_id])
