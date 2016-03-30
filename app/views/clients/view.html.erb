@@ -56,7 +56,7 @@
         </p>
 
 <!-- This edits the current client-->
-      <a class="show_edit_form" href="/clients/<%= @client.id %>/edit/<%= @business.id %>">Edit</a>
+      <a class="show_edit_form" data-client-id="<%= client.id %>" href="/clients/<%= @client.id %>/edit/<%= @business.id %>">Edit</a>
 
   </div>
 <% end %>
