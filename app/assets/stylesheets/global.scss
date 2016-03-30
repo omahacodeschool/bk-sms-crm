@@ -96,6 +96,12 @@ DROPDOWN
     z-index: 999;
 }
 
+.dropdown-content li, .dropdown-content li:hover {
+  background-color: transparent;
+  display: block;
+  padding: 0;
+}
+
 /* Links inside the dropdown */
 .dropdown-content a {
     color: black;
