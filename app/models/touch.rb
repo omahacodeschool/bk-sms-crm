@@ -3,10 +3,4 @@ class Touch < ActiveRecord::Base
   include PgSearch
 
   multisearchable :against => [:message]
-  
-  def self.search(search)
-  # where("name LIKE ?", "%#{search}%") 
-  where("message LIKE ?", "%#{search}%")
-  end
-  
 end

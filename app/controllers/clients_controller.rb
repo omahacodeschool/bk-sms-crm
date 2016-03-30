@@ -5,7 +5,12 @@ class ClientsController < ApplicationController
   end
 
   def current_business
-    @business = Business.find_by_id(params[:business_id])
+    @business = current_user.businesses.find_by_id(params[:id])
+    if @business.nil?
+      redirect_to("/businesses/view")
+    else
+     return @business
+   end
   end
 
   def change_status
