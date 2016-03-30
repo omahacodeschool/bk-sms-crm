@@ -57,7 +57,7 @@ class ClientsController < ApplicationController
     @client.phone_number = params[:phone_number]
     @client.notes = params[:notes]
     @client.save
-    redirect_to "/clients/view/#{current_business.id}"
+    redirect_to "/dashboard/business/#{current_business.id}"
   end
 
   def delete

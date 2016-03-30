@@ -1,6 +1,6 @@
 
   <div id="client_info">
-    <h2>Client info:</h2>
+    <h3>Client info:</h3>
         <p id="client_name"><%= @client.first_name %> <%= @client.last_name %> </p>
       <h4> Client Number:</h4>
         <p id="client_number"><%= @client.phone_number %></p>
@@ -19,9 +19,6 @@
         </p>
 
 <!-- This edits the current client-->
-      <a href="/clients/<%= @client.id %>/edit">Edit</a>
-<!-- This creates a new message -->
-<!--  ##need to add feature where client is automatically filled in -->
-      <!-- <a href ="/touch/create_new/<%= @client.id %>">Send Client New Message</a> -->
+      <a href="/clients/<%= @client.id %>/edit/<%= @client.business_id %>">Edit</a>
 
   </div>

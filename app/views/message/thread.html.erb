@@ -1,22 +1,26 @@
-<h3>From Client</h3><br>
-<%@incoming.each do |incoming|%>
-<p>
-<%=incoming.message%><br>
-
-<%end%>
-<h3>From Business</h3><br>
-<%@outgoing.each do |outgoing|%>
-<p>
-<%=outgoing.message%><br>
+<% @touch.each do |touch| %>
+<ul>
+  <% if touch.outgoing == false %>
+    <li class="incoming">
+      <%=touch.message%>
+    </li>
+  <% else %>
+    <li class="outgoing">
+      <%=touch.message%>
+    </li>
+    </ul>
+<% end %>
 
 <%end%>
 <div id="sendMessage" class="mike">
-  <%= form_tag("send_message/<%=@cliend.id=>") do %>
+  <%= form_tag("send_message/" + @client.id.to_s) do %>
     <p> 
-    <textarea name="message_content" rows="1" cols="75" value="<%= params[:message_content] %>">
+    <textarea name="message_content" rows="2" cols="70" value="<%= params[:message_content] %>">
     </textarea>
     </p>   
-    <input type="submit" value="SEND"></p>
+
+    <input type="submit" value="send"></p>
+
   <% end %>
 </div>
 

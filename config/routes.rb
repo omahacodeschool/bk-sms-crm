@@ -15,10 +15,6 @@ Rails.application.routes.draw do
 # PAGES
   get "dashboard/business/:id" => 'pages#dashboard_business'
   
-  # get "dashboard(/:client_id)" => 'pages#dashboard'
-
-  get "onboard" => 'pages#onboard'
-
 # CLIENTS
   get "clients/:id/name" => 'clients#client_name'
 
@@ -28,7 +24,7 @@ Rails.application.routes.draw do
 
   get "clients/:id/update_status" => 'clients#change_status'
 
-  get "clients/:id/edit" => 'clients#edit_client'
+  get "clients/:id/edit/:business_id" => 'clients#edit_client'
 
   post "clients/:id/update/:business_id" => 'clients#update_client'
 
