@@ -16,6 +16,7 @@ jQuery(document).ready(function(){
 
       touches_request.addEventListener("load", function(request_object){
         center.innerHTML = request_object.target.response;
+        sendMessage.style.display = "block";
         center.style.display = "block";
       });
 

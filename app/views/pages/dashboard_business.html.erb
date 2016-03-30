@@ -11,6 +11,12 @@
   
   <% @clients.each do |client| %>
     <a href="#" class="client" data-client-id="<%= client.id %>"> <%= client.first_name %> <%= client.last_name %></a>
+  <%this_touch = Touch.where("client_id" => client.id)%>
+  <%this_touch.each do |p|%>
+ 
+  <%=p.message%>
+    <% end %>
+
   <% end %>
 
 
