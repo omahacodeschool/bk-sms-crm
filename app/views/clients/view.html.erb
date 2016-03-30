@@ -56,10 +56,7 @@
         </p>
 
 <!-- This edits the current client-->
-      <a href="/clients/<%= @client.id %>/edit/<%= @business.id %>">Edit</a>
-<!-- This creates a new message -->
-<!--  ##need to add feature where client is automatically filled in -->
-      <!-- <a href ="/touch/create_new/<%= @client.id %>">Send Client New Message</a> -->
+      <a class="show_edit_form" data-client-id="<%= client.id %>" href="/clients/<%= @client.id %>/edit/<%= @business.id %>">Edit</a>
 
   </div>
 <% end %>
