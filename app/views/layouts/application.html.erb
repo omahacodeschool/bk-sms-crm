@@ -66,10 +66,11 @@
   </nav>
 
   </div>
-  <div class="clear"></div>
-  <%= render "javascript" -%>
-  <%= render "flashes" -%>
+
   <%= yield %>
+
+  <%= render "flashes" -%>
+  <%= render "javascript" -%>
   <%= render "css_overrides" %>
   
 </body>
