@@ -2,16 +2,14 @@ class ClientsController < ApplicationController
 
   def current_client
     @client = Client.find_by_id(params[:id])
+    return @client
   end
 
-  def current_business
-    @business = current_user.businesses.find_by_id(params[:id])
-    if @business.nil?
-      redirect_to("/businesses/view")
-    else
-     return @business
-   end
-  end
+ def current_business
+    current_client
+    @business = current_client.business
+    return @business
+  end 
 
   def change_status
     current_client
@@ -85,7 +83,7 @@ class ClientsController < ApplicationController
     else
       @client = nil
     end
-    redirect_to "/clients/view/#{current_business.id}/#{@client.id}/#{@active_only}"
+    redirect_to "/clients/view/#{@business.id}/#{@client.id}"
   end
 
    def view
