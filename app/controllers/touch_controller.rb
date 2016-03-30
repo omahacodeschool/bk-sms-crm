@@ -14,25 +14,13 @@ class TouchController < ApplicationController
     @i.read = false
     @i.save
 
+    render nothing: true
+
   end  
   
   def show_new_form
     @client = Client.find_by_id(params[:client_id])
     render "create_message"
-  end
-
-  def create_new
-    @x = Touch.new
-    @x.client_id = params[:client_id]
-    @x.message = params[:message_content]
-    @x.outgoing = true
-    @x.read = true
-
-    @x.save
-    
-    send_sms
-
-    redirect_to("/")
   end
 
   def current_conversation_thread
@@ -56,6 +44,19 @@ class TouchController < ApplicationController
     render "search"
   end
 
+  # def create_new
+  #   @x = Touch.new
+  #   @x.client_id = params[:client_id]
+  #   @x.message = params[:message_content]
+  #   @x.outgoing = true
+  #   @x.read = true
+
+  #   @x.save
+    
+  #   send_sms
+    
+  #   redirect_to("/")
+  # end
 
   # Method takes a Touch object IF it is the most recent OUTGOING touch... and creates a text message from the data saved in the DB.
   #returns nil.
@@ -89,7 +90,9 @@ class TouchController < ApplicationController
       # UNCOMMENT THIS (AND ADD SOME FUNCTIONALITY, PERHAPS) FOR MULTIMEDIA MESSAGE:
       # , :media_url => 'http://farm2.static.flickr.com/1075/1404618563_3ed9a44a3a.jpg'
     )
-    redirect_to "/businesses/view"
+
+    redirect_to "/dashboard/business/current_thread/#{text_recipient.id}"
+    
   end
 
 end
