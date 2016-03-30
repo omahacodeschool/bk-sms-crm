@@ -44,20 +44,6 @@ class TouchController < ApplicationController
     render "search"
   end
 
-  # def create_new
-  #   @x = Touch.new
-  #   @x.client_id = params[:client_id]
-  #   @x.message = params[:message_content]
-  #   @x.outgoing = true
-  #   @x.read = true
-
-  #   @x.save
-    
-  #   send_sms
-    
-  #   redirect_to("/")
-  # end
-
   # Method takes a Touch object IF it is the most recent OUTGOING touch... and creates a text message from the data saved in the DB.
   #returns nil.
   #Also adds country code to phone number. Default is US ("+1")
