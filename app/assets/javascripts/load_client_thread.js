@@ -9,6 +9,9 @@ jQuery(document).ready(function(){
 
     client.addEventListener("click", function(event){
       var client_id = event.target.dataset.clientId;
+      // event.target.style.backgroundColor = "gray";
+      // event.target.style.color = "white";
+      
       var touches_request = new XMLHttpRequest();
       var client_request = new XMLHttpRequest();
       touches_request.open("GET", "message/" + client_id);
