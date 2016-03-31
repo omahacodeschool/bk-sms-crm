@@ -8,6 +8,7 @@ class Client < ActiveRecord::Base
    def recent_touches
     self.touches # TODO Make this only return one touch for the client.
    end
+   
    def most_recent_message
     my_messages = 1 #set a variable for the attribute to fill
     all_sent_messages = Touch.where("client_id = ? and outgoing = ?", self.id, false) #an active record relation of this clients incoming messages
