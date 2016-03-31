@@ -45,13 +45,13 @@ class ClientsController < ApplicationController
 
   def edit_client
     current_client
-    current_business
+    @business = current_client.business
     render "edit"
   end
 
   def update_client
     current_client
-    current_business
+    @business = current_client.business
     @client.first_name = params[:first_name]
     @client.last_name = params[:last_name]
     @client.phone_number = params[:phone_number]
@@ -61,14 +61,15 @@ class ClientsController < ApplicationController
   end
 
   def delete
-    current_business
     current_client
+    @business = current_client.business
     Client.destroy(@client)
     redirect_to "/clients/view/#{@business.id}"
   end
 
   def info
-    current_business
+    current_client
+    @business = current_client.business
     # below is code for active users only checkbox
     # if params[:active_only] == nil
     #   @active_only = 2
@@ -84,6 +85,7 @@ class ClientsController < ApplicationController
   end
 
    def view
+    current_client
     @business = current_client.business
     # below is code for active users only checkbox
     # @active_only = params[:active_only]
@@ -101,7 +103,8 @@ class ClientsController < ApplicationController
   end
 
    def profile
-    current_business = current_client.business
+    current_client
+    @business = current_client.business
     # below is code for active users only checkbox
     # @active_only = params[:active_only]
     # if @active_only == 1

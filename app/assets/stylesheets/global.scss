@@ -12,23 +12,17 @@ ul, ol {
     margin-top: 0;
     margin-bottom: 0;
 }
-.button_link {
-    text-transform: uppercase;
-    text-decoration: none;
-    background-color: #FE8402;
-    display: inline-block;
-    color: white;
-    padding: 3px 6px;
-    font-size: 10px;
-    border: none;
-    // border-bottom: 2px solid #d06b00;
-    // border-right: 2px solid #d06b00;
-    cursor: pointer;
- }
 
  h1{
   text-align: center;
  }
+
+.auxiliary {
+  background: #f9f9f9;
+  min-height: 600px;
+}
+
+
 /***********************
 NAVIGATION
 ***********************/
@@ -131,7 +125,7 @@ DROPDOWN
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #f1f1f1
+  background-color: #f1f1f1;
 }
 
 /* Show the dropdown menu on hover */
@@ -147,6 +141,23 @@ DROPDOWN
 /***********************
 BUTTONS
 ***********************/
+.button_link {
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: #FE8402;
+    display: inline-block;
+    color: white;
+    padding: 3px 6px;
+    font-size: 10px;
+    border: none;
+    // border-bottom: 2px solid #d06b00;
+    // border-right: 2px solid #d06b00;
+    cursor: pointer;
+ }
+
+ .button_link:hover {
+  background-color: #d06b00;
+ }
 
 input[type="submit"] {
     text-transform: uppercase;
@@ -160,3 +171,41 @@ input[type="submit"] {
     // border-right: 2px solid #d06b00;
     cursor: pointer;
 }
+
+input[type="submit"]:hover {
+    background-color: #d06b00;
+}
+
+.biz p{
+  padding:3px 6px;
+  background: gray;
+  color: white;
+  display: inline-block;
+}
+
+.biz .biz_button{
+  font-size: 1em;
+  padding:3px 6px;
+  background: #6BCAE2;
+  color: white;
+  display: inline-block;
+  margin-right: 0;
+}
+
+.biz .biz_button:hover{
+  background: #51A5BA;
+}
+
+input[type="submit"].send_button{
+  font-size: 1em;
+  padding:5px 20px;
+  background: #FE8402;
+  color: white;
+  float: right;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+input[type="submit"].send_button:hover{
+  background-color: #d06b00;
+  }

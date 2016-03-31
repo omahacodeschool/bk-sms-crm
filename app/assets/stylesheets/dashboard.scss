@@ -50,6 +50,7 @@
 
 #thread .incoming{
   float: left;
+  margin-left: 5px;
   text-decoration: none;
   padding: 5px;
   background: lightgray;
@@ -61,6 +62,7 @@
 
 #thread .outgoing {
   float: right;
+  margin-right:5px;
   text-decoration: none;
   padding: 5px;
   background: #6BCAE2;
