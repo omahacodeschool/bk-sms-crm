@@ -9,7 +9,6 @@
             <%= client.first_name %>
             <%= client.last_name %>
           </p>
-          <a class="button_link biz_button" href="/clients/<%= client.id %>/edit/<%= @business.id %>">Edit</a></br>
           </div>
       <% end %>
       <% else %>
@@ -29,14 +28,8 @@
         </option>
       <%end%>
     </select>
-      <input type="checkbox" name="active_only" value="1">
-      <label>Active Users Only (not functional - will require js)</label>
       <input type="submit">
     <% end %>
-
-    <!-- A NEW CLIENT-->
-    <h3><a class="button_link" href="/clients/new/<%= @business.id%>">Add new client</a></h3>
-
 
   <!-- This is the currently-selected client's info-->
   <% if @client != nil %>
@@ -49,7 +42,6 @@
           <p id="client_notes"><%= @client.notes %></p>
         <h4> Client Status: 
         <!-- This toggles the client's active/inactive status -->
-        <a class="button_link" href="/clients/<%= @client.id %>/update_status/<%= @business.id %>">Toggle Status</a>
         </h4>
           <p id="client_status">
             <% if @client.active == true %>
@@ -59,11 +51,7 @@
               <% end %>
           </p>
 
-  <!-- This edits the current client-->
-        <a class="button_link" href="/clients/<%= @client.id %>/edit/<%= @business.id %>">Edit</a>
-  <!-- This creates a new message -->
-  <!--  ##need to add feature where client is automatically filled in -->
-        <!-- <a href ="/touch/create_new/<%= @client.id %>">Send Client New Message</a> -->
+        <a class="button_link" href="/clients/<%= @client.id %>/delete/<%= @business.id %>">Delete</a>
 
     </div>
   <% end %>

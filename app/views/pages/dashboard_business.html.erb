@@ -35,14 +35,14 @@
       <% if @business.clients != nil %>
         <%= form_tag("/clients/info/#{@business.id}", class: "dropdown") do %>
         <select name="client_id">
-              <option selected disabled>Choose client</option>
-              <% @business.clients.each do |client| %>
-                <option data-id="<%= client.id %>" value= "<%= client.id %>"
-                <%= "selected" if @client != nil && client.id == @client.id %>>
-                <%=client.first_name %>
-                <%=client.last_name %>
-                </option>
-              <%end%>
+          <option selected disabled>Choose client</option>
+          <% @business.clients.where({"active" => true}).each do |client| %>
+            <option data-client-id="<%= client.id %>" value= "<%= client.id %>"
+            <%= "selected" if @client != nil && client.id == @client.id %>>
+            <%=client.first_name %>
+            <%=client.last_name %>
+            </option>
+          <%end%>
         </select>
           <input class="dropdown_submit" type="submit">
         <% end %>
@@ -54,6 +54,8 @@
 
         <!-- A NEW CLIENT-->
         <a class="show_new_client_form button_link" data-business-id="<%= @business.id %>" href="/clients/new/<%= @business.id%>">Add new client</a>
+
+        <a class="button_link" href="/clients/view/<%= @business.id%>">Manage clients</a>
 
       </div>
     </div>

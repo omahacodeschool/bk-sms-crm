@@ -41,7 +41,7 @@ Rails.application.routes.draw do
 
   post "clients/info/:business_id" => 'clients#info'
 
-  post "clients/:id/delete/:business_id" => 'clients#delete'
+  get "clients/:id/delete/:business_id" => 'clients#delete'
 
 #BUSINESSES
   get "businesses/view" => 'businesses#view'
