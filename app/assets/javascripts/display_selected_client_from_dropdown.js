@@ -4,10 +4,9 @@ jQuery(document).ready(function(){
   parent.addEventListener("click", function(event){
 
     // if (event.target.matches(".dropdown_submit")){
-    if (event.target.matches("dropdown_select")){
-      // var selectedId = document.getElementById("dropdown_select");
-      function OnSelectionChange (select) {
-        var selectedOption = select.options[select.selectedIndex];
+    if (event.target.matches("#dropdown_select")){
+        var selectedId = document.getElementById("dropdown_select");
+        var selectedOption = event.target.options[select.selectedIndex];
 
         var presentation_area = document.getElementById("current_client");
         var client_id = selectedId.options[selectedId.selectedIndex].value;
@@ -29,4 +28,3 @@ jQuery(document).ready(function(){
     };
   });
 });
-

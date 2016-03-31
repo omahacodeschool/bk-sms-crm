@@ -41,18 +41,16 @@
         <select id="dropdown_select" name="client_id" onchange="OnSelectionChange (this)" >
 
           <option selected disabled>Choose client</option>
-          <% @business.clients.where({"active" => true}).each do |client| %>
-            <option value= "<%= client.id %>"
-            <%= "selected" if @client != nil && client.id == @client.id %>>
-            <%=client.first_name %>
-            <%=client.last_name %>
-            </option>
-          <%end%>
-
+            <% @business.clients.where({"active" => true}).each do |client| %>
+              <option value= "<%= client.id %>"
+                <%= "selected" if @client != nil && client.id == @client.id %>>
+                <%=client.first_name %>
+                <%=client.last_name %>
+              </option>
+            <%end%>
         </select>
-          <input class="dropdown_submit" type="submit">
-        <% end %>
-        <% else %>
+      <% end %>
+      <% else %>
         <p>You have no clients.</p>
       <% end %>
 
