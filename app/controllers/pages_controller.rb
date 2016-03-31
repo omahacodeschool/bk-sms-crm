@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def dashboard_business
-    @business = current_user.businesses.find_by_id(params[:id])
+    @business = current_user.businesses.find_by_id(params[:business_id])
 
     if @business.nil?
       redirect_to("/businesses/view")

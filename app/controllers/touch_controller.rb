@@ -2,7 +2,6 @@ class TouchController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:save_incoming_sms]
 
   def save_incoming_sms
-    binding.pry
     @i = Touch.new
     x = Client.where("phone_number" => params[:From].last(10))
 
@@ -15,25 +14,13 @@ class TouchController < ApplicationController
     @i.read = false
     @i.save
 
+    render nothing: true
+
   end  
   
   def show_new_form
     @client = Client.find_by_id(params[:client_id])
     render "create_message"
-  end
-
-  def create_new
-    @x = Touch.new
-    @x.client_id = params[:client_id]
-    @x.message = params[:message_content]
-    @x.outgoing = true
-    @x.read = true
-
-    @x.save
-    
-    send_sms
-
-    redirect_to("/")
   end
 
   def current_conversation_thread
@@ -57,7 +44,6 @@ class TouchController < ApplicationController
     render "search"
   end
 
-
   # Method takes a Touch object IF it is the most recent OUTGOING touch... and creates a text message from the data saved in the DB.
   #returns nil.
   #Also adds country code to phone number. Default is US ("+1")
@@ -67,7 +53,7 @@ class TouchController < ApplicationController
     text_content = params[:message_content]
     text_sender_business = text_recipient.business #setting the business by the client
     add_touch = Touch.new
-    add_touch.client_id = text_recipient.id #is there limit?
+    add_touch.client_id = text_recipient.id 
     add_touch.message = text_content
     add_touch.outgoing = true
     add_touch.read = true  
@@ -84,12 +70,18 @@ class TouchController < ApplicationController
 
     @client.account.messages.create(
       :from => text_sender_business.business_phone, 
-      :to =>  text_recipient.phone_number, 
+
+
+      :to => text_recipient.phone_number, 
+
       :body => text_content 
 
       # UNCOMMENT THIS (AND ADD SOME FUNCTIONALITY, PERHAPS) FOR MULTIMEDIA MESSAGE:
       # , :media_url => 'http://farm2.static.flickr.com/1075/1404618563_3ed9a44a3a.jpg'
     )
+
+    redirect_to "/dashboard/business/current_thread/#{text_recipient.id}"
+    
   end
 
 end

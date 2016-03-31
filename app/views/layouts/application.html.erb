@@ -16,58 +16,61 @@
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= body_class %>">
+<body class="<%= body_class %> container">
 
 <div>
- <h1>dashText</h1>
 <nav>
-<ul>
- <% if user_signed_in? %>
-    <li>
-      <%= link_to('Profile settings', edit_user_registration_path) %>
-    </li>
+  <h1>dashText</h1>
+  <ul>
+   <% if user_signed_in? %>
+      <li>
+        <%= link_to('Profile settings', edit_user_registration_path) %>
+      </li>
 
-    <li>
-      <a href="/businesses/view">Business settings</a>
-    </li>
+      <li>
+        <a href="/businesses/view">Business settings</a>
+      </li>
 
-    <div class="dropdown">
-      <button class="dropbtn">Dashboards</button>
-      <div class="dropdown-content">
-        <ul>
-          <% current_user.businesses.each do |business| %>
-            <li>
-              <a href="/dashboard/business/<%=business.id%>"><%= business.name %> dashboard</a>
-            </li>
-          <% end %>
-        </ul>
+      <div class="dropdown">
+        <button class="dropbtn">Dashboards</button>
+        <div class="dropdown-content">
+          <ul>
+            <% current_user.businesses.each do |business| %>
+              <li>
+                <a href="/dashboard/business/<%=business.id%>"><%= business.name %> dashboard</a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-    </div>
-    
-  <% else %>
-    <li>
-    <%= link_to('Register', new_user_registration_path)  %>
-    </li>
-  <% end %>
+      
+    <% else %>
+      <li>
+      <%= link_to('Register', new_user_registration_path)  %>
+      </li>
+    <% end %>
 
-  <% if user_signed_in? %>
-    <li>
-    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>    </li>
+    <% if user_signed_in? %>
+      <li>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>    </li>
 
-  <% else %>
-    <li>
-    <%= link_to('Login', new_user_session_path)  %>  
-    </li>
+    <% else %>
+      <li>
+      <%= link_to('Login', new_user_session_path)  %>  
+      </li>
 
-  <% end %>
-  </ul>
+    <% end %>
+    </ul>
+
+    <div style="clear: both"></div>
   </nav>
 
   </div>
-  <div  class="clear"></div>
-  <%= render "javascript" -%>
-  <%= render "flashes" -%>
+
   <%= yield %>
+
+  <%= render "flashes" -%>
+  <%= render "javascript" -%>
   <%= render "css_overrides" %>
   
 </body>

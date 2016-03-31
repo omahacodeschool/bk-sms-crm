@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "touch/current_thread/:client_id" => "touch#current_conversation_thread"
 
 # PAGES
-  get "dashboard/business/:id" => 'pages#dashboard_business'
+  get "dashboard/business/:business_id" => 'pages#dashboard_business'
   
 # CLIENTS
   get "clients/:id/name" => 'clients#client_name'
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   get "clients/:id/update_status" => 'clients#change_status'
 
-  get "clients/:id/edit/:business_id" => 'clients#edit_client'
+  get "clients/:id/edit(/:business_id)" => 'clients#edit_client'
 
   post "clients/:id/update/:business_id" => 'clients#update_client'
 
@@ -39,9 +39,11 @@ Rails.application.routes.draw do
 
   get "dashboard/business/clients/profile/:id" => 'clients#profile'
 
+  get "clients/profile/:id" => 'clients#profile'
+
   post "clients/info/:business_id" => 'clients#info'
 
-  post "clients/:id/delete/:business_id" => 'clients#delete'
+  get "clients/:id/delete/:business_id" => 'clients#delete'
 
 #BUSINESSES
   get "businesses/view" => 'businesses#view'
