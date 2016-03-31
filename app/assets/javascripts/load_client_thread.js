@@ -15,8 +15,10 @@ jQuery(document).ready(function(){
       client_request.open("GET", "clients/profile/" + client_id);
 
       touches_request.addEventListener("load", function(request_object){
+
         thread_display.innerHTML = request_object.target.response;
         thread_display.style.display = "block";
+
       });
 
       client_request.addEventListener("load", function(request_object){

@@ -12,6 +12,7 @@
       <% @clients.each do |client| %>
         <li>
           <a href="#" class="client" data-client-id="<%= client.id %>"> <%= client.first_name %> <%= client.last_name %></a>
+           <%= client.most_recent_message %>
         </li>
       <% end %>
       </ul>
@@ -27,6 +28,16 @@
   </div>
     
   <!-- CLIENTS COLUMN -->
+
+  <div id="right" class="col-2">
+  <h3>Clients</h3>
+
+  <!--  This is the dropdown menu of all business clients  -->
+
+  <% if @business.clients != nil %>
+    <%= form_tag("/clients/info/#{@business.id}", class: "dropdown") do %>
+    <select name="client_id">
+
   <div class="col-2">
     <div id="right">
       <h3>Clients</h3>
@@ -35,6 +46,7 @@
       <% if @business.clients != nil %>
         <%= form_tag("/clients/info/#{@business.id}", class: "dropdown") do %>
         <select id="dropdown_select" name="client_id">
+
           <option selected disabled>Choose client</option>
           <% @business.clients.where({"active" => true}).each do |client| %>
             <option value= "<%= client.id %>"
@@ -43,12 +55,24 @@
             <%=client.last_name %>
             </option>
           <%end%>
+
+    </select>
+      <input type="checkbox" name="active_only" value="1" style="display:none;">
+      <label style="display:none;">Active Users Only (not functional - will require js)</label>
+      <input type="submit">
+    <% end %>
+    <% else %>
+    <p>You have no clients.</p>
+
+  <% end %>
+
         </select>
           <input class="dropdown_submit" type="submit">
         <% end %>
         <% else %>
         <p>You have no clients.</p>
       <% end %>
+
 
       <div id="current_client"></div>
 

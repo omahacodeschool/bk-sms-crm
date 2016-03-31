@@ -70,7 +70,10 @@ class TouchController < ApplicationController
 
     @client.account.messages.create(
       :from => text_sender_business.business_phone, 
+
+
       :to => text_recipient.phone_number, 
+
       :body => text_content 
 
       # UNCOMMENT THIS (AND ADD SOME FUNCTIONALITY, PERHAPS) FOR MULTIMEDIA MESSAGE:
