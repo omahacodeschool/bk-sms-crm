@@ -12,6 +12,7 @@
       <% @clients.each do |client| %>
         <li>
           <a href="#" class="client" data-client-id="<%= client.id %>"> <%= client.first_name %> <%= client.last_name %></a>
+           <%= client.most_recent_message %>
         </li>
       <% end %>
       </ul>
