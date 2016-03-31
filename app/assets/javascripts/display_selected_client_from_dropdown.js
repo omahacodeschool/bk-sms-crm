@@ -4,12 +4,16 @@ jQuery(document).ready(function(){
   parent.addEventListener("click", function(event){
 
     // if (event.target.matches(".dropdown_submit")){
-    if (event.target.matches("#dropdown_select")){
-        var selectedId = document.getElementById("dropdown_select");
+    if (event.target.matches(".dropdown")){
+      console.log("match")
+        // var selectedId = document.getElementById("dropdown_select");
         var selectedOption = event.target.options[select.selectedIndex];
+        console.log(selectedOption)
 
         var presentation_area = document.getElementById("current_client");
-        var client_id = selectedId.options[selectedId.selectedIndex].value;
+        var client_id = selectedOption.value;
+
+        console.log(client_id)
 
         var request = new XMLHttpRequest();
         var request_path = "/clients/profile/"  + client_id;
@@ -25,6 +29,7 @@ jQuery(document).ready(function(){
         event.preventDefault();
        
       };
-    };
+    });
+
   });
-});
+
