@@ -38,7 +38,7 @@
 
       <% if @business.clients != nil %>
         <%= form_tag("/clients/info/#{@business.id}", class: "dropdown") do %>
-        <select id="dropdown_select" name="client_id">
+        <select id="dropdown_select" name="client_id" onchange="OnSelectionChange (this)" >
 
           <option selected disabled>Choose client</option>
           <% @business.clients.where({"active" => true}).each do |client| %>

@@ -3,24 +3,30 @@ jQuery(document).ready(function(){
 
   parent.addEventListener("click", function(event){
 
-    if (event.target.matches(".dropdown_submit")){
-      var selectedId = document.getElementById("dropdown_select");
-      var presentation_area = document.getElementById("current_client");
+    // if (event.target.matches(".dropdown_submit")){
+    if (event.target.matches("dropdown_select")){
+      // var selectedId = document.getElementById("dropdown_select");
+      function OnSelectionChange (select) {
+        var selectedOption = select.options[select.selectedIndex];
 
-      var client_id = selectedId.options[selectedId.selectedIndex].value;
+        var presentation_area = document.getElementById("current_client");
+        var client_id = selectedId.options[selectedId.selectedIndex].value;
 
-      var request = new XMLHttpRequest();
-      var request_path = "/clients/profile/"  + client_id;
+        var request = new XMLHttpRequest();
+        var request_path = "/clients/profile/"  + client_id;
 
-      request.open("GET", request_path);
+        request.open("GET", request_path);
 
-      request.addEventListener("load", function(request_object){
-        presentation_area.innerHTML = request_object.target.response;
-      });
+          request.addEventListener("load", function(request_object){
+            presentation_area.innerHTML = request_object.target.response;
+          });
 
-      request.send();
+        request.send();
 
-      event.preventDefault();
-    }
+        event.preventDefault();
+       
+      };
+    };
   });
 });
+
