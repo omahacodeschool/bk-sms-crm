@@ -4,9 +4,13 @@
 
   <% if @business.clients != nil %>
         <% @business.clients.each do |client| %>
-          <%= client.first_name %>
-          <%= client.last_name %>
-          <a class="button_link" href="/clients/<%= client.id %>/edit/<%= @business.id %>">Edit</a></br>
+        <div class="biz">
+          <p>
+            <%= client.first_name %>
+            <%= client.last_name %>
+          </p>
+          <a class="button_link biz_button" href="/clients/<%= client.id %>/edit/<%= @business.id %>">Edit</a></br>
+          </div>
       <% end %>
       <% else %>
         <p>You currently have no clients.</p>

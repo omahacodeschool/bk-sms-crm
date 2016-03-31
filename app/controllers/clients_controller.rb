@@ -4,9 +4,9 @@ class ClientsController < ApplicationController
     @client = Client.find_by_id(params[:id])
   end
 
-  def current_business
-    @business = Business.find_by_id(params[:business_id])
-  end 
+  # def current_business
+  #   @business = Business.find_by_id(params[:business_id])
+  # end 
 
   def change_status
     current_client
@@ -26,12 +26,12 @@ class ClientsController < ApplicationController
   end
 
   def new
-    current_business
+    @business = Business.find_by_id(params[:business_id])
     render "new"
   end
 
   def add
-    current_business
+    @business = Business.find_by_id(params[:business_id])
     client = Client.new
     client.first_name = params[:first_name]
     client.last_name = params[:last_name]
@@ -46,7 +46,7 @@ class ClientsController < ApplicationController
   def edit_client
     current_client
     @business = current_client.business
-    render "edit"
+    render "edit", layout: nil
   end
 
   def update_client
@@ -68,8 +68,7 @@ class ClientsController < ApplicationController
   end
 
   def info
-    current_client
-    @business = current_client.business
+    @business = Business.find_by_id(params[:business_id])
     # below is code for active users only checkbox
     # if params[:active_only] == nil
     #   @active_only = 2
@@ -86,7 +85,7 @@ class ClientsController < ApplicationController
 
    def view
     current_client
-    @business = current_client.business
+    @business = Business.find_by_id(params[:business_id])
     # below is code for active users only checkbox
     # @active_only = params[:active_only]
     # if @active_only == 1

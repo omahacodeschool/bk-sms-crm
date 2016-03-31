@@ -44,8 +44,6 @@
                 </option>
               <%end%>
         </select>
-          <input type="checkbox" name="active_only" value="1" style="display:none;">
-          <label style="display:none;">Active Users Only (not functional - will require js)</label>
           <input type="submit">
         <% end %>
         <% else %>
@@ -55,9 +53,7 @@
       <div id="current_client"></div>
 
         <!-- A NEW CLIENT-->
-        <a class="button_link" href="/clients/new/<%= @business.id%>">Add new client</a>
-        <!-- ALL CLIENTS-->
-        <a  class="button_link" href="/clients/view/<%= @business.id %>">View all clients</a>
+        <a class="show_new_client_form button_link" data-client-id="<%= @business.id %>" href="/clients/new/<%= @business.id%>">Add new client</a>
 
       </div>
     </div>
