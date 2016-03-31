@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "touch/current_thread/:client_id" => "touch#current_conversation_thread"
 
 # PAGES
-  get "dashboard/business/:id" => 'pages#dashboard_business'
+  get "dashboard/business/:business_id" => 'pages#dashboard_business'
   
 # CLIENTS
   get "clients/:id/name" => 'clients#client_name'

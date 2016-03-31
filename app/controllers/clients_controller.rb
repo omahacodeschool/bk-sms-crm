@@ -27,7 +27,7 @@ class ClientsController < ApplicationController
 
   def new
     @business = Business.find_by_id(params[:business_id])
-    render "new"
+    render "new", layout: nil
   end
 
   def add
@@ -40,7 +40,7 @@ class ClientsController < ApplicationController
     client.business_id = params[:business_id]
     client.active = true
     client.save
-    redirect_to "/clients/view/#{@business.id}"
+    redirect_to "/dashboard/business/#{@business.id}"
   end
 
   def edit_client
