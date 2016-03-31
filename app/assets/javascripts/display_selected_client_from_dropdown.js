@@ -1,35 +1,29 @@
 jQuery(document).ready(function(){
   var parent = document.getElementById("right");
+  // parent.addEventListener("click", function(event){
+  var dropdown_select = document.getElementById("dropdown_select");
 
-  parent.addEventListener("click", function(event){
+    dropdown_select.addEventListener("click", function(event){
+      var selected_client = event.target.options[event.selectedIndex];
+      var presentation_area = document.getElementById("current_client");
+      var client_id = selected_client.value;
 
-    // if (event.target.matches(".dropdown_submit")){
-    if (event.target.matches(".dropdown")){
-      console.log("match")
-        // var selectedId = document.getElementById("dropdown_select");
-        var selectedOption = event.target.options[select.selectedIndex];
-        console.log(selectedOption)
 
-        var presentation_area = document.getElementById("current_client");
-        var client_id = selectedOption.value;
+      var request = new XMLHttpRequest();
+      var request_path = "/clients/profile/"  + client_id;
 
-        console.log(client_id)
+      request.open("GET", request_path);
 
-        var request = new XMLHttpRequest();
-        var request_path = "/clients/profile/"  + client_id;
+        request.addEventListener("load", function(request_object){
+          presentation_area.innerHTML = request_object;
+        });
 
-        request.open("GET", request_path);
+      request.send();
 
-          request.addEventListener("load", function(request_object){
-            presentation_area.innerHTML = request_object.target.response;
-          });
-
-        request.send();
-
-        event.preventDefault();
+      event.preventDefault();
        
-      };
-    });
+      });
+    // });
 
   });
 
