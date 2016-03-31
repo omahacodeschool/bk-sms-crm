@@ -39,6 +39,8 @@ Rails.application.routes.draw do
 
   get "dashboard/business/clients/profile/:id" => 'clients#profile'
 
+  get "clients/profile/:id" => 'clients#profile'
+
   post "clients/info/:business_id" => 'clients#info'
 
   get "clients/:id/delete/:business_id" => 'clients#delete'

@@ -34,10 +34,10 @@
 
       <% if @business.clients != nil %>
         <%= form_tag("/clients/info/#{@business.id}", class: "dropdown") do %>
-        <select name="client_id">
+        <select id="dropdown_select" name="client_id">
           <option selected disabled>Choose client</option>
           <% @business.clients.where({"active" => true}).each do |client| %>
-            <option data-client-id="<%= client.id %>" value= "<%= client.id %>"
+            <option value= "<%= client.id %>"
             <%= "selected" if @client != nil && client.id == @client.id %>>
             <%=client.first_name %>
             <%=client.last_name %>
