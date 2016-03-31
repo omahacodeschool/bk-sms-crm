@@ -13,15 +13,18 @@
       <% @clients.each do |client| %>
         <li>
           <a href="#" class="client" data-client-id="<%= client.id %>"> 
-          <div class="name">
-            <%= client.first_name %> <%= client.last_name %>
-          </div>
-          <div class="most_recent_message">
-            <%= client.most_recent_message %>
-          </div>
-          <div class="date_of_message">
-            <%= client.date %>
-          </div>
+            <div class="name">
+              <%= client.first_name %> <%= client.last_name %>
+            </div>
+
+            <% if !client.most_recent_message.nil? %>
+              <div class="most_recent_message">
+                <%= client.most_recent_message.message %>
+              </div>
+              <div class="date_of_message">
+                <%= client.date %>
+              </div>
+            <% end %>
           </a>
         </li>
       <% end %>
