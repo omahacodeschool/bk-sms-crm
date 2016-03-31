@@ -37,7 +37,7 @@
         <select name="client_id">
               <option selected disabled>Choose client</option>
               <% @business.clients.each do |client| %>
-                <option data-client-id="<%= client.id %>" value= "<%= client.id %>"
+                <option data-id="<%= client.id %>" value= "<%= client.id %>"
                 <%= "selected" if @client != nil && client.id == @client.id %>>
                 <%=client.first_name %>
                 <%=client.last_name %>
