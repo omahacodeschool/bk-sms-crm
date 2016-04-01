@@ -10,20 +10,17 @@
       <h3>Messages</h3>
 
       <ul>
+
       <% @clients.each do |client| %>
+      <% if !client.most_recent_message.nil? %>
         <li>
-          <a href="#" class="client" data-client-id="<%= client.id %>"> 
-          <div class="name">
-            <%= client.first_name %> <%= client.last_name %>
-          </div>
-          <div class="most_recent_message">
-            <%= client.most_recent_message %>
-          </div>
-          <div class="date_of_message">
-            <%= client.date %>
-          </div>
-          </a>
-        </li>
+            <div class="date_of_message"><%= client.date %></div>
+            <a href="#" class="client" data-client-id="<%= client.id %>"> 
+              <%= client.first_name %> <%= client.last_name %></a><br>
+              <p><%= client.most_recent_message.message %></p>
+              </li>
+          <% end %>
+        
       <% end %>
       </ul>
     </div>
@@ -67,9 +64,9 @@
       <div id="current_client"></div>
 
         <!-- A NEW CLIENT-->
-        <a class="show_new_client_form button_link" data-business-id="<%= @business.id %>" href="/clients/new/<%= @business.id%>">Add new client</a>
+        <a id="show_new_client_form_link" class="show_new_client_form button_link" data-business-id="<%= @business.id %>" href="/clients/new/<%= @business.id%>">Add new client</a>
 
-        <a class="button_link" href="/clients/view/<%= @business.id%>">Manage clients</a>
+        <a id="manage_clients_link" class="button_link" href="/clients/view/<%= @business.id%>">Manage clients</a>
 
       </div>
     </div>

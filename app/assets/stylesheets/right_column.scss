@@ -1,0 +1,30 @@
+#right{
+  background: #f9f9f9;
+  min-height: 560px;
+  padding:10px;
+  margin-left: -30px;
+}
+
+#client_info {
+  margin-bottom: 10px;
+}
+
+#new_client {
+  margin-bottom: 20px;
+}
+
+#show_new_client_form_link{
+  position: absolute;
+  top: 550px;
+  right:30px;
+}
+
+#manage_clients_link{
+  position: absolute;
+  top: 575px;
+  right: 30px;
+}
+
+#right p {
+  font-size: .9em;
+}

@@ -1,26 +1,39 @@
-<% @touch.each do |touch| %>
-<ul>
-  <% if touch.outgoing == false %>
-    <li class="incoming">
-      <%=touch.message%>
-    </li>
+<% if !@client.most_recent_message.nil?%>
+  <% @touch.each do |touch| %>
+  <ul>
+    <% if touch.outgoing == false %>
+      
+      <li class="incoming">
+      <p class="inDate"><%=touch.smart_time_date%></p>
+        <%=touch.message%>
+        
+      </li>
+    <% else %>
+      <li class="outgoing">
+      <p class="outDate"><%=touch.smart_time_date%></p>
+        <%=touch.message%>
+      </li>
+      </ul>
+    <% end %>
+    <% end %>
   <% else %>
-    <li class="outgoing">
-      <%=touch.message%>
-    </li>
-    </ul>
-<% end %>
+     <p class="alert">
+       *This is your first message to
+       <%= @client.first_name %>
+       <%= @client.last_name %>.*
+     </p>
+   <% end %>
 
-<%end%>
-<div id="sendMessage" class="mike">
-  <%= form_tag("send_message/" + @client.id.to_s) do %>
-    <p> 
-    <textarea name="message_content" rows="2" cols="70" value="<%= params[:message_content] %>">
-    </textarea>
-    </p>   
 
-    <input class="send_button" type="submit" value="send"></p>
+  <div id="sendMessage" class="mike">
+    <%= form_tag("send_message/" + @client.id.to_s) do %>
+      <p> 
+      <textarea name="message_content" rows="2" cols="70" value="<%= params[:message_content] %>">
+      </textarea>
+      </p>   
 
-  <% end %>
-</div>
+      <input class="send_button" type="submit" value="send"></p>
+
+    <% end %>
+  </div>
 

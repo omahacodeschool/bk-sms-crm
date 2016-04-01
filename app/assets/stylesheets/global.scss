@@ -17,12 +17,24 @@ ul, ol {
   text-align: center;
  }
 
+h4{
+  margin:0;
+  margin-top: 10px;
+}
+
 .auxiliary {
   background: #f9f9f9;
   min-height: 600px;
 }
 
+p {
+  margin: 0;
+  padding-top: 3px;
+}
 
+p.alert{
+  font-style: italic;
+}
 /***********************
 NAVIGATION
 ***********************/
@@ -150,9 +162,8 @@ BUTTONS
     padding: 3px 6px;
     font-size: 10px;
     border: none;
-    // border-bottom: 2px solid #d06b00;
-    // border-right: 2px solid #d06b00;
     cursor: pointer;
+    margin-top: 10px;
  }
 
  .button_link:hover {
@@ -167,8 +178,6 @@ input[type="submit"] {
     padding: 3px 6px;
     font-size: 10px;
     border: none;
-    // border-bottom: 2px solid #d06b00;
-    // border-right: 2px solid #d06b00;
     cursor: pointer;
 }
 

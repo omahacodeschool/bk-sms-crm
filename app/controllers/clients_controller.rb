@@ -25,6 +25,18 @@ class ClientsController < ApplicationController
     end
   end
 
+  def toggle_status
+    current_client
+    @business = current_client.business
+    if @client.active == true
+      @client.active = false
+    else
+      @client.active = true
+    end
+    @client.save
+    redirect_to "/clients/view/#{@business.id}/#{@client.id}"
+  end
+
   def new
     @business = Business.find_by_id(params[:business_id])
     render "new", layout: nil
@@ -60,11 +72,32 @@ class ClientsController < ApplicationController
     redirect_to "/dashboard/business/#{@business.id}"
   end
 
+  def notes
+    current_client
+    @business = current_client.business
+    render "notes", layout: nil
+  end
+
+  def update_notes
+    current_client
+    @business = current_client.business
+    @client.notes = params[:notes]
+    @client.save
+    redirect_to "/dashboard/business/#{@business.id}"
+  end
+
   def delete
     current_client
     @business = current_client.business
     Client.destroy(@client)
     redirect_to "/clients/view/#{@business.id}"
+  end
+
+  def delete_dash
+    current_client
+    @business = current_client.business
+    Client.destroy(@client)
+    redirect_to "/dashboard/business/#{@business.id}"
   end
 
   def info

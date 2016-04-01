@@ -19,17 +19,17 @@ Rails.application.routes.draw do
   get "dashboard/business/:business_id" => 'pages#dashboard_business'
   
 # CLIENTS
-  get "clients/:id/name" => 'clients#client_name'
-
-  get "clients/:id/number" => 'clients#client_number'
-
-  get "clients/:id/notes" => 'clients#client_notes'
-
   get "clients/:id/update_status" => 'clients#change_status'
+
+  get "clients/:id/toggle_status" => 'clients#toggle_status'
 
   get "clients/:id/edit(/:business_id)" => 'clients#edit_client'
 
   post "clients/:id/update/:business_id" => 'clients#update_client'
+
+  get "clients/:id/notes" => 'clients#notes'
+
+  post "clients/:id/update_notes/:business_id" => 'clients#update_notes'
 
   get "clients/new/:business_id" => 'clients#new'
 
@@ -44,6 +44,9 @@ Rails.application.routes.draw do
   post "clients/info/:business_id" => 'clients#info'
 
   get "clients/:id/delete/:business_id" => 'clients#delete'
+
+  post "clients/:id/delete/:business_id" => 'clients#delete_dash'
+
 
 #BUSINESSES
   get "businesses/view" => 'businesses#view'

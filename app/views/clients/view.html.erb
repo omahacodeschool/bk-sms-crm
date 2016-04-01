@@ -41,7 +41,7 @@
         <h4> Client Notes:</h4>
           <p id="client_notes"><%= @client.notes %></p>
         <h4> Client Status:  
-        <a href="/clients/<%= @client.id %>/update_status" class="toggle_status_link button_link" data-client-id="<%= @client.id %>">Toggle Status</a>
+        <a href="/clients/<%= @client.id %>/toggle_status" class="toggle_status_link button_link" data-client-id="<%= @client.id %>">Toggle Status</a>
         <!-- This toggles the client's active/inactive status -->
         </h4>
           <p id="client_status">
