@@ -14,30 +14,32 @@
   padding: 15px 10px;
 }
 
-#left li[selected]{
-  background: gray;
-}
-
 #left li a{
-  color: black;
-  font-weight: 800;
   text-decoration: none;
+  color: #797571;
 }
 
-#left li p{
+div.name{
+  font-weight: 800;
+}
+
+div.most_recent_message{
   text-decoration: none;
   font-size: .8em;
+  font-weight: 400;
 }
+
+div.date_of_message{
+  text-decoration: none;
+  font-size: .8em;
+  font-weight: 100;
+  float: right;
+} 
 
 #center{
   border-left: solid 1px gray;
   border-right: solid 1px gray;
   min-height: 600px;
-}
-
-#right{
-  background: #f9f9f9;
-  
 }
 
 #center h3 {
@@ -77,4 +79,3 @@
   color: white;
   clear: both;
 }
-

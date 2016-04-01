@@ -13,26 +13,17 @@
 
       <% @clients.each do |client| %>
         <li>
-          
+
+          <% if !client.most_recent_message.nil? %>
+          <div class="date_of_message"><%= client.date %></div>
           <a href="#" class="client" data-client-id="<%= client.id %>"> 
           <div class="name"> 
-            <% if !client.most_recent_message.nil? %>
-            <%= client.first_name %> <%= client.last_name %></a>
-
-
-
             
+            <%= client.first_name %> <%= client.last_name %></a>
             <%= client.most_recent_message.message %>
                   <% end %>
 
-         
-              
-          </div>
-          <div class="date_of_message">
-            <%= client.date %>
-          </div>
-          
-      
+
         </li>
       <% end %>
       </ul>
