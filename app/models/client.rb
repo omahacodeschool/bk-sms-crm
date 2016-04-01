@@ -10,14 +10,14 @@ class Client < ActiveRecord::Base
    end
    
    def most_recent_message
-    my_messages = 1 #set a variable for the attribute to fill
+    my_messages = "" #set a variable for the attribute to fill
     all_sent_messages.each do |p| #looping through the AR relation to extract the attribute and set my_messages to the string of the attribute
       my_messages = p.message
     end
     return my_messages
    end
    def date
-    time_stamp = 1
+    time_stamp = ""
     all_sent_messages.each do |p|#looping through the AR relation to extract the attribute and set 'time_stamp' to the string of the attribute
       time_stamp = p.created_at.to_formatted_s(:short).split[0..1].join(' ')
     end
