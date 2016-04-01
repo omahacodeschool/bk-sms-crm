@@ -3,7 +3,9 @@
   <ul>
     <% if touch.outgoing == false %>
       <li class="incoming">
+
         <%=touch.message%>
+        <%=touch.smart_time_date%>
       </li>
     <% else %>
       <li class="outgoing">
