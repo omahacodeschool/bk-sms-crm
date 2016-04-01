@@ -12,14 +12,17 @@
 <% end %>
 
 <%end%>
+
+<!-- THIS is the form that sends out an SMS. -->
+
 <div id="sendMessage" class="mike">
-  <%= form_tag("send_message/" + @client.id.to_s) do %>
+  <%= form_tag("send_message/" + @client.id.to_s, remote: true) do %>
     <p> 
-    <textarea name="message_content" rows="2" cols="70" value="<%= params[:message_content] %>">
+    <textarea name="message_content" id="send_message_text_box" rows="2" cols="70" value="<%= params[:message_content] %>">
     </textarea>
     </p>   
 
-    <input class="send_button" type="submit" value="send"></p>
+    <input class="send_button" type="submit" id="send_message_button" value="send"></p>
 
   <% end %>
 </div>

@@ -2,6 +2,7 @@ jQuery(document).ready(function(){
   var clients = document.getElementsByClassName("client");
   var thread_display = document.getElementById("thread");
   var client_display = document.getElementById("current_client");
+  var submit_button = document.getElementById("send_message_button")
   var client_id = ""
 
   for (i =0; i < clients.length; i++){
@@ -19,26 +20,60 @@ jQuery(document).ready(function(){
 
       touches_request.addEventListener("load", function(request_object){
 
+        
         thread_display.innerHTML = request_object.target.response;
         thread_display.style.display = "block";
+          
+        var submit_button = document.getElementById("send_message_button")
+        submit_button.addEventListener("click", function(){
+        });
 
-      });
+      }); //End of EVENT LISTENER?
 
       client_request.addEventListener("load", function(request_object){
         client_display.innerHTML = request_object.target.response;
         client_display.style.display = "block";
-      });
+
+      }); //End of EVENT LISTENER?
 
 
       touches_request.send();
       client_request.send();
-    });
-  };
-});
+
+    }); //End of Client Event listener
+  }; //End of LOOP?
+
+////////////////////////////////////////////////////
 
 
+  
+
+    
+  
+
+      // var touches_request = new XMLHttpRequest();
+      // var client_request = new XMLHttpRequest();
+      // touches_request.open("GET", "message/" + client_id);
+      // client_request.open("GET", "clients/profile/" + client_id);
+
+      // touches_request.addEventListener("load", function(request_object){
+
+        
+      //   thread_display.innerHTML = request_object.target.response;
+      //   thread_display.style.display = "block";
+
+      // });
+
+      // client_request.addEventListener("load", function(request_object){
+      //   client_display.innerHTML = request_object.target.response;
+      //   client_display.style.display = "block";
+      // });
 
 
+      // touches_request.send();
+      // client_request.send();
+
+}); // End of document load function.
 
 
 
