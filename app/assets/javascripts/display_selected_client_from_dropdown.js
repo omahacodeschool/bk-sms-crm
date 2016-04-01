@@ -1,5 +1,7 @@
 jQuery(document).ready(function(){
   var parent = document.getElementById("right");
+  var thread_display = document.getElementById("thread");
+  var client_id = ""
 
   parent.addEventListener("click", function(event){
 
@@ -9,16 +11,26 @@ jQuery(document).ready(function(){
         var presentation_area = document.getElementById("current_client");
         var client_id = selectedId.options[selectedId.selectedIndex].value;
 
-        var request = new XMLHttpRequest();
-        var request_path = "/clients/profile/"  + client_id;
+        var touches_request = new XMLHttpRequest();
+        var client_request = new XMLHttpRequest();
 
-        request.open("GET", request_path);
+        // var touches_request_path = "/message/"  + client_id;
+        var client_request_path = "/clients/profile/"  + client_id;
 
-          request.addEventListener("load", function(request_object){
-            presentation_area.innerHTML = request_object.target.response;
-          });
+        touches_request.open("GET", "message/" + client_id);
+        client_request.open("GET", client_request_path);
 
-        request.send();
+        client_request.addEventListener("load", function(request_object){
+          presentation_area.innerHTML = request_object.target.response;
+        });
+
+        touches_request.addEventListener("load", function(request_object){
+          thread_display.innerHTML = request_object.target.response;
+          thread_display.style.display = "block";
+        });
+
+        client_request.send();
+        touches_request.send();
 
         event.preventDefault();
        
@@ -26,4 +38,5 @@ jQuery(document).ready(function(){
     });
 
 });
+
 
