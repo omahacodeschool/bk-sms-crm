@@ -2,11 +2,15 @@
   <% @touch.each do |touch| %>
   <ul>
     <% if touch.outgoing == false %>
+      
       <li class="incoming">
+      <p class="inDate"><%=touch.smart_time_date%></p>
         <%=touch.message%>
+        
       </li>
     <% else %>
       <li class="outgoing">
+      <p class="outDate"><%=touch.smart_time_date%></p>
         <%=touch.message%>
       </li>
       </ul>
