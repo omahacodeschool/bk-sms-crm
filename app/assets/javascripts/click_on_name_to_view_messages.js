@@ -1,5 +1,3 @@
-click_on_name_to_view_messages
-
 jQuery(document).ready(function(){
   var clients = document.getElementsByClassName("client");
   var thread_display = document.getElementById("thread");
