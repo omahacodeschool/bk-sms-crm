@@ -26,24 +26,42 @@
 
 #thread .incoming{
   float: left;
-  // margin-left: 5px;
-  text-decoration: none;
-  padding: 5px;
-  background: lightgray;
-  border: solid 1px lightgray;
-  border-radius: 15px;
   clear: both;
 }
 
 
 #thread .outgoing {
   float: right;
-  // margin-right:5px;
+  clear: both;
+}
+
+
+#thread .text_text{
   text-decoration: none;
   padding: 5px;
+}
+
+#thread .incoming .text_text{
+  background: lightgray;
+  border: solid 1px lightgray;
+  border-radius: 15px;
+}
+
+#thread .outgoing .text_text{
   background: #6BCAE2;
   border: solid 1px #6BCAE2;
   border-radius: 15px;
   color: white;
-  clear: both;
 }
+
+.inDate {
+  margin-left: 5px;
+  font-size: .8em;
+}
+
+.outDate {
+  text-align: right;
+  margin-right: 5px;
+    font-size: .8em;
+}
+
