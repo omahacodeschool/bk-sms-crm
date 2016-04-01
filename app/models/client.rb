@@ -16,9 +16,9 @@ class Client < ActiveRecord::Base
    def date
     time_stamp = 1
     all_sent_messages.each do |p|#looping through the AR relation to extract the attribute and set 'time_stamp' to the string of the attribute
-      time_stamp = p.created_at.to_formatted_s(:short).split[0..1].join(' ')
+      time_stamp = p.created_at.strftime("%m/%d/%y")
     end
-    return time_stamp   
+    return time_stamp   #returns a string
      
    end
    def all_sent_messages

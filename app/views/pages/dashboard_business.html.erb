@@ -10,22 +10,29 @@
       <h3>Messages</h3>
 
       <ul>
+
       <% @clients.each do |client| %>
         <li>
+          
           <a href="#" class="client" data-client-id="<%= client.id %>"> 
-            <div class="name">
-              <%= client.first_name %> <%= client.last_name %>
-            </div>
-
+          <div class="name"> 
             <% if !client.most_recent_message.nil? %>
-              <div class="most_recent_message">
-                <%= client.most_recent_message.message %>
-              </div>
-              <div class="date_of_message">
-                <%= client.most_recent_message.smart_time_date %>
-              </div>
-            <% end %>
-          </a>
+            <%= client.first_name %> <%= client.last_name %></a>
+
+
+
+            
+            <%= client.most_recent_message.message %>
+                  <% end %>
+
+         
+              
+          </div>
+          <div class="date_of_message">
+            <%= client.date %>
+          </div>
+          
+      
         </li>
       <% end %>
       </ul>

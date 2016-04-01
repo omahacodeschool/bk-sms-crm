@@ -7,12 +7,16 @@ class Touch < ActiveRecord::Base
   # Return either today's time, "yesterday", or a past date--depending on
   # when this Touch was created relative to today.
   def smart_time_date
-    # if self.created_at is from today
-    #   Just the time of self's created_at
-    # elsif self.created_at is from yesterday
-    #   Just "yesterday"
-    # else
-    #   The date (03/12/16) of self.created_at
-    # end
+    today = Time.now.strftime("%m/%d/%y")
+    yesterday = Date.yesterday
+    if self.created_at == today
+      date_time_display = self.created_at.Time.now.strftime("%I:%M")
+    elsif self.created_at = yesterday
+      date_time_display = "Yesterday"
+    else
+      date_time_display = self.created_at.strftime("%m/%d/%y")
+    end
+    return date_time_display
   end
 end
+
