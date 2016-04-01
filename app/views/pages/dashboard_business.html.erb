@@ -64,9 +64,9 @@
       <div id="current_client"></div>
 
         <!-- A NEW CLIENT-->
-        <a class="show_new_client_form button_link" data-business-id="<%= @business.id %>" href="/clients/new/<%= @business.id%>">Add new client</a>
+        <a id="show_new_client_form_link" class="show_new_client_form button_link" data-business-id="<%= @business.id %>" href="/clients/new/<%= @business.id%>">Add new client</a>
 
-        <a class="button_link" href="/clients/view/<%= @business.id%>">Manage clients</a>
+        <a id="manage_clients_link" class="button_link" href="/clients/view/<%= @business.id%>">Manage clients</a>
 
       </div>
     </div>
