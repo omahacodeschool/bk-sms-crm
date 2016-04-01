@@ -26,6 +26,7 @@ jQuery(document).ready(function(){
           
         var submit_button = document.getElementById("send_message_button")
         submit_button.addEventListener("click", function(){
+          alert("ALERTED")
         });
 
       }); //End of EVENT LISTENER?
