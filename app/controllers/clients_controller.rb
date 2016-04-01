@@ -25,6 +25,18 @@ class ClientsController < ApplicationController
     end
   end
 
+  def toggle_status
+    current_client
+    @business = current_client.business
+    if @client.active == true
+      @client.active = false
+    else
+      @client.active = true
+    end
+    @client.save
+    redirect_to "/clients/view/#{@business.id}/#{@client.id}"
+  end
+
   def new
     @business = Business.find_by_id(params[:business_id])
     render "new", layout: nil
