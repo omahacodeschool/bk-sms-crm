@@ -9,8 +9,12 @@ jQuery(document).ready(function(){
 
     client.addEventListener("click", function(event){
       var client_id = event.target.dataset.clientId;
+      // var client_list_item = the li that contains the client_id
+      // client_list_item.style.backgroundColor = "gray";
+      // client_list_item.style.color = "white";
       event.target.style.backgroundColor = "gray";
       event.target.style.color = "white";
+
       
       var touches_request = new XMLHttpRequest();
       var client_request = new XMLHttpRequest();

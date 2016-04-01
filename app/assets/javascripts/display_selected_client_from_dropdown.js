@@ -14,7 +14,6 @@ jQuery(document).ready(function(){
         var touches_request = new XMLHttpRequest();
         var client_request = new XMLHttpRequest();
 
-        // var touches_request_path = "/message/"  + client_id;
         var client_request_path = "/clients/profile/"  + client_id;
 
         touches_request.open("GET", "message/" + client_id);
