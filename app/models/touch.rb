@@ -9,8 +9,8 @@ class Touch < ActiveRecord::Base
   def smart_time_date
     today = Time.now.strftime("%m/%d/%y")
     yesterday = Date.yesterday
-    if self.created_at == today
-      date_time_display = self.created_at.Time.now.strftime("%I:%M")
+    if self.created_at.strftime("%m/%d/%y") == today
+      date_time_display = self.created_at.strftime("%I:%M")
     elsif self.created_at == yesterday
       date_time_display = "Yesterday"
     else
