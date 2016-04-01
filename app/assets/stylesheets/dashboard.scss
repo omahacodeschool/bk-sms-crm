@@ -40,6 +40,7 @@ div.date_of_message{
   border-left: solid 1px gray;
   border-right: solid 1px gray;
   min-height: 600px;
+  padding:0 15px;
 }
 
 #center h3 {
@@ -58,7 +59,7 @@ div.date_of_message{
 
 #thread .incoming{
   float: left;
-  margin-left: 5px;
+  // margin-left: 5px;
   text-decoration: none;
   padding: 5px;
   background: lightgray;
@@ -70,7 +71,7 @@ div.date_of_message{
 
 #thread .outgoing {
   float: right;
-  margin-right:5px;
+  // margin-right:5px;
   text-decoration: none;
   padding: 5px;
   background: #6BCAE2;
