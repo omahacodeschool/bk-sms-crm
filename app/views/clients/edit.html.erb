@@ -1,4 +1,4 @@
-<h1>Edit client:</h1>
+<h4>Edit client:</h4>
 
 <%= form_tag("/clients/#{@client.id}/update/#{@business.id}", class: "client_form") do %>
 
@@ -11,7 +11,7 @@
   <p>Phone number:
     <input type="tel" size=10 name="phone_number" value="<%= @client.phone_number %>" required>
   </p>
-  <p>Notes:
+  <p>Notes:<br>
     <textarea name="notes" rows="5" cols="15" value="<%= @client.notes %>">
       <%= @client.notes %>
     </textarea>
@@ -22,5 +22,5 @@
 <% end %>
 
 <%= form_tag("/clients/#{@client.id}/delete/#{@business.id}") do %>
-  <input type="submit" value="delete">
+  <input type="submit" value="delete client">
 <% end %>
