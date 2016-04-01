@@ -1,4 +1,4 @@
-<% if @touch != nil %>
+<% if !@client.most_recent_message.nil?%>
   <% @touch.each do |touch| %>
   <ul>
     <% if touch.outgoing == false %>
@@ -17,10 +17,10 @@
     <% end %>
     <% end %>
   <% else %>
-     <p>
-       This is your first message to
+     <p class="alert">
+       *This is your first message to
        <%= @client.first_name %>
-       <%= @client.last_name %>
+       <%= @client.last_name %>.*
      </p>
    <% end %>
 

@@ -19,9 +19,9 @@
   color: #797571;
 }
 
-// div.name{
-//   font-weight: 800;
-// }
+.client{
+  font-weight: 800;
+}
 
 // div.most_recent_message{
 //   text-decoration: none;
@@ -29,17 +29,18 @@
 //   font-weight: 400;
 // }
 
-// div.date_of_message{
-//   text-decoration: none;
-//   font-size: .8em;
-//   font-weight: 100;
-//   float: right;
-// } 
+div.date_of_message{
+  text-decoration: none;
+  font-size: .8em;
+  font-weight: 100;
+  float: right;
+} 
 
 #center{
   border-left: solid 1px gray;
   border-right: solid 1px gray;
   min-height: 600px;
+  padding:0 15px;
 }
 
 #center h3 {
@@ -58,7 +59,7 @@
 
 #thread .incoming{
   float: left;
-  margin-left: 5px;
+  // margin-left: 5px;
   text-decoration: none;
   padding: 5px;
   background: lightgray;
@@ -70,7 +71,7 @@
 
 #thread .outgoing {
   float: right;
-  margin-right:5px;
+  // margin-right:5px;
   text-decoration: none;
   padding: 5px;
   background: #6BCAE2;
