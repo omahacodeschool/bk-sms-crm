@@ -1,21 +1,25 @@
 <% if !@client.most_recent_message.nil?%>
   <% @touch.each do |touch| %>
-  <ul>
-    <% if touch.outgoing == false %>
-      
-      <li class="incoming">
-      <p class="inDate"><%=touch.smart_time_date%></p>
-        <p class="text_text"><%=touch.message%></p>
-        
-      </li>
-    <% else %>
-      <li class="outgoing">
-      <p class="outDate"><%=touch.smart_time_date%></p>
-        <p class="text_text"><%=touch.message%></p>
-      </li>
-      </ul>
-    <% end %>
-    <% end %>
+    <ul>
+      <% if touch.outgoing == false %>
+        <div>
+          <li class="incoming">
+            <p class="inDate"><%=touch.smart_time_date%></p>
+            <p class="text_text"><%=touch.message%></p>
+          </li>
+        </div>
+      <% else %>
+          <div>
+          <li class="outgoing">
+            <p class="outDate"><%=touch.smart_time_date%></p>
+            <p class="text_text"><%=touch.message%></p>
+          </li>
+        </div>
+        <div style="clear: both"></div>
+    </ul>
+  <% end %>
+<% end %>
+
   <% else %>
      <p class="alert">
        *This is your first message to
