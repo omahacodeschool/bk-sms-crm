@@ -5,23 +5,30 @@ class Client < ActiveRecord::Base
 
   multisearchable :against => [:first_name, :last_name, :phone_number, :notes]
 
-   def recent_touches
-    self.touches # TODO Make this only return one touch for the client.
-   end
-   
+  
+   #Finds all messages and puts in them in order of their creation
+   #
+   #Returns the first Touch object
    def most_recent_message
     self.all_sent_messages.order("created_at DESC").first
    end
 
+   #Loops through all incoming Touches to get the time stamps
+   #
+   #Returns a String
    def date
     time_stamp = ""
-    all_sent_messages.each do |p|#looping through the AR relation to extract the attribute and set 'time_stamp' to the string of the attribute
+    all_sent_messages.each do |p|
       time_stamp = p.created_at.strftime("%m/%d/%y")
     end
-    return time_stamp   #returns a string
-     
+    return time_stamp
    end
+
+   #Finds the incoming Touch objects of a specific client
+   #
+   #Returns an Active Record realtion
    def all_sent_messages
-    Touch.where("client_id = ? and outgoing = ?", self.id, false) #an ActiveRecord relation of incoming messages for this client
+    Touch.where("client_id = ? and outgoing = ?", self.id, false) 
   end
+
 end

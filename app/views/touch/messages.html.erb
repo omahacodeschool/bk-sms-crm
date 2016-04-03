@@ -4,7 +4,7 @@
     <%= client.first_name%>
     <%= client.last_name%>
 
-    <% client.recent_touches.each do |touch| %>
+    <% client.touches.each do |touch| %>
       <div class="touch">
         <%= touch.message %>
       </div>

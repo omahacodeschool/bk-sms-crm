@@ -48,6 +48,7 @@ class ClientsController < ApplicationController
     client.business_id = params[:business_id]
     client.active = true
     client.save
+
     redirect_to "/dashboard/business/#{@business.id}"
   end
 
@@ -65,6 +66,7 @@ class ClientsController < ApplicationController
     @client.phone_number = params[:phone_number]
     @client.notes = params[:notes]
     @client.save
+    
     redirect_to "/dashboard/business/#{@business.id}"
   end
 
