@@ -26,7 +26,8 @@ jQuery(document).ready(function(){
 
 
         // This is the SUBMIT Button EL.
-        // It needs access to client_id, and sends out an XHR to
+        // It needs access to client_id, 
+        // and sends out an XHR to
         // "send_message/" + client_id.
         // The controller SAVES msg, SENDS msg, and redirects to
         // "message/" + client_id
