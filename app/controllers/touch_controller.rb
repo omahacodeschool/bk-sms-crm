@@ -25,7 +25,6 @@ class TouchController < ApplicationController
 
   def current_conversation_thread
     @client = Client.find_by_id(params[:client_id])
-
     @business = @client.business
     @touches = @client.touches
   
