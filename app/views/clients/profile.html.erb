@@ -1,11 +1,13 @@
 
   <div id="client_info">
-    <h3>Client info:</h3>
+    <h4>Client info:</h4>
         <p id="client_name"><%= @client.first_name %> <%= @client.last_name %> </p>
       <h4> Client Number:</h4>
         <p id="client_number"><%= @client.phone_number %></p>
       <h4> Client Notes:</h4>
-        <p id="client_notes"><%= @client.notes %></p>
+        <p id="client_notes" data-client-id="<%= @client.id %>">
+          <%= @client.notes %>
+        </p>
       <h4> Client Status: 
       <!-- This toggles the client's active/inactive status -->
       <a href="/clients/<%= @client.id %>/update_status" class="toggle_status_link button_link" data-client-id="<%= @client.id %>">Toggle Status</a>
@@ -20,5 +22,4 @@
 
 <!-- This edits the current client-->
       <a class="show_edit_form button_link" data-client-id="<%= @client.id %>" href="/clients/profile/<%= @client.business_id %>">Edit Client</a>
-
   </div>

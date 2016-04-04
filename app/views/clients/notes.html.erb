@@ -1,0 +1,7 @@
+<%= form_tag("/clients/#{@client.id}/update_notes/#{@business.id}", class: "client_notes_form") do %>
+
+    <textarea name="notes" rows="5" cols="15" value="<%= @client.notes %>">
+      <%= @client.notes %>
+    </textarea>
+      <input type="submit">
+<% end %>

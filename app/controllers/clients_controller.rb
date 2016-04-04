@@ -4,10 +4,6 @@ class ClientsController < ApplicationController
     @client = Client.find_by_id(params[:id])
   end
 
-  # def current_business
-  #   @business = Business.find_by_id(params[:business_id])
-  # end 
-
   def change_status
     current_client
     @business = current_client.business
@@ -52,6 +48,7 @@ class ClientsController < ApplicationController
     client.business_id = params[:business_id]
     client.active = true
     client.save
+
     redirect_to "/dashboard/business/#{@business.id}"
   end
 
@@ -69,6 +66,21 @@ class ClientsController < ApplicationController
     @client.phone_number = params[:phone_number]
     @client.notes = params[:notes]
     @client.save
+    
+    redirect_to "/dashboard/business/#{@business.id}"
+  end
+
+  def notes
+    current_client
+    @business = current_client.business
+    render "notes", layout: nil
+  end
+
+  def update_notes
+    current_client
+    @business = current_client.business
+    @client.notes = params[:notes]
+    @client.save
     redirect_to "/dashboard/business/#{@business.id}"
   end
 
@@ -79,55 +91,45 @@ class ClientsController < ApplicationController
     redirect_to "/clients/view/#{@business.id}"
   end
 
+  def delete_dash
+    current_client
+    @business = current_client.business
+    Client.destroy(@client)
+    redirect_to "/dashboard/business/#{@business.id}"
+  end
+
   def info
     @business = Business.find_by_id(params[:business_id])
-    # below is code for active users only checkbox
-    # if params[:active_only] == nil
-    #   @active_only = 2
-    # else
-    #   @active_only = params[:active_only]
-    # end
     if client_from_params = Client.find_by_id(params[:client_id])
       @client = client_from_params
     else
       @client = nil
     end
+
     redirect_to "/clients/view/#{@business.id}/#{@client.id}"
   end
 
    def view
     current_client
     @business = Business.find_by_id(params[:business_id])
-    # below is code for active users only checkbox
-    # @active_only = params[:active_only]
-    # if @active_only == 1
-    #   @list_clients = current_business.clients.where({"active" => true})
-    # else
-    #   @list_clients = current_business.clients
-    # end
     if client_from_params = Client.find_by_id(params[:id])
-    @client = client_from_params
+      @client = client_from_params
     else
       @client = nil
     end
+
     render "view"
   end
 
    def profile
     current_client
     @business = current_client.business
-    # below is code for active users only checkbox
-    # @active_only = params[:active_only]
-    # if @active_only == 1
-    #   @list_clients = current_business.clients.where({"active" => true})
-    # else
-    #   @list_clients = current_business.clients
-    # end
     if client_from_params = Client.find_by_id(params[:id])
-    @client = client_from_params
+      @client = client_from_params
     else
       @client = nil
     end
+
     render "profile", layout: nil
   end
 

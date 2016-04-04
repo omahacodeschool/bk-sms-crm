@@ -1,46 +1,13 @@
 #main{
-  margin-top: 15px;
   min-height: 600px;
-
 }
-
-#left ul{
-  list-style-type: none;
-}
-
-#left li{
-  background: #f9f9f9;
-  border-bottom: solid 1px gray;
-  padding: 15px 10px;
-}
-
-#left li a{
-  text-decoration: none;
-  color: #797571;
-}
-
-.client{
-  font-weight: 800;
-}
-
-// div.most_recent_message{
-//   text-decoration: none;
-//   font-size: .8em;
-//   font-weight: 400;
-// }
-
-div.date_of_message{
-  text-decoration: none;
-  font-size: .8em;
-  font-weight: 100;
-  float: right;
-} 
 
 #center{
   border-left: solid 1px gray;
   border-right: solid 1px gray;
   min-height: 600px;
   padding:0 15px;
+  margin-top:0;
 }
 
 #center h3 {
@@ -59,24 +26,42 @@ div.date_of_message{
 
 #thread .incoming{
   float: left;
-  // margin-left: 5px;
-  text-decoration: none;
-  padding: 5px;
-  background: lightgray;
-  border: solid 1px lightgray;
-  border-radius: 15px;
   clear: both;
 }
 
 
 #thread .outgoing {
   float: right;
-  // margin-right:5px;
+  clear: both;
+}
+
+
+#thread .text_text{
   text-decoration: none;
   padding: 5px;
+}
+
+#thread .incoming .text_text{
+  background: lightgray;
+  border: solid 1px lightgray;
+  border-radius: 15px;
+}
+
+#thread .outgoing .text_text{
   background: #6BCAE2;
   border: solid 1px #6BCAE2;
   border-radius: 15px;
   color: white;
-  clear: both;
 }
+
+.inDate {
+  margin-left: 5px;
+  font-size: .8em;
+}
+
+.outDate {
+  text-align: right;
+  margin-right: 5px;
+    font-size: .8em;
+}
+
