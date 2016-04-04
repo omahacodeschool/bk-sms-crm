@@ -10,7 +10,7 @@ class Touch < ActiveRecord::Base
     today = Time.now.strftime("%m/%d/%y")
     yesterday = Date.yesterday
     if self.created_at.strftime("%m/%d/%y") == today
-      date_time_display = self.created_at.strftime("%I:%M")
+      date_time_display = self.created_at.strftime("%I:%M") #need Time.any?
     elsif self.created_at == yesterday
       date_time_display = "Yesterday"
     else
@@ -18,5 +18,14 @@ class Touch < ActiveRecord::Base
     end
     return date_time_display
   end
-end
+  def mark_read
+    self.read = true
+    self.save
+  end
 
+  def after_find
+    if !self.read?
+      mark_read
+    end
+  end
+end
