@@ -229,8 +229,22 @@ i2.save
 
 j2 = Touch.new
 j2.client_id = c.id
-j2.message = "A bedroom 3 bedroom 2 bath would be great, what do you have?"
+j2.message = "A 3 bedroom 2 bath would be great, what do you have?"
 j2.outgoing = false
 j2.read = false
 j2.save
+
+j3. = Touch.new
+j3.client_id = c.id
+j3.message = "The describes 70 percent of the available homes in Omaha, can we narrow it down?"
+j3.outgoing = true 
+j3.read = true
+j3.save
+
+j4. = Touch.new
+j4.client_id = c.id
+j4.message = "Those are the only factors that matter to me, please show me the houses!"
+j4.outgoing = false
+j4.read = false
+j4.save
 
