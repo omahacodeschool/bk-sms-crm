@@ -25,7 +25,8 @@ RSpec.describe Touch, type: :model do
   describe "#smart_time_date" do
     it "was sent before yesterday" do
       @time_now = Time.parse("Apr 03 2016")
-      Time.stub!(:now).and_return(@time_now)
+      allow(Time).to receive(:now).and_return(@time_now)
+      
       touch = Touch.new(created_at: Time.now)
       touch.save
       assert_equal("04/03/16", touch.smart_time_date)
