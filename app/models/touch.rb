@@ -18,6 +18,7 @@ class Touch < ActiveRecord::Base
     end
     return date_time_display
   end
+  
   def mark_read
     self.read = true
     self.save
