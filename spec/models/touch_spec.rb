@@ -24,28 +24,30 @@ RSpec.describe Touch, type: :model do
 
   describe "#smart_time_date" do
     it "was sent before yesterday" do
-      @time_now = Time.parse("Apr 02 2016")
+      @time_now = Time.parse("Apr 03 2016")
       allow(Time).to receive(:now).and_return(@time_now)
-      touch = Touch.new(created_at: Time.now)
+      touch = Touch.new(created_at: Time.now - 2.day)
       touch.save
-      assert_equal("04/02/16", touch.smart_time_date)
+      assert_equal("04/01/16", touch.smart_time_date)
     end
   end
+
+  it "was sent today" do
+    @time_now = Time.parse("Apr 03 2016")
+    allow(Time).to receive(:now).and_return(@time_now)
+    touch = Touch.new(created_at: Time.now)
+    touch.save
+    assert_equal("05:00", touch.smart_time_date)
+  end
+
+  it "was sent yesterday" do
+    @time_now = Time.parse("Apr 03 2016")
+    allow(Time).to receive(:now).and_return(@time_now)
+    touch = Touch.new(created_at: Time.now - 1.day)
+    assert_equal("Yesterday", touch.smart_time_date)
+  end
+
 end
-
-  # describe "#smart_time_date" do
-  #   it "was sent yesterday" do
-  #     touch = Touch.new(created_at: 86500.seconds.ago)
-  #     assert_equal("Today", touch.smart_time_date)
-  #   end
-  # end
-
-  # describe "#smart_time_date" do
-  #   it "was sent before yesterday" do
-  #     touch = Touch.new(created_at: Time.now)
-  #     assert_equal("Yesterd", touch.smart_time_date)
-  #   end
-  # end
 
 
 
