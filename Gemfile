@@ -39,6 +39,12 @@ group :development, :test do
   gem "pry-byebug"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.4.0"
+  gem "rails-erd"
+
+  gem 'pronto'
+  gem 'pronto-rubocop'
+  gem 'pronto-reek'
+  gem 'pronto-rails_best_practices'
 end
 
 group :development, :staging do
@@ -60,10 +66,3 @@ group :staging, :production do
   gem "rails_stdout_logging"
   gem "rack-timeout"
 end
-
-gem "rails-erd"
-
-gem 'pronto'
-gem 'pronto-rubocop'
-gem 'pronto-reek'
-gem 'pronto-rails_best_practices'
